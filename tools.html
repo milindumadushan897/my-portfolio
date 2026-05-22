@@ -122,7 +122,7 @@ nav#navbar{
 .nav-tool-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,130,246,.08);}
 
 /* ======================== TOOL CARD BODY ======================== */
-.tool-card-body{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;}
+.tool-card-body{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;overflow: hidden;}
 .tool-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:3rem;align-items:start;}
 
 /* ======================== UI ELEMENTS ======================== */
@@ -156,9 +156,9 @@ select.input-control{appearance:none;cursor:pointer;background-image:url("data:i
 .plat-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
 
 /* ======================== AD PREVIEW WRAPPER ======================== */
-.ad-preview-wrapper{background:#e4e6eb;border-radius:16px;padding:20px;display:flex;justify-content:center;align-items:flex-start;min-height:520px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;transition:background .3s;}
+.ad-preview-wrapper{background:#e4e6eb;border-radius:16px;padding:20px;display:flex;justify-content:center;align-items:flex-start;min-height:520px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;transition:background .3s;overflow-x:auto;}
 [data-theme="dark"] .ad-preview-wrapper{background:#1a1d27;}
-.preview-card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12);width:100%;max-width:380px;overflow:hidden;color:#1c1e21;text-align:left;display:none;}
+.preview-card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12);width:100%;max-width:380px;overflow:hidden;color:#1c1e21;text-align:left;display:none;margin:auto;}
 .preview-card.active{display:block;}
 [data-theme="dark"] .preview-card{background:#242526;color:#e4e6eb;box-shadow:0 4px 18px rgba(0,0,0,.45);}
 
@@ -336,35 +336,39 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
 </head>
 <body data-theme="dark">
 
-<!-- Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
-<!-- Background -->
 <canvas id="particles-canvas"></canvas>
 <div class="bg-blob"></div>
 <div class="bg-blob"></div>
 <div class="bg-blob"></div>
 
-<!-- Navbar -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">Milindu Madushan</a>
   <div class="nav-right">
-    <a href="index.html" class="btn btn-outline" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr; Portfolio</a>
+    <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr; Portfolio</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+    
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-link">Portfolio</a>
+  <a href="blog.html" class="mobile-link">Blog</a>
+</div>
+
 <div class="app-container">
 
-  <!-- Header -->
   <div class="app-header">
     <div class="app-tag"><span></span> Free Tools</div>
     <h1 class="app-title">Digital Marketing <em>Tools</em></h1>
     <p class="app-desc">Calculators, estimators, and visual previews designed for FMCG media planning.</p>
   </div>
 
-  <!-- Dashboard -->
   <div id="dashboardView" class="tools-grid">
     <div class="tool-card" onclick="openTool('tool-metrics')">
       <div class="tool-icon"><i class="fa fa-calculator"></i></div>
@@ -388,7 +392,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     </div>
   </div>
 
-  <!-- ====== TOOL 1: METRICS CALCULATOR ====== -->
   <div id="tool-metrics" class="tool-view">
     <div class="tool-header-bar">
       <div class="tool-header-left">
@@ -413,7 +416,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     </div>
   </div>
 
-  <!-- ====== TOOL 2: AD PREVIEWER ====== -->
   <div id="tool-copy" class="tool-view">
     <div class="tool-header-bar">
       <div class="tool-header-left">
@@ -437,7 +439,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <button class="plat-tab" onclick="setPreview('yt',event)"><i class="fab fa-youtube" style="margin-right:4px;"></i>YouTube</button>
       </div>
       <div class="tool-layout">
-        <!-- Inputs -->
         <div>
           <p class="section-label">Ad Details</p>
           <div class="input-group">
@@ -479,11 +480,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
           </div>
           <button class="btn btn-outline" style="width:100%;margin-top:.4rem;" onclick="clearCreative()"><i class="fa fa-trash-alt"></i> Clear Creative</button>
         </div>
-        <!-- Preview -->
         <div>
           <p class="section-label" style="text-align:center;">Live Preview</p>
           <div class="ad-preview-wrapper">
-            <!-- Facebook -->
             <div id="prev-fb" class="preview-card active">
               <div class="fb-head">
                 <div class="fb-pp" id="fb-pp-out"></div>
@@ -512,7 +511,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
                 <div class="fb-react-row">84 comments · 32 shares</div>
               </div>
             </div>
-            <!-- Instagram -->
             <div id="prev-ig" class="preview-card">
               <div class="ig-head">
                 <div class="ig-head-left">
@@ -534,7 +532,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
               <div class="ig-cap"><strong id="ig-name2-out">milindumarketing</strong> <span id="ig-text-out">Caption</span></div>
               <div style="padding:0 12px 12px;font-size:12px;color:#8e8e8e;">View all 84 comments</div>
             </div>
-            <!-- TikTok 9:16 -->
             <div id="prev-tt" class="tt-wrapper">
               <div class="tt-bg" id="tt-bg-out"></div>
               <div class="tt-gradient"></div>
@@ -570,7 +567,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
               </div>
               <div class="tt-cta"><span>Learn More</span><i class="fa fa-chevron-right"></i></div>
             </div>
-            <!-- YouTube 16:9 -->
             <div id="prev-yt" class="yt-wrapper">
               <div class="yt-img" id="yt-img-out">
                 <i class="fab fa-youtube img-placeholder-icon" style="opacity:.18;font-size:2.8rem;color:#fff;"></i>
@@ -593,7 +589,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     </div>
   </div>
 
-  <!-- ====== TOOL 3: KPI ESTIMATOR ====== -->
   <div id="tool-kpi" class="tool-view">
     <div class="tool-header-bar">
       <div class="tool-header-left">
@@ -648,7 +643,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     </div>
   </div>
 
-  <!-- ====== TOOL 4: SAFE ZONE ====== -->
   <div id="tool-sz" class="tool-view">
     <div class="tool-header-bar">
       <div class="tool-header-left">
@@ -700,10 +694,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     </div>
   </div>
 
-</div><!-- /app-container -->
-
-<!-- Metrics Modal -->
-<div class="modal-overlay" id="metricsModal">
+</div><div class="modal-overlay" id="metricsModal">
   <div class="modal-box">
     <div class="modal-header">
       <div class="modal-metric-abbr" id="modalAbbr">CTR</div>
@@ -733,7 +724,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
   </div>
 </div>
 
-<!-- Footer -->
 <footer>
   <div class="footer-logo">Milindu Madushan</div>
   <nav class="footer-nav">
@@ -743,6 +733,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     <a href="index.html#certifications">Badges</a>
     <a href="index.html#education">Education</a>
     <a href="index.html#contact">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
   </nav>
   <p class="footer-copy">
     © 2026 Milindu Madushan · Meta Certified Digital Marketer · Mindshare WPP Media<br>

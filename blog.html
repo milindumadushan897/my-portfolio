@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Milindu Madushan</title>
+<link rel="icon" type="image/jpeg" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ======================== CSS VARIABLES ======================== */
+:root {
+  --dark-bg:#060810;--dark-bg2:#0b0e1a;--dark-card:#0f1423;--dark-card2:#131928;
+  --dark-border:rgba(59,130,246,0.15);--dark-text:#e8eaf0;--dark-text2:#8892b0;
+  --dark-accent:#3b82f6;--dark-accent2:#1d4ed8;--dark-gold:#c9a84c;--dark-glow:rgba(59,130,246,0.2);
+  --light-bg:#f0f4ff;--light-bg2:#ffffff;--light-card:#ffffff;--light-card2:#f8faff;
+  --light-border:rgba(29,78,216,0.12);--light-text:#0f1729;--light-text2:#3d4f72;
+  --light-accent:#1d4ed8;--light-accent2:#1e40af;--light-gold:#b8860b;--light-glow:rgba(29,78,216,0.1);
+
+  --bg:var(--dark-bg);--bg2:var(--dark-bg2);--card:var(--dark-card);--card2:var(--dark-card2);
+  --border:var(--dark-border);--text:var(--dark-text);--text2:var(--dark-text2);
+  --accent:var(--dark-accent);--accent2:var(--dark-accent2);--gold:var(--dark-gold);--glow:var(--dark-glow);
+
+  --font-display:'Poppins',system-ui,sans-serif;
+  --font-body:'Poppins',system-ui,sans-serif;
+  --font-mono:'Poppins',monospace;
+  --transition:0.35s cubic-bezier(0.4,0,0.2,1);--radius:16px;--radius-sm:8px;
+}
+[data-theme="light"]{
+  --bg:var(--light-bg);--bg2:var(--light-bg2);--card:var(--light-card);--card2:var(--light-card2);
+  --border:var(--light-border);--text:var(--light-text);--text2:var(--light-text2);
+  --accent:var(--light-accent);--accent2:var(--light-accent2);--gold:var(--light-gold);--glow:var(--light-glow);
+}
+
+/* ======================== RESET & BASE ======================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);overflow-x:hidden;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+
+/* ======================== CURSOR ======================== */
+.cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:screen;}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
+
+/* ======================== BACKGROUND ======================== */
+.bg-blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.07;animation:floatBlob 18s ease-in-out infinite alternate;pointer-events:none;z-index:0;}
+.bg-blob:nth-child(1){width:500px;height:500px;background:#3b82f6;top:-10%;left:-10%;animation-delay:0s;}
+.bg-blob:nth-child(2){width:400px;height:400px;background:#1d4ed8;bottom:10%;right:-5%;animation-delay:-6s;}
+.bg-blob:nth-child(3){width:300px;height:300px;background:#c9a84c;top:40%;left:30%;animation-delay:-12s;opacity:.03;}
+@keyframes floatBlob{0%{transform:translateY(0) scale(1);}100%{transform:translateY(-60px) scale(1.1);}}
+body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+#particles-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* ======================== NAVIGATION ======================== */
+nav#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(6,8,16,0.88);backdrop-filter:blur(20px);
+  box-shadow:0 1px 0 var(--border);
+  transition:background var(--transition),backdrop-filter var(--transition),box-shadow var(--transition);
+}
+[data-theme="light"] nav#navbar{background:rgba(240,244,255,0.90);}
+.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:.02em;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.theme-toggle{width:48px;height:26px;background:var(--card2);border:1px solid var(--border);border-radius:13px;cursor:pointer;position:relative;transition:background var(--transition);outline:none;flex-shrink:0;}
+.theme-toggle::after{content:'';position:absolute;width:20px;height:20px;background:var(--accent);border-radius:50%;top:2px;left:2px;transition:transform var(--transition);}
+[data-theme="light"] .theme-toggle::after{transform:translateX(22px);background:var(--accent2);}
+
+/* Mobile Menu Elements */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;outline:none;}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all var(--transition);display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(6,8,16,.97);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+}
+[data-theme="light"] .mobile-menu{background:rgba(240,244,255,.97);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:var(--font-mono);font-size:1.2rem;font-weight:500;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;transition:color var(--transition);}
+.mobile-menu a:hover{color:var(--accent);}
+
+/* ======================== BUTTONS ======================== */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 1.8rem;border-radius:6px;cursor:pointer;transition:all var(--transition);outline:none;border:none;}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 0 0 rgba(59,130,246,.4);}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 25px var(--glow);}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px var(--glow);}
+
+/* ======================== BLOG CONTAINER ======================== */
+.app-container{max-width:1200px;margin:0 auto;padding:110px 2rem 4rem;position:relative;z-index:2;}
+.app-header{text-align:center;margin-bottom:3.5rem;}
+.app-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:.4rem .9rem;border-radius:30px;margin-bottom:1.2rem;}
+.app-tag span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
+.app-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:.6rem;line-height:1.15;}
+.app-title em{font-style:italic;color:var(--accent);}
+.app-desc{color:var(--text2);font-size:.95rem;max-width:520px;margin:0 auto;}
+
+/* ======================== BLOG GRID & CARDS ======================== */
+.blog-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:1.5rem;animation:fadeUp .6s ease forwards;}
+.blog-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:2rem;cursor:pointer;transition:all var(--transition);text-align:left;
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+}
+.blog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transition:transform var(--transition);transform-origin:left;}
+.blog-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 15px 50px var(--glow);}
+.blog-card:hover::before{transform:scaleX(1);}
+.blog-date{font-family:var(--font-mono);font-size:0.7rem;color:var(--accent);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.05em;}
+.blog-card h3{font-size:1.1rem;font-weight:600;margin-bottom:.6rem;line-height:1.4;}
+
+/* Thumbnail & Meta Styling - 16:9 Aspect Ratio */
+.blog-card-img {width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.8rem; border: 1px solid var(--border);}
+.blog-meta {font-size: 0.75rem; color: var(--text2); margin-bottom: 1.2rem; font-style: italic;}
+
+.blog-card p{font-size:.83rem;color:var(--text2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:1.5rem;}
+.blog-read-more{margin-top:auto;font-family:var(--font-mono);font-size:0.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:0.5rem;}
+.blog-read-more i{transition:transform 0.3s;}
+.blog-card:hover .blog-read-more i{transform:translateX(4px);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ======================== BLOG MODAL ======================== */
+.blog-modal{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;}
+.blog-modal.active{display:flex;}
+.blog-modal-box{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  width:100%;max-width:800px;position:relative;animation:fadeUp .3s ease;
+  max-height:90vh;display:flex;flex-direction:column; overflow: hidden; /* Hide overflow to let inner wrapper scroll */
+}
+
+/* New Scroll Wrapper so Header and Body scroll together */
+.blog-modal-scroll-wrapper {
+  overflow-y: auto;
+  flex: 1;
+  width: 100%;
+}
+
+.blog-modal-header{
+  padding:2.5rem 2.5rem 1.5rem;border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(201,168,76,.04));
+  position:relative;
+}
+.blog-modal-date{font-family:var(--font-mono);font-size:.75rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:.5rem;}
+.blog-modal-title{font-size:1.6rem;font-weight:700;line-height:1.3;margin-bottom: 1rem;}
+
+/* Modal Image - 16:9 Aspect Ratio */
+.blog-modal-img {width: 100%; aspect-ratio: 16 / 9; max-height: 400px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 0.8rem;}
+
+.blog-modal-close{position:absolute;top:1rem;right:1rem;background:var(--card2);border:1px solid var(--border);font-size:1.5rem;color:var(--text2);cursor:pointer;transition:all .2s;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;z-index: 10;}
+.blog-modal-close:hover{color:var(--accent);background:var(--border);}
+.blog-modal-body{padding:1.5rem 2.5rem 2.5rem 2.5rem;}
+.blog-content h4{font-size:1.2rem;font-weight:600;margin:1.5rem 0 0.8rem;color:var(--text);}
+.blog-content p{font-size:0.95rem;color:var(--text2);margin-bottom:1.2rem;line-height:1.8;}
+
+/* ======================== FOOTER ======================== */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;position:relative;z-index:2;}
+.footer-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-bottom:2rem;}
+.footer-nav a{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;transition:color var(--transition);}
+.footer-nav a:hover{color:var(--accent);}
+.footer-copy{font-size:.8rem;color:var(--text2);line-height:1.8;}
+.footer-copy a{color:var(--accent);}
+
+/* ======================== BACK TO TOP ======================== */
+.back-to-top{position:fixed;bottom:2rem;right:2rem;z-index:500;width:44px;height:44px;border-radius:10px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);border:none;outline:none;opacity:0;pointer-events:none;box-shadow:0 4px 20px var(--glow);}
+.back-to-top.visible{opacity:1;pointer-events:all;}
+.back-to-top:hover{background:var(--accent2);transform:translateY(-3px);}
+
+/* ======================== RESPONSIVE ======================== */
+@media(max-width:1024px){.blog-grid{grid-template-columns:repeat(2, 1fr);}}
+@media(max-width:768px){
+  .cursor,.cursor-ring{display:none!important;}
+  .app-container{padding:90px 1.2rem 3rem;}
+  .blog-modal-box{height:95vh; max-height:95vh;}
+  .blog-modal-header{padding:2.5rem 1.5rem 1rem;}
+  .blog-modal-body{padding:1.5rem 1.5rem;}
+  .blog-modal-title{font-size:1.3rem;}
+  
+  /* Hide desktop buttons on mobile */
+  .desktop-btn { display: none !important; }
+  .hamburger { display: flex; }
+}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="dark">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<canvas id="particles-canvas"></canvas>
+<div class="bg-blob"></div>
+<div class="bg-blob"></div>
+<div class="bg-blob"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Milindu Madushan</a>
+  <div class="nav-right">
+    <a href="tools.html" class="btn btn-primary desktop-btn" style="padding: 0.5rem 1rem; font-size: 0.75rem; margin-right: 0.5rem;"><i class="fa fa-wrench"></i> Tools</a>
+    <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr; Portfolio</a>
+    
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-link">Portfolio</a>
+  <a href="tools.html" class="mobile-link">Tools</a>
+</div>
+
+<div class="app-container">
+
+  <div class="app-header">
+    <div class="app-tag"><span></span> Digital Marketing Insights</div>
+    <h1 class="app-title">My <em>Blog</em></h1>
+    <p class="app-desc">Thoughts, strategies, and insights on branding, performance marketing, and the digital landscape.</p>
+  </div>
+
+  <div class="blog-grid">
+    
+    <div class="blog-card" onclick="openBlogModal('blog1')">
+      <div class="blog-date">Featured Insight</div>
+      <h3>Why People Actually Buy Brands</h3>
+      
+      <img src="images/blog-thumb-1.png" alt="Blog Thumbnail" class="blog-card-img" onerror="this.src='https://via.placeholder.com/600x338?text=Blog+Image'">
+      
+      <div class="blog-meta">Published by Milindu Madushan &bull; May 22, 2026</div>
+
+      <p>In today’s marketplace, consumers are surrounded by endless choices. Whether it’s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate...</p>
+      <div class="blog-read-more">Read More <i class="fa fa-arrow-right"></i></div>
+    </div>
+
+    </div>
+
+</div><div class="blog-modal" id="blogModal">
+  <div class="blog-modal-box">
+    <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
+    
+    <div class="blog-modal-scroll-wrapper">
+      
+      <div class="blog-modal-header">
+        <div class="blog-modal-date" id="modalDate">Featured Insight</div>
+        <div class="blog-modal-title" id="modalTitle">Why People Actually Buy Brands</div>
+        
+        <img src="images/blog-thumb-1.png" alt="Blog Thumbnail" class="blog-modal-img" onerror="this.src='https://via.placeholder.com/800x450?text=Blog+Image'">
+        
+        <div class="blog-meta" style="margin-bottom: 0;">Published by Milindu Madushan &bull; May 22, 2026</div>
+      </div>
+
+      <div class="blog-modal-body">
+        <div class="blog-content" id="modalContent">
+          <p>In today’s marketplace, consumers are surrounded by endless choices. Whether it’s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate consumer preference while others struggle to stand out.</p>
+          <p>Why does this happen?</p>
+          <p>The answer is simple: people do not only buy products — they buy brands.</p>
+          <p>More importantly, they buy what those brands represent emotionally, socially, and psychologically.</p>
+          
+          <h4>People Buy Emotion Before Logic</h4>
+          <p>Many marketers assume consumers make rational decisions based on price, quality, or specifications. While those factors matter, research and real-world consumer behavior show that emotions heavily influence purchasing decisions.</p>
+          <p>For example, people may choose an iPhone over another smartphone with similar or even better technical specifications. The decision is rarely only about the hardware. Instead, consumers associate the brand with status, simplicity, creativity, and premium quality.</p>
+          <p>The product becomes more than a product. It becomes a feeling and an identity.</p>
+          <p>In reality, consumers often make emotional decisions first and justify them later with rational reasons.</p>
+          
+          <h4>Brands Create Perception</h4>
+          <p>A strong brand exists not only in stores or advertisements but also in the minds of consumers. Branding shapes how people perceive value.</p>
+          <p>Consider the difference between Coca-Cola and a generic cola product. Both may satisfy the same functional need, but consumers often perceive Coca-Cola as more enjoyable, trustworthy, and emotionally familiar.</p>
+          <p>That perception allows brands to charge premium prices, build loyalty, and maintain long-term customer relationships.</p>
+          <p>In marketing, perception often becomes reality.</p>
+          
+          <h4>Trust Reduces Consumer Risk</h4>
+          <p>Consumers naturally avoid uncertainty. Strong brands reduce the perceived risk of making a bad decision.</p>
+          <p>People repeatedly purchase familiar brands because trust makes decision-making easier and safer. This is especially visible in FMCG categories such as toothpaste, shampoo, and food products.</p>
+          <p>Most consumers do not spend time evaluating every available option during routine purchases. Instead, they choose what they already recognize and trust.</p>
+          <p>This is why consistency in branding, messaging, and customer experience is critical for long-term success.</p>
+          
+          <h4>Social Proof Influences Buying Behavior</h4>
+          <p>Human beings are highly influenced by the behavior of others. Reviews, influencers, recommendations, ratings, and popularity all affect purchasing decisions.</p>
+          <p>When consumers see many people using a particular brand, they subconsciously assume the brand must be reliable or desirable.</p>
+          <p>This psychological principle, known as social proof, explains why influencer marketing, online reviews, and user-generated content have become so powerful in modern marketing strategies.</p>
+          <p>People feel safer choosing what others already approve.</p>
+          
+          <h4>Familiarity Builds Preference</h4>
+          <p>One of the most underrated drivers of consumer behavior is familiarity.</p>
+          <p>Consumers are more likely to choose brands they frequently see, hear, or interact with. Repeated exposure creates comfort and recognition, even when consumers are not actively paying attention.</p>
+          <p>This explains why brands invest heavily in consistent advertising, sponsorships, and visibility campaigns. The goal is not always immediate sales. Often, the objective is simply to stay mentally available when the purchase moment arrives.</p>
+          <p>Familiar brands feel easier to choose.</p>
+          
+          <h4>Consumers Buy Identity and Meaning</h4>
+          <p>Today’s consumers increasingly choose brands that reflect who they are or who they aspire to become.</p>
+          <p>Brands such as Nike, Apple, and Starbucks do not simply sell products. They sell ambition, creativity, lifestyle, belonging, and self-expression.</p>
+          <p>People use brands to communicate identity to themselves and others.</p>
+          <p>A person may wear Nike because it represents motivation and achievement. Someone may prefer Apple because it aligns with innovation and premium design. The product becomes a symbol of personal meaning.</p>
+          <p>This is why successful branding goes beyond functional benefits. Strong brands create emotional connections.</p>
+          
+          <h4>What This Means for Marketers</h4>
+          <p>For marketers, the lesson is clear: products alone rarely create long-term competitive advantage.</p>
+          <p>Features can be copied.</p>
+          <p>Prices can be matched.</p>
+          <p>Technology can evolve.</p>
+          <p>But emotional connection, trust, perception, and brand meaning are much harder to replicate.</p>
+          <p>Successful marketing is not only about selling a product. It is about building a brand consumers remember, trust, and emotionally connect with.</p>
+          <p>At the end of the day, products compete in the market — but brands win in the mind.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Milindu Madushan</div>
+  <nav class="footer-nav">
+    <a href="index.html#about">About</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#certifications">Badges</a>
+    <a href="index.html#education">Education</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+  </nav>
+  <p class="footer-copy">
+    © 2026 Milindu Madushan · Meta Certified Digital Marketer · Mindshare WPP Media<br>
+    <small>
+      <a href="https://www.linkedin.com/in/milindu-madushan/" target="_blank">LinkedIn</a> ·
+      <a href="https://www.credly.com/users/milindu-madushan/badges#credly" target="_blank">Credly Badges</a>
+    </small>
+  </p>
+</footer>
+
+<button class="back-to-top" id="backTop" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+
+<script>
+/* =========================================================
+   THEME
+========================================================= */
+const body = document.body;
+body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const t = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  body.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+});
+
+/* =========================================================
+   MOBILE MENU (Hamburger Logic Added)
+========================================================= */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if(hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+  }));
+}
+
+/* =========================================================
+   CURSOR
+========================================================= */
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+(function animC(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px'; requestAnimationFrame(animC); })();
+document.querySelectorAll('a,button,.blog-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ cursor.style.width='18px'; cursor.style.height='18px'; cursorRing.style.width='50px'; cursorRing.style.height='50px'; });
+  el.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; });
+});
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+function resizeC(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+resizeC(); window.addEventListener('resize', resizeC);
+class P {
+  constructor(){ this.r(); }
+  r(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3; this.s=Math.random()*1.5+.5; this.o=Math.random()*.4+.1; }
+  u(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height) this.r(); }
+  d(){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.arc(this.x,this.y,this.s,0,Math.PI*2); ctx.fillStyle=dk?`rgba(59,130,246,${this.o})`:`rgba(29,78,216,${this.o*.5})`; ctx.fill(); }
+}
+const ps=Array.from({length:80},()=>new P());
+function dLines(){ for(let i=0;i<ps.length;i++) for(let j=i+1;j<ps.length;j++){ const dx=ps[i].x-ps[j].x, dy=ps[i].y-ps[j].y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.strokeStyle=dk?`rgba(59,130,246,${.06*(1-dist/120)})`:`rgba(29,78,216,${.04*(1-dist/120)})`; ctx.lineWidth=.5; ctx.moveTo(ps[i].x,ps[i].y); ctx.lineTo(ps[j].x,ps[j].y); ctx.stroke(); }}}
+(function anim(){ ctx.clearRect(0,0,canvas.width,canvas.height); ps.forEach(p=>{ p.u(); p.d(); }); dLines(); requestAnimationFrame(anim); })();
+
+/* =========================================================
+   NAVBAR SCROLL & BACK TO TOP FIX
+========================================================= */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+  
+  // This triggers the back-to-top button visibility
+  const backTopBtn = document.getElementById('backTop');
+  if (backTopBtn) {
+    backTopBtn.classList.toggle('visible', window.scrollY > 300);
+  }
+});
+
+document.getElementById('backTop').addEventListener('click', () => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+
+/* =========================================================
+   MODAL FUNCTIONALITY
+========================================================= */
+function openBlogModal(id) {
+  document.getElementById('blogModal').classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+function closeBlogModal() {
+  document.getElementById('blogModal').classList.remove('active');
+  document.body.style.overflow = 'auto'; // Re-enable background scrolling
+}
+
+// Close modal on overlay click
+document.getElementById('blogModal').addEventListener('click', e => { 
+  if(e.target===e.currentTarget) closeBlogModal(); 
+});
+</script>
+</body>
+</html>
