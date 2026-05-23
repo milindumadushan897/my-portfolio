@@ -1,372 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Milindu Madushan</title>
-<link rel="icon" type="image/jpeg" href="images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-/* ======================== CSS VARIABLES ======================== */
-:root {
-  --dark-bg:#060810;--dark-bg2:#0b0e1a;--dark-card:#0f1423;--dark-card2:#131928;
-  --dark-border:rgba(59,130,246,0.15);--dark-text:#e8eaf0;--dark-text2:#8892b0;
-  --dark-accent:#3b82f6;--dark-accent2:#1d4ed8;--dark-gold:#c9a84c;--dark-glow:rgba(59,130,246,0.2);
-  --light-bg:#f0f4ff;--light-bg2:#ffffff;--light-card:#ffffff;--light-card2:#f8faff;
-  --light-border:rgba(29,78,216,0.12);--light-text:#0f1729;--light-text2:#3d4f72;
-  --light-accent:#1d4ed8;--light-accent2:#1e40af;--light-gold:#b8860b;--light-glow:rgba(29,78,216,0.1);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FIX: Full SEO meta tags added -->
+  <meta name="description"
+    content="Milindu Madushan's blog — thoughts, strategies, and insights on branding, performance marketing, and the digital landscape in Sri Lanka and beyond.">
+  <meta name="keywords"
+    content="Milindu Madushan, Digital Marketing Blog, Meta Ads, Performance Marketing, Sri Lanka Marketing">
+  <meta property="og:title" content="Blog | Milindu Madushan">
+  <meta property="og:description"
+    content="Thoughts, strategies, and insights on branding, performance marketing, and the digital landscape.">
+  <meta property="og:image" content="images/profile.jpg">
+  <meta property="og:url" content="https://milindumadushan.com/blog.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | Milindu Madushan">
+  <meta name="twitter:description"
+    content="Thoughts, strategies, and insights on branding, performance marketing, and the digital landscape.">
+  <meta name="twitter:image" content="images/profile.jpg">
+  <title>Blog | Milindu Madushan</title>
+  <!-- FIX: favicon MIME type corrected -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- FIX: JetBrains Mono for genuine monospace -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    /* ======================== BLOG GRID & CARDS ======================== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      animation: fadeUp .6s ease forwards;
+    }
 
-  --bg:var(--dark-bg);--bg2:var(--dark-bg2);--card:var(--dark-card);--card2:var(--dark-card2);
-  --border:var(--dark-border);--text:var(--dark-text);--text2:var(--dark-text2);
-  --accent:var(--dark-accent);--accent2:var(--dark-accent2);--gold:var(--dark-gold);--glow:var(--dark-glow);
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
 
-  --font-display:'Poppins',system-ui,sans-serif;
-  --font-body:'Poppins',system-ui,sans-serif;
-  --font-mono:'Poppins',monospace;
-  --transition:0.35s cubic-bezier(0.4,0,0.2,1);--radius:16px;--radius-sm:8px;
-}
-[data-theme="light"]{
-  --bg:var(--light-bg);--bg2:var(--light-bg2);--card:var(--light-card);--card2:var(--light-card2);
-  --border:var(--light-border);--text:var(--light-text);--text2:var(--light-text2);
-  --accent:var(--light-accent);--accent2:var(--light-accent2);--gold:var(--light-gold);--glow:var(--light-glow);
-}
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
 
-/* ======================== RESET & BASE ======================== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);overflow-x:hidden;line-height:1.6;}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-ul{list-style:none;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-track{background:var(--bg2);}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+    .blog-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px var(--glow);
+    }
 
-/* ======================== CURSOR ======================== */
-.cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:screen;}
-.cursor-ring{width:36px;height:36px;border:1.5px solid var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
+    .blog-card:hover::before {
+      transform: scaleX(1);
+    }
 
-/* ======================== BACKGROUND ======================== */
-.bg-blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.07;animation:floatBlob 18s ease-in-out infinite alternate;pointer-events:none;z-index:0;}
-.bg-blob:nth-child(1){width:500px;height:500px;background:#3b82f6;top:-10%;left:-10%;animation-delay:0s;}
-.bg-blob:nth-child(2){width:400px;height:400px;background:#1d4ed8;bottom:10%;right:-5%;animation-delay:-6s;}
-.bg-blob:nth-child(3){width:300px;height:300px;background:#c9a84c;top:40%;left:30%;animation-delay:-12s;opacity:.03;}
-@keyframes floatBlob{0%{transform:translateY(0) scale(1);}100%{transform:translateY(-60px) scale(1.1);}}
-body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-#particles-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    .blog-date {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--accent);
+      margin-bottom: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
 
-/* ======================== NAVIGATION ======================== */
-nav#navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;
-  background:rgba(6,8,16,0.88);backdrop-filter:blur(20px);
-  box-shadow:0 1px 0 var(--border);
-  transition:background var(--transition),backdrop-filter var(--transition),box-shadow var(--transition);
-}
-[data-theme="light"] nav#navbar{background:rgba(240,244,255,0.90);}
-.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:.02em;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.nav-right{display:flex;align-items:center;gap:1rem;}
-.theme-toggle{width:48px;height:26px;background:var(--card2);border:1px solid var(--border);border-radius:13px;cursor:pointer;position:relative;transition:background var(--transition);outline:none;flex-shrink:0;}
-.theme-toggle::after{content:'';position:absolute;width:20px;height:20px;background:var(--accent);border-radius:50%;top:2px;left:2px;transition:transform var(--transition);}
-[data-theme="light"] .theme-toggle::after{transform:translateX(22px);background:var(--accent2);}
+    .blog-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: .6rem;
+      line-height: 1.4;
+    }
 
-/* Mobile Menu Elements */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;outline:none;}
-.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all var(--transition);display:block;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .blog-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: .8rem;
+      border: 1px solid var(--border);
+    }
 
-.mobile-menu{
-  display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(6,8,16,.97);backdrop-filter:blur(20px);
-  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
-}
-[data-theme="light"] .mobile-menu{background:rgba(240,244,255,.97);}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:var(--font-mono);font-size:1.2rem;font-weight:500;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;transition:color var(--transition);}
-.mobile-menu a:hover{color:var(--accent);}
+    .blog-meta {
+      font-size: .75rem;
+      color: var(--text2);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
 
-/* ======================== BUTTONS ======================== */
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 1.8rem;border-radius:6px;cursor:pointer;transition:all var(--transition);outline:none;border:none;}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 0 0 rgba(59,130,246,.4);}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 25px var(--glow);}
-.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px var(--glow);}
+    .blog-card p {
+      font-size: .83rem;
+      color: var(--text2);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
 
-/* ======================== BLOG CONTAINER ======================== */
-.app-container{max-width:1200px;margin:0 auto;padding:110px 2rem 4rem;position:relative;z-index:2;}
-.app-header{text-align:center;margin-bottom:3.5rem;}
-.app-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:.4rem .9rem;border-radius:30px;margin-bottom:1.2rem;}
-.app-tag span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s ease infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
-.app-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:.6rem;line-height:1.15;}
-.app-title em{font-style:italic;color:var(--accent);}
-.app-desc{color:var(--text2);font-size:.95rem;max-width:520px;margin:0 auto;}
+    .blog-read-more {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
 
-/* ======================== BLOG GRID & CARDS ======================== */
-.blog-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:1.5rem;animation:fadeUp .6s ease forwards;}
-.blog-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:2rem;cursor:pointer;transition:all var(--transition);text-align:left;
-  position:relative;overflow:hidden;display:flex;flex-direction:column;
-}
-.blog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transition:transform var(--transition);transform-origin:left;}
-.blog-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 15px 50px var(--glow);}
-.blog-card:hover::before{transform:scaleX(1);}
-.blog-date{font-family:var(--font-mono);font-size:0.7rem;color:var(--accent);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.05em;}
-.blog-card h3{font-size:1.1rem;font-weight:600;margin-bottom:.6rem;line-height:1.4;}
+    .blog-read-more i {
+      transition: transform .3s;
+    }
 
-/* Thumbnail & Meta Styling - 16:9 Aspect Ratio */
-.blog-card-img {width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.8rem; border: 1px solid var(--border);}
-.blog-meta {font-size: 0.75rem; color: var(--text2); margin-bottom: 1.2rem; font-style: italic;}
+    .blog-card:hover .blog-read-more i {
+      transform: translateX(4px);
+    }
 
-.blog-card p{font-size:.83rem;color:var(--text2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:1.5rem;}
-.blog-read-more{margin-top:auto;font-family:var(--font-mono);font-size:0.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:0.5rem;}
-.blog-read-more i{transition:transform 0.3s;}
-.blog-card:hover .blog-read-more i{transform:translateX(4px);}
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-/* ======================== BLOG MODAL ======================== */
-.blog-modal{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;}
-.blog-modal.active{display:flex;}
-.blog-modal-box{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  width:100%;max-width:800px;position:relative;animation:fadeUp .3s ease;
-  max-height:90vh;display:flex;flex-direction:column; overflow: hidden;
-}
+    /* ======================== BLOG MODAL ======================== */
+    .blog-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .88);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
 
-.blog-modal-scroll-wrapper {
-  overflow-y: auto;
-  flex: 1;
-  width: 100%;
-}
+    .blog-modal.active {
+      display: flex;
+    }
 
-.blog-modal-header{
-  padding:2.5rem 2.5rem 1.5rem;border-bottom:1px solid var(--border);
-  background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(201,168,76,.04));
-  position:relative;
-}
-.blog-modal-date{font-family:var(--font-mono);font-size:.75rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:.5rem;}
-.blog-modal-title{font-size:1.6rem;font-weight:700;line-height:1.3;margin-bottom: 1rem;}
+    .blog-modal-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      animation: fadeUp .3s ease;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
 
-/* Modal Image - 16:9 Aspect Ratio */
-.blog-modal-img {width: 100%; aspect-ratio: 16 / 9; max-height: 400px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 0.8rem;}
+    .blog-modal-scroll-wrapper {
+      overflow-y: auto;
+      flex: 1;
+      width: 100%;
+    }
 
-.blog-modal-close{position:absolute;top:1rem;right:1rem;background:var(--card2);border:1px solid var(--border);font-size:1.5rem;color:var(--text2);cursor:pointer;transition:all .2s;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;z-index: 10;}
-.blog-modal-close:hover{color:var(--accent);background:var(--border);}
-.blog-modal-body{padding:1.5rem 2.5rem 2.5rem 2.5rem;}
-.blog-content h4{font-size:1.2rem;font-weight:600;margin:1.5rem 0 0.8rem;color:var(--text);}
-.blog-content p{font-size:0.95rem;color:var(--text2);margin-bottom:1.2rem;line-height:1.8;}
-.blog-content ul {list-style: disc; margin-left: 1.5rem; margin-bottom: 1.2rem;}
-.blog-content li {font-size:0.95rem;color:var(--text2);margin-bottom:0.5rem;}
+    .blog-modal-header {
+      padding: 2.5rem 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(59, 130, 246, .06), rgba(201, 168, 76, .04));
+      position: relative;
+    }
 
-/* Added styles to make links clear and interactive in the blog body */
-.blog-content a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: 500;
-  transition: color var(--transition);
-}
-.blog-content a:hover {
-  color: var(--gold);
-}
+    .blog-modal-date {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--accent);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
 
-/* ======================== FOOTER ======================== */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;position:relative;z-index:2;}
-.footer-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-bottom:2rem;}
-.footer-nav a{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;transition:color var(--transition);}
-.footer-nav a:hover{color:var(--accent);}
-.footer-copy{font-size:.8rem;color:var(--text2);line-height:1.8;}
-.footer-copy a{color:var(--accent);}
+    .blog-modal-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
 
-/* ======================== BACK TO TOP ======================== */
-.back-to-top{position:fixed;bottom:2rem;right:2rem;z-index:500;width:44px;height:44px;border-radius:10px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);border:none;outline:none;opacity:0;pointer-events:none;box-shadow:0 4px 20px var(--glow);}
-.back-to-top.visible{opacity:1;pointer-events:all;}
-.back-to-top:hover{background:var(--accent2);transform:translateY(-3px);}
+    .blog-modal-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      margin-bottom: .8rem;
+    }
 
-/* ======================== RESPONSIVE ======================== */
-@media(max-width:1024px){.blog-grid{grid-template-columns:repeat(2, 1fr);}}
-@media(max-width:768px){
-  .cursor,.cursor-ring{display:none!important;}
-  .app-container{padding:90px 1.2rem 3rem;}
-  .blog-modal-box{height:95vh; max-height:95vh;}
-  .blog-modal-header{padding:2.5rem 1.5rem 1rem;}
-  .blog-modal-body{padding:1.5rem 1.5rem;}
-  .blog-modal-title{font-size:1.3rem;}
-  
-  .desktop-btn { display: none !important; }
-  .hamburger { display: flex; }
-}
-@media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
-</style>
+    .blog-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      font-size: 1.5rem;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all .2s;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .blog-modal-close:hover {
+      color: var(--accent);
+      background: var(--border);
+    }
+
+    .blog-modal-body {
+      padding: 1.5rem 2.5rem 2.5rem;
+    }
+
+    .blog-content h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1.5rem 0 .8rem;
+      color: var(--text);
+    }
+
+    .blog-content p {
+      font-size: .95rem;
+      color: var(--text2);
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .blog-content ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .blog-content li {
+      font-size: .95rem;
+      color: var(--text2);
+      margin-bottom: .5rem;
+    }
+
+    .blog-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .blog-content a:hover {
+      color: var(--gold);
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media(max-width:1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      .blog-modal-box {
+        height: 95vh;
+        max-height: 95vh;
+      }
+
+      .blog-modal-header {
+        padding: 2.5rem 1.5rem 1rem;
+      }
+
+      .blog-modal-body {
+        padding: 1.5rem;
+      }
+
+      .blog-modal-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media(max-width:600px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body data-theme="dark">
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
-
-<canvas id="particles-canvas"></canvas>
-<div class="bg-blob"></div>
-<div class="bg-blob"></div>
-<div class="bg-blob"></div>
-
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">Milindu Madushan</a>
-  <div class="nav-right">
-    <a href="tools.html" class="btn btn-primary desktop-btn" style="padding: 0.5rem 1rem; font-size: 0.75rem; margin-right: 0.5rem;"><i class="fa fa-wrench"></i> Tools</a>
-    <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr; Portfolio</a>
-    
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="mobile-link">Portfolio</a>
-  <a href="tools.html" class="mobile-link">Tools</a>
-</div>
-
-<div class="app-container">
-
-  <div class="app-header">
-    <div class="app-tag"><span></span> Digital Marketing Insights</div>
-    <h1 class="app-title">My <em>Blog</em></h1>
-    <p class="app-desc">Thoughts, strategies, and insights on branding, performance marketing, and the digital landscape.</p>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-canvas">
+    <div class="bg-blob"></div>
+    <div class="bg-blob"></div>
+    <div class="bg-blob"></div>
   </div>
 
-  <div class="blog-grid" id="blogGrid">
+  <nav id="navbar" class="always-frosted">
+    <a href="index.html" class="nav-logo">Milindu Madushan</a>
+    <div class="nav-right">
+      <a href="tools.html" class="btn btn-primary desktop-btn"
+        style="padding:.5rem 1rem;font-size:.75rem;margin-right:.5rem;" aria-label="Go to Tools"><i class="fa fa-wrench"
+          aria-hidden="true"></i> Tools</a>
+      <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;"
+        aria-label="Back to Portfolio">&larr; Portfolio</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme"></button>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-</div>
-
-<div class="blog-modal" id="blogModal">
-  <div class="blog-modal-box">
-    <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
-    
-    <div class="blog-modal-scroll-wrapper" id="blogModalScroll">
-      <div class="blog-modal-header">
-        <div class="blog-modal-date">Featured Insight</div>
-        <div class="blog-modal-title" id="modalTitle">Blog Title</div>
-        <img src="" alt="Blog Thumbnail" class="blog-modal-img" id="modalImg" onerror="this.src='https://via.placeholder.com/800x450?text=Blog+Image'">
-        <div class="blog-meta" id="modalMeta" style="margin-bottom: 0;">Published by Milindu Madushan</div>
-      </div>
-      <div class="blog-modal-body">
-        <div class="blog-content" id="modalContent"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-logo">Milindu Madushan</div>
-  <nav class="footer-nav">
-    <a href="index.html#about">About</a>
-    <a href="index.html#experience">Experience</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#certifications">Badges</a>
-    <a href="index.html#education">Education</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="blog.html">Blog</a>
-    <a href="tools.html">Tools</a>
   </nav>
-  <p class="footer-copy">
-    © 2026 Milindu Madushan · Meta Certified Digital Marketer · Mindshare WPP Media<br>
-    <small>
-      <a href="https://www.linkedin.com/in/milindu-madushan/" target="_blank">LinkedIn</a> ·
-      <a href="https://www.credly.com/users/milindu-madushan/badges#credly" target="_blank">Credly Badges</a>
-    </small>
-  </p>
-</footer>
 
-<button class="back-to-top" id="backTop" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-link">Portfolio</a>
+    <a href="tools.html" class="mobile-link">Tools</a>
+  </div>
 
-<script>
-/* =========================================================
-   THEME & MENU
-========================================================= */
-const body = document.body;
-body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const t = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  body.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-});
+  <div class="app-container">
+    <div class="app-header">
+      <div class="app-tag"><span></span> Digital Marketing Insights</div>
+      <h1 class="app-title">My <em>Blog</em></h1>
+      <p class="app-desc">Thoughts, strategies, and insights on branding, performance marketing, and the digital
+        landscape.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
 
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-if(hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-  });
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-  }));
-}
+  <div class="blog-modal" id="blogModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="blog-modal-box">
+      <button class="blog-modal-close" onclick="closeBlogModal()" aria-label="Close post">&times;</button>
+      <div class="blog-modal-scroll-wrapper" id="blogModalScroll">
+        <div class="blog-modal-header">
+          <div class="blog-modal-date">Featured Insight</div>
+          <div class="blog-modal-title" id="modalTitle">Blog Title</div>
+          <img src="" alt="Blog post thumbnail" class="blog-modal-img" id="modalImg"
+            onerror="this.src='https://via.placeholder.com/800x450?text=Blog+Image'">
+          <div class="blog-meta" id="modalMeta" style="margin-bottom:0;">Published by Milindu Madushan</div>
+        </div>
+        <div class="blog-modal-body">
+          <div class="blog-content" id="modalContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-/* =========================================================
-   CURSOR & PARTICLES
-========================================================= */
-const cursor = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursor-ring');
-let mx=0, my=0, rx=0, ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-(function animC(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px'; requestAnimationFrame(animC); })();
+  <footer>
+    <div class="footer-logo">Milindu Madushan</div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#certifications">Badges</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="blog.html">Blog</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+    <p class="footer-copy">
+      © 2026 Milindu Madushan · Meta Certified Digital Marketer · Mindshare WPP Media<br>
+      <small>
+        <a href="https://www.linkedin.com/in/milindu-madushan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+        <a href="https://www.credly.com/users/milindu-madushan/badges#credly" target="_blank"
+          rel="noopener noreferrer">Credly Badges</a>
+      </small>
+    </p>
+  </footer>
 
-const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-function resizeC(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
-resizeC(); window.addEventListener('resize', resizeC);
-class P {
-  constructor(){ this.r(); }
-  r(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3; this.s=Math.random()*1.5+.5; this.o=Math.random()*.4+.1; }
-  u(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height) this.r(); }
-  d(){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.arc(this.x,this.y,this.s,0,Math.PI*2); ctx.fillStyle=dk?`rgba(59,130,246,${this.o})`:`rgba(29,78,216,${this.o*.5})`; ctx.fill(); }
-}
-const ps=Array.from({length:80},()=>new P());
-function dLines(){ for(let i=0;i<ps.length;i++) for(let j=i+1;j<ps.length;j++){ const dx=ps[i].x-ps[j].x, dy=ps[i].y-ps[j].y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.strokeStyle=dk?`rgba(59,130,246,${.06*(1-dist/120)})`:`rgba(29,78,216,${.04*(1-dist/120)})`; ctx.lineWidth=.5; ctx.moveTo(ps[i].x,ps[i].y); ctx.lineTo(ps[j].x,ps[j].y); ctx.stroke(); }}}
-(function anim(){ ctx.clearRect(0,0,canvas.width,canvas.height); ps.forEach(p=>{ p.u(); p.d(); }); dLines(); requestAnimationFrame(anim); })();
+  <button class="back-to-top" id="backTop" aria-label="Back to top"><i class="fa fa-chevron-up"
+      aria-hidden="true"></i></button>
 
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
-  const backTopBtn = document.getElementById('backTop');
-  if (backTopBtn) backTopBtn.classList.toggle('visible', window.scrollY > 300);
-});
-document.getElementById('backTop').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-
-/* =========================================================
-   BLOG DATA & LOGIC
-========================================================= */
-
-// The array is sorted from Oldest to Newest here.
-// The render function automatically reverses this, so whatever is at the bottom shows up FIRST.
-const blogs = [
-  {
-    id: 'blog4',
-    title: 'What Most Businesses Get Wrong About Social Media Advertising',
-    seoTitle: 'Common Social Media Advertising Mistakes Businesses Make',
-    metaDesc: 'Learn the biggest social media advertising mistakes businesses make and how to improve campaign performance with better strategy and targeting.',
-    slug: '/social-media-advertising-mistakes',
-    img: 'images/blog-thumb-4.png',
-    date: 'May 04, 2026',
-    excerpt: 'Social media advertising has become one of the most powerful tools in digital marketing. Platforms like Meta, LinkedIn, and TikTok allow businesses to reach millions of users instantly. However...',
-    content: `
+  <script src="shared.js"></script>
+  <script>
+    /* =========================================================
+       BLOG DATA
+       Array sorted oldest → newest; renderBlogs() reverses it
+       so the latest post always appears first on screen.
+       To add a new post: append a new object to this array.
+    ========================================================= */
+    const blogs = [
+      {
+        id: 'blog4',
+        title: 'What Most Businesses Get Wrong About Social Media Advertising',
+        seoTitle: 'Common Social Media Advertising Mistakes Businesses Make',
+        metaDesc: 'Learn the biggest social media advertising mistakes businesses make and how to improve campaign performance.',
+        slug: '/social-media-advertising-mistakes',
+        img: 'images/blog-thumb-4.jpeg',
+        date: 'May 04, 2026',
+        excerpt: 'Social media advertising has become one of the most powerful tools in digital marketing. Platforms like Meta, LinkedIn, and TikTok allow businesses to reach millions of users instantly. However...',
+        content: `
       <p>Social media advertising has become one of the most powerful tools in digital marketing. Platforms like Meta, LinkedIn, and TikTok allow businesses to reach millions of users instantly.</p>
       <p>However, many businesses still fail to achieve good results from paid advertising. In most cases, the problem is not the platform. The problem is strategy.</p>
-
       <h4>Boosting Posts Without a Goal</h4>
-      <p>One of the most common mistakes is boosting posts randomly without defining a clear objective. Many businesses simply click the “Boost Post” button and expect sales immediately.</p>
+      <p>One of the most common mistakes is boosting posts randomly without defining a clear objective. Many businesses simply click the "Boost Post" button and expect sales immediately.</p>
       <p>But advertising works best when campaigns are built around specific goals such as:</p>
       <ul>
         <li>Brand awareness</li>
@@ -375,8 +440,7 @@ const blogs = [
         <li>Engagement</li>
         <li>Sales conversions</li>
       </ul>
-      <p>Without a proper objective, it becomes difficult to measure success or optimize campaigns effectively. According to <a href="https://www.facebook.com/business/help" target="_blank">Meta Business Help Center</a>, choosing the correct campaign objective directly affects delivery optimization and campaign performance.</p>
-
+      <p>Without a proper objective, it becomes difficult to measure success or optimize campaigns effectively. According to <a href="https://www.facebook.com/business/help" target="_blank" rel="noopener noreferrer">Meta Business Help Center</a>, choosing the correct campaign objective directly affects delivery optimization and campaign performance.</p>
       <h4>Weak Creative Content</h4>
       <p>Even with strong targeting, poor creative content can reduce campaign performance. Modern users scroll quickly through social media feeds. Brands usually have only a few seconds to grab attention.</p>
       <p>Good ad creatives should:</p>
@@ -388,393 +452,148 @@ const blogs = [
         <li>Have a clear call-to-action</li>
       </ul>
       <p>Short-form videos, user-generated content, and authentic storytelling often perform better than highly polished corporate advertisements.</p>
-
       <h4>Targeting Everyone</h4>
-      <p>Another major mistake is trying to reach “everyone.” Effective advertising focuses on a specific audience. Businesses should clearly identify:</p>
-      <ul>
-        <li>Age group</li>
-        <li>Interests</li>
-        <li>Behaviors</li>
-        <li>Pain points</li>
-        <li>Purchasing behavior</li>
-      </ul>
-      <p>The more relevant the audience, the better the results. Tools like <a href="https://analytics.google.com/" target="_blank">Google Analytics</a> and <a href="https://adsmanager.facebook.com/" target="_blank">Meta Ads Manager</a> help businesses understand audience behavior and campaign performance.</p>
-
+      <p>Another major mistake is trying to reach "everyone." Effective advertising focuses on a specific audience. Businesses should clearly identify age group, interests, behaviors, pain points, and purchasing behavior. The more relevant the audience, the better the results.</p>
       <h4>Ignoring Data and Optimization</h4>
-      <p>Many businesses launch campaigns and never optimize them afterward. Digital advertising requires continuous monitoring. Marketers should regularly analyze:</p>
-      <ul>
-        <li>Click-through rates</li>
-        <li>Cost per result</li>
-        <li>Engagement rates</li>
-        <li>Conversion rates</li>
-        <li>Audience performance</li>
-      </ul>
-      <p>Optimization helps improve efficiency and reduce wasted ad spend. Successful campaigns are rarely perfect from day one. Most high-performing campaigns improve through testing and data analysis.</p>
-
+      <p>Many businesses launch campaigns and never optimize them afterward. Digital advertising requires continuous monitoring of click-through rates, cost per result, engagement rates, and conversion rates. Optimization helps improve efficiency and reduce wasted ad spend.</p>
       <h4>Focusing Only on Sales</h4>
-      <p>Not every campaign should directly sell products. Consumers usually need multiple interactions before making purchasing decisions. This is why businesses should balance:</p>
-      <ul>
-        <li>Awareness campaigns</li>
-        <li>Engagement campaigns</li>
-        <li>Retargeting campaigns</li>
-        <li>Conversion campaigns</li>
-      </ul>
-      <p>Building trust over time often produces better long-term results than aggressive sales-focused advertising.</p>
-
-      <h4>Social Media Advertising Is Becoming More Competitive</h4>
-      <p>As more businesses invest in digital advertising, competition continues to increase. This means brands must focus more on:</p>
-      <ul>
-        <li>Creative quality</li>
-        <li>Audience understanding</li>
-        <li>Brand storytelling</li>
-        <li>Customer experience</li>
-      </ul>
-      <p>Simple advertising is no longer enough. According to <a href="https://www.thinkwithgoogle.com/" target="_blank">Think with Google</a>, modern audiences prefer engaging and authentic digital experiences rather than traditional promotional content.</p>
-
+      <p>Not every campaign should directly sell products. Consumers usually need multiple interactions before making purchasing decisions. Building trust over time through awareness, engagement, retargeting, and conversion campaigns produces better long-term results.</p>
       <h4>Final Thoughts</h4>
-      <p>Social media advertising is not just about spending money on ads. It requires strategy, creativity, testing, and audience understanding. Businesses that focus only on boosting posts often struggle. The brands that succeed are the ones that combine creative storytelling with smart marketing strategy.</p>
+      <p>Social media advertising is not just about spending money on ads. It requires strategy, creativity, testing, and audience understanding. The brands that succeed are the ones that combine creative storytelling with smart marketing strategy.</p>
     `
-  },
-  {
-    id: 'blog3',
-    title: 'The Future of Short-Form Video Marketing in Sri Lanka',
-    seoTitle: 'The Future of Short-Form Video Marketing in Sri Lanka',
-    metaDesc: 'Explore how TikTok, Instagram Reels, and short-form video content are changing digital marketing and brand engagement in Sri Lanka.',
-    slug: '/future-of-short-form-video-marketing-sri-lanka',
-    img: 'images/blog-thumb-3.png',
-    date: 'May 10, 2026',
-    excerpt: 'Short-form video content has transformed digital marketing worldwide, and Sri Lanka is rapidly following the same trend. Platforms like TikTok, Instagram, and YouTube Shorts have changed how brands...',
-    content: `
+      },
+      {
+        id: 'blog3',
+        title: 'The Future of Short-Form Video Marketing in Sri Lanka',
+        seoTitle: 'The Future of Short-Form Video Marketing in Sri Lanka',
+        metaDesc: 'Explore how TikTok, Instagram Reels, and short-form video content are changing digital marketing in Sri Lanka.',
+        slug: '/future-of-short-form-video-marketing-sri-lanka',
+        img: 'images/blog-thumb-3.jpeg',
+        date: 'May 10, 2026',
+        excerpt: 'Short-form video content has transformed digital marketing worldwide, and Sri Lanka is rapidly following the same trend. Platforms like TikTok, Instagram, and YouTube Shorts have changed how brands...',
+        content: `
       <p>Short-form video content has transformed digital marketing worldwide, and Sri Lanka is rapidly following the same trend.</p>
       <p>Platforms like TikTok, Instagram, and YouTube Shorts have changed how brands communicate with audiences, especially Gen Z consumers.</p>
-      <p>Today, short videos are not just entertainment. They are becoming one of the strongest tools for brand awareness, engagement, and consumer influence.</p>
-
       <h4>Why Short-Form Content Performs So Well</h4>
-      <p>Modern users consume content very quickly. Attention spans on digital platforms are shorter than ever. Short-form videos work effectively because they are:</p>
-      <ul>
-        <li>Fast and easy to consume</li>
-        <li>Mobile-friendly</li>
-        <li>Highly engaging</li>
-        <li>Easy to share</li>
-        <li>Algorithm-friendly</li>
-      </ul>
-      <p>Unlike traditional advertising, short-form videos often feel more natural and authentic. This is one reason why creator-led content performs strongly on social platforms.</p>
-      <p>According to <a href="https://www.thinkwithgoogle.com/" target="_blank">Think with Google</a>, consumers increasingly prefer quick, entertaining, and informative video content.</p>
-
+      <p>Modern users consume content very quickly. Short-form videos work effectively because they are fast and easy to consume, mobile-friendly, highly engaging, easy to share, and algorithm-friendly. Unlike traditional advertising, short-form videos often feel more natural and authentic.</p>
       <h4>Gen Z Is Driving the Trend</h4>
-      <p>Gen Z consumers spend significant time on short-form video platforms. Their purchasing decisions are strongly influenced by:</p>
-      <ul>
-        <li>Social trends</li>
-        <li>Influencers</li>
-        <li>Humor</li>
-        <li>Relatable content</li>
-        <li>Viral challenges</li>
-      </ul>
-      <p>Traditional advertising methods are becoming less effective for younger audiences. Brands now focus more on:</p>
-      <ul>
-        <li>Entertaining content</li>
-        <li>Behind-the-scenes videos</li>
-        <li>User-generated content</li>
-        <li>Meme culture</li>
-        <li>Influencer collaborations</li>
-      </ul>
-      <p>This shift is changing the entire digital marketing landscape.</p>
-
+      <p>Gen Z consumers spend significant time on short-form video platforms. Their purchasing decisions are strongly influenced by social trends, influencers, humor, relatable content, and viral challenges. Traditional advertising methods are becoming less effective for younger audiences.</p>
       <h4>Sri Lankan Brands Are Adapting</h4>
-      <p>Many Sri Lankan brands have already started investing heavily in short-form content. Industries actively using short-form video include:</p>
-      <ul>
-        <li>Fashion</li>
-        <li>Food and beverage</li>
-        <li>Beauty</li>
-        <li>Telecommunications</li>
-        <li>Consumer goods</li>
-      </ul>
-      <p>Brands are increasingly working with local creators to produce relatable content that feels less like advertising and more like entertainment. This strategy improves engagement while helping brands appear more authentic.</p>
-
+      <p>Many Sri Lankan brands in fashion, food and beverage, beauty, telecommunications, and consumer goods have already started investing heavily in short-form content. Brands are increasingly working with local creators to produce relatable content that feels less like advertising and more like entertainment.</p>
       <h4>Humor and Relatability Matter</h4>
-      <p>Humor has become one of the strongest engagement drivers in short-form content. Funny, relatable, and emotionally engaging videos often receive:</p>
-      <ul>
-        <li>Higher shares</li>
-        <li>More comments</li>
-        <li>Better watch time</li>
-        <li>Increased organic reach</li>
-      </ul>
-      <p>This is especially true among younger audiences. Platforms reward content that keeps users engaged longer, which is why entertaining content often performs better than direct promotional advertisements.</p>
-
+      <p>Humor has become one of the strongest engagement drivers in short-form content. Funny, relatable, and emotionally engaging videos often receive higher shares, more comments, better watch time, and increased organic reach.</p>
       <h4>Algorithms Reward Consistency</h4>
-      <p>Social media algorithms prioritize consistent and engaging content. Brands that regularly publish quality short-form videos usually gain:</p>
-      <ul>
-        <li>Higher visibility</li>
-        <li>Better engagement</li>
-        <li>Faster audience growth</li>
-      </ul>
-      <p>Consistency has become more important than producing highly polished content. In many cases, authentic smartphone-style videos outperform expensive commercial productions.</p>
-
-      <h4>The Future of Digital Marketing</h4>
-      <p>Short-form video marketing will likely continue growing in Sri Lanka over the next few years. Future trends may include:</p>
-      <ul>
-        <li>AI-powered video personalization</li>
-        <li>Live shopping integrations</li>
-        <li>Interactive video ads</li>
-        <li>Creator-led brand campaigns</li>
-        <li>Social commerce expansion</li>
-      </ul>
-      <p>Businesses that adapt early will have a stronger advantage in digital marketing. According to <a href="https://www.facebook.com/business" target="_blank">Meta for Business</a>, short-form video is becoming a central part of modern advertising strategies.</p>
-
+      <p>Social media algorithms prioritize consistent and engaging content. Brands that regularly publish quality short-form videos usually gain higher visibility, better engagement, and faster audience growth. Consistency has become more important than producing highly polished content.</p>
       <h4>Final Thoughts</h4>
       <p>Short-form video is no longer just a trend. It is becoming the foundation of modern digital communication. Brands that focus on authenticity, creativity, and audience engagement will continue to grow in the evolving digital landscape.</p>
     `
-  },
-  {
-    id: 'blog2',
-    title: 'Meta Blueprint Certifications: Are They Actually Worth It?',
-    seoTitle: 'Are Meta Blueprint Certifications Worth It for Digital Marketers?',
-    metaDesc: 'Learn the benefits of Meta Blueprint certifications, how they help digital marketers, and whether they are worth pursuing in 2026.',
-    slug: '/meta-blueprint-certifications-worth-it',
-    img: 'images/blog-thumb-2.png',
-    date: 'May 18, 2026',
-    excerpt: 'The digital marketing industry changes rapidly. Because of this, many marketers look for certifications to improve their knowledge and strengthen their professional credibility. One of the most recognized...',
-    content: `
-      <p>The digital marketing industry changes rapidly. Because of this, many marketers look for certifications to improve their knowledge and strengthen their professional credibility.</p>
-      <p>One of the most recognized certification programs today is <a href="https://www.facebook.com/business/learn" target="_blank">Meta Blueprint</a>.</p>
-      <p>Meta Blueprint certifications are designed to validate skills related to:</p>
-      <ul>
-        <li>Facebook advertising</li>
-        <li>Instagram marketing</li>
-        <li>Campaign management</li>
-        <li>Media buying</li>
-        <li>Performance optimization</li>
-        <li>Digital strategy</li>
-      </ul>
-      <p>But are these certifications actually worth it?</p>
-
+      },
+      {
+        id: 'blog2',
+        title: 'Meta Blueprint Certifications: Are They Actually Worth It?',
+        seoTitle: 'Are Meta Blueprint Certifications Worth It for Digital Marketers?',
+        metaDesc: 'Learn the benefits of Meta Blueprint certifications, how they help digital marketers, and whether they are worth pursuing in 2026.',
+        slug: '/meta-blueprint-certifications-worth-it',
+        img: 'images/blog-thumb-2.jpeg',
+        date: 'May 18, 2026',
+        excerpt: 'The digital marketing industry changes rapidly. Because of this, many marketers look for certifications to improve their knowledge and strengthen their professional credibility. One of the most recognized...',
+        content: `
+      <p>The digital marketing industry changes rapidly. Many marketers look for certifications to improve their knowledge and strengthen their professional credibility. One of the most recognized certification programs today is <a href="https://www.facebook.com/business/learn" target="_blank" rel="noopener noreferrer">Meta Blueprint</a>.</p>
       <h4>What Is Meta Blueprint?</h4>
-      <p>Meta Blueprint is the official learning and certification platform created by Meta. The platform offers:</p>
-      <ul>
-        <li>Free online courses</li>
-        <li>Training resources</li>
-        <li>Practice materials</li>
-        <li>Professional certification exams</li>
-      </ul>
-      <p>Topics range from beginner-level advertising knowledge to advanced campaign optimization strategies. Official learning resources are available through Meta Blueprint.</p>
-
+      <p>Meta Blueprint is the official learning and certification platform created by Meta. It offers free online courses, training resources, practice materials, and professional certification exams covering topics from beginner advertising to advanced campaign optimization strategies.</p>
       <h4>Why Certifications Matter</h4>
-      <p>In digital marketing, practical experience is always important. However, certifications help demonstrate technical understanding and platform knowledge.</p>
-      <p>For students and early-career marketers, certifications can:</p>
-      <ul>
-        <li>Improve credibility</li>
-        <li>Strengthen CVs</li>
-        <li>Support job applications</li>
-        <li>Increase confidence</li>
-        <li>Validate industry knowledge</li>
-      </ul>
-      <p>Many agencies and companies value certifications because they show commitment to learning and professional development.</p>
-
+      <p>In digital marketing, practical experience is always important. However, certifications help demonstrate technical understanding and platform knowledge. For students and early-career marketers, certifications can improve credibility, strengthen CVs, support job applications, increase confidence, and validate industry knowledge.</p>
       <h4>The Biggest Advantage: Platform Knowledge</h4>
-      <p>One major benefit of Meta Blueprint certifications is learning directly from the platform itself. Instead of relying only on random tutorials, marketers learn:</p>
-      <ul>
-        <li>Ad objectives</li>
-        <li>Audience targeting</li>
-        <li>Pixel tracking</li>
-        <li>Conversion optimization</li>
-        <li>Campaign structure</li>
-        <li>Performance analysis</li>
-      </ul>
-      <p>This creates a stronger foundation for running effective campaigns.</p>
-
+      <p>One major benefit of Meta Blueprint certifications is learning directly from the platform itself. Instead of relying only on random tutorials, marketers learn ad objectives, audience targeting, pixel tracking, conversion optimization, campaign structure, and performance analysis — creating a stronger foundation for running effective campaigns.</p>
       <h4>Certifications Alone Are Not Enough</h4>
-      <p>Although certifications are valuable, they do not replace real-world experience. A person may pass certification exams but still struggle with:</p>
-      <ul>
-        <li>Creative strategy</li>
-        <li>Client communication</li>
-        <li>Budget allocation</li>
-        <li>Data interpretation</li>
-        <li>Campaign troubleshooting</li>
-      </ul>
-      <p>The best marketers combine:</p>
-      <ul>
-        <li>Technical platform knowledge</li>
-        <li>Creative thinking</li>
-        <li>Practical campaign experience</li>
-      </ul>
-      <p>Certifications should support experience, not replace it.</p>
-
+      <p>Although certifications are valuable, they do not replace real-world experience. The best marketers combine technical platform knowledge, creative thinking, and practical campaign experience. Certifications should support experience, not replace it.</p>
       <h4>Are They Worth the Investment?</h4>
-      <p>For many digital marketers, the answer is yes. Meta certifications are especially useful for:</p>
-      <ul>
-        <li>University students</li>
-        <li>Freelancers</li>
-        <li>Junior marketers</li>
-        <li>Media planners</li>
-        <li>Performance marketers</li>
-        <li>Agency professionals</li>
-      </ul>
-      <p>They can help candidates stand out in competitive job markets. According to <a href="https://www.facebook.com/business/learn/certification" target="_blank">Meta Certification Information</a>, certifications are designed to validate real-world digital advertising skills.</p>
-
-      <h4>How to Prepare for the Exams</h4>
-      <p>Preparation usually involves:</p>
-      <ul>
-        <li>Studying official Meta courses</li>
-        <li>Practicing with Ads Manager</li>
-        <li>Learning campaign structures</li>
-        <li>Understanding optimization techniques</li>
-        <li>Reviewing case studies</li>
-      </ul>
-      <p>Practical experience with live campaigns significantly improves understanding. Free learning resources are also available through <a href="https://www.facebook.com/business/help" target="_blank">Meta Business Help Center</a>.</p>
-
+      <p>For many digital marketers — especially university students, freelancers, junior marketers, media planners, and agency professionals — the answer is yes. They can help candidates stand out in competitive job markets. According to <a href="https://www.facebook.com/business/learn/certification" target="_blank" rel="noopener noreferrer">Meta Certification</a>, certifications are designed to validate real-world digital advertising skills.</p>
       <h4>Final Thoughts</h4>
-      <p>Meta Blueprint certifications can be highly valuable for digital marketers who want to improve their knowledge and professional credibility. However, the real value comes from combining certifications with practical experience and continuous learning.</p>
-      <p>In digital marketing, platforms evolve constantly. The marketers who continue learning will always have an advantage.</p>
+      <p>Meta Blueprint certifications can be highly valuable for digital marketers who want to improve their knowledge and professional credibility. However, the real value comes from combining certifications with practical experience and continuous learning. In digital marketing, platforms evolve constantly. The marketers who continue learning will always have an advantage.</p>
     `
-  },
-  {
-    id: 'blog1',
-    title: 'Why People Actually Buy Brands (And It’s Not Just About the Product)',
-    seoTitle: 'Why People Buy Brands: The Psychology Behind Consumer Decisions',
-    metaDesc: 'Discover why consumers buy brands beyond product features. Learn how emotions, trust, identity, and social proof influence buying behavior.',
-    slug: '/why-people-buy-brands',
-    img: 'images/blog-thumb-1.png',
-    date: 'May 22, 2026',
-    excerpt: 'In today’s marketplace, consumers are surrounded by endless choices. Whether it’s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate...',
-    content: `
+      },
+      {
+        id: 'blog1',
+        title: 'Why People Actually Buy Brands (And It\'s Not Just About the Product)',
+        seoTitle: 'Why People Buy Brands: The Psychology Behind Consumer Decisions',
+        metaDesc: 'Discover why consumers buy brands beyond product features. Learn how emotions, trust, identity, and social proof influence buying behavior.',
+        slug: '/why-people-buy-brands',
+        img: 'images/blog-thumb-1.jpeg',
+        date: 'May 22, 2026',
+        excerpt: 'In today\'s marketplace, consumers are surrounded by endless choices. Whether it\'s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate...',
+        content: `
       <p>When people think about marketing, they often assume customers buy products because of price, quality, or features. While those factors matter, modern consumers usually make decisions based on something deeper: emotions and perception.</p>
-      <p>People rarely buy “just a product.” They buy trust, identity, convenience, confidence, and emotional connection.</p>
-      <p>Think about brands like Apple, Nike, or Coca-Cola. Their success is not only because of product quality. Millions of people emotionally connect with these brands.</p>
-      
+      <p>People rarely buy "just a product." They buy trust, identity, convenience, confidence, and emotional connection.</p>
       <h4>People Buy Emotions First</h4>
-      <p>Research in consumer psychology shows that emotions heavily influence purchasing decisions. Customers often justify purchases logically afterward, but emotional triggers usually happen first.</p>
-      <p>For example:</p>
-      <ul>
-        <li>A luxury fashion brand may make someone feel confident.</li>
-        <li>A fitness brand may inspire motivation.</li>
-        <li>A tech brand may create a sense of innovation or status.</li>
-      </ul>
-      <p>This is why storytelling has become one of the strongest marketing tools today. Brands that communicate emotions successfully tend to create stronger customer loyalty.</p>
-      <p>According to <a href="https://hbr.org/" target="_blank">Harvard Business Review</a>, emotionally connected customers are more valuable and more loyal than highly satisfied customers.</p>
-      
+      <p>Research in consumer psychology shows that emotions heavily influence purchasing decisions. Customers often justify purchases logically afterward, but emotional triggers usually happen first. A luxury fashion brand may make someone feel confident; a fitness brand may inspire motivation; a tech brand may create a sense of innovation or status.</p>
+      <p>This is why storytelling has become one of the strongest marketing tools today. According to <a href="https://hbr.org/" target="_blank" rel="noopener noreferrer">Harvard Business Review</a>, emotionally connected customers are more valuable and more loyal than highly satisfied customers.</p>
       <h4>Trust Is One of the Biggest Buying Factors</h4>
-      <p>Customers buy from brands they trust. In digital marketing, trust can come from:</p>
-      <ul>
-        <li>Positive reviews</li>
-        <li>Consistent branding</li>
-        <li>Professional social media presence</li>
-        <li>Influencer recommendations</li>
-        <li>User-generated content</li>
-        <li>Good customer service</li>
-      </ul>
-      <p>This is especially important in online shopping because customers cannot physically interact with products before purchasing. Platforms like <a href="https://www.google.com/business/" target="_blank">Google Reviews</a> and <a href="https://www.trustpilot.com/" target="_blank">Trustpilot</a> have become important trust signals for modern consumers.</p>
-      
+      <p>Customers buy from brands they trust. In digital marketing, trust can come from positive reviews, consistent branding, a professional social media presence, influencer recommendations, user-generated content, and good customer service. Platforms like <a href="https://www.google.com/business/" target="_blank" rel="noopener noreferrer">Google Reviews</a> and <a href="https://www.trustpilot.com/" target="_blank" rel="noopener noreferrer">Trustpilot</a> have become important trust signals for modern consumers.</p>
       <h4>Social Proof Influences Buying Decisions</h4>
-      <p>People naturally look at others before making decisions. This is known as social proof. If thousands of people are using a product, new customers feel safer purchasing it.</p>
-      <p>This is why brands focus heavily on:</p>
-      <ul>
-        <li>Testimonials</li>
-        <li>Influencer marketing</li>
-        <li>Customer reviews</li>
-        <li>Community engagement</li>
-        <li>Viral social media content</li>
-      </ul>
-      <p>Social proof is one of the major reasons why short-form platforms like TikTok and Instagram influence modern buying behavior so strongly.</p>
-      
+      <p>People naturally look at others before making decisions. This is known as social proof. If thousands of people are using a product, new customers feel safer purchasing it. This is why brands focus heavily on testimonials, influencer marketing, customer reviews, community engagement, and viral social media content.</p>
       <h4>Brand Identity Matters</h4>
-      <p>Consumers often choose brands that reflect their personality or lifestyle.</p>
-      <p>For example:</p>
-      <ul>
-        <li>Some people buy sustainable brands to reflect environmental values.</li>
-        <li>Others buy premium brands to express status.</li>
-        <li>Some prefer minimalist brands because they align with their personal style.</li>
-      </ul>
-      <p>This is why branding is more than just a logo. It includes:</p>
-      <ul>
-        <li>Brand voice</li>
-        <li>Visual identity</li>
-        <li>Messaging</li>
-        <li>Customer experience</li>
-        <li>Company values</li>
-      </ul>
-      <p>Strong branding creates familiarity, and familiarity creates trust.</p>
-
+      <p>Consumers often choose brands that reflect their personality or lifestyle. Some people buy sustainable brands to reflect environmental values. Others buy premium brands to express status. This is why branding is more than just a logo — it includes brand voice, visual identity, messaging, customer experience, and company values. Strong branding creates familiarity, and familiarity creates trust.</p>
       <h4>The Digital Era Changed Consumer Behavior</h4>
-      <p>Today, customers interact with brands multiple times before making a purchase. They may:</p>
-      <ul>
-        <li>See a social media ad</li>
-        <li>Watch a creator review</li>
-        <li>Search on Google</li>
-        <li>Visit the website</li>
-        <li>Read customer reviews</li>
-        <li>Finally decide to purchase</li>
-      </ul>
-      <p>Because of this, businesses must focus on building long-term brand value instead of only running sales campaigns.</p>
-      <p>According to <a href="https://www.thinkwithgoogle.com/" target="_blank">Google’s consumer insights research</a>, modern customer journeys are no longer linear and involve multiple digital touchpoints.</p>
-      
+      <p>Today, customers interact with brands multiple times before making a purchase — seeing a social media ad, watching a creator review, searching on Google, visiting the website, reading customer reviews, and then finally deciding to purchase. Because of this, businesses must focus on building long-term brand value instead of only running sales campaigns.</p>
       <h4>Final Thoughts</h4>
-      <p>People buy brands because of how brands make them feel. While quality and pricing are important, emotional connection, trust, social proof, and identity play a major role in modern purchasing behavior.</p>
-      <p>The brands that succeed today are not always the cheapest or the most advanced. They are the brands that understand people.</p>
+      <p>People buy brands because of how brands make them feel. While quality and pricing are important, emotional connection, trust, social proof, and identity play a major role in modern purchasing behavior. The brands that succeed today are not always the cheapest or the most advanced. They are the brands that understand people.</p>
     `
-  }
-];
+      }
+    ];
 
-function renderBlogs() {
-  const grid = document.getElementById('blogGrid');
-  grid.innerHTML = '';
-  
-  // Creates a reversed copy so the LAST item added to the array shows up FIRST in the UI
-  const reversedBlogs = [...blogs].reverse();
-
-  reversedBlogs.forEach(b => {
-    const card = document.createElement('div');
-    card.className = 'blog-card';
-    card.setAttribute('data-seo-title', b.seoTitle);
-    card.setAttribute('data-meta-desc', b.metaDesc);
-    card.setAttribute('data-slug', b.slug);
-    card.onclick = () => openBlogModal(b.id);
-    
-    card.innerHTML = `
+    function renderBlogs() {
+      const grid = document.getElementById('blogGrid');
+      grid.innerHTML = '';
+      const reversed = [...blogs].reverse();
+      reversed.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.setAttribute('role', 'article');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', b.title);
+        card.onclick = () => openBlogModal(b.id);
+        card.onkeydown = e => { if (e.key === 'Enter') openBlogModal(b.id); };
+        card.innerHTML = `
       <div class="blog-date">Featured Insight</div>
       <h3>${b.title}</h3>
-      <img src="${b.img}" alt="Blog Thumbnail" class="blog-card-img" onerror="this.src='https://via.placeholder.com/600x338?text=Blog+Image'">
+      <img src="${b.img}" alt="${b.title} thumbnail" class="blog-card-img" onerror="this.src='https://via.placeholder.com/600x338?text=Blog+Image'">
       <div class="blog-meta">Published by Milindu Madushan &bull; ${b.date}</div>
       <p>${b.excerpt}</p>
-      <div class="blog-read-more">Read More <i class="fa fa-arrow-right"></i></div>
+      <div class="blog-read-more">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></div>
     `;
-    
-    card.addEventListener('mouseenter',()=>{ cursor.style.width='18px'; cursor.style.height='18px'; cursorRing.style.width='50px'; cursorRing.style.height='50px'; });
-    card.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; });
-    
-    grid.appendChild(card);
-  });
-}
-
-function openBlogModal(id) {
-  const b = blogs.find(x => x.id === id);
-  if(!b) return;
-  document.getElementById('modalTitle').textContent = b.title;
-  document.getElementById('modalImg').src = b.img;
-  document.getElementById('modalMeta').innerHTML = `Published by Milindu Madushan &bull; ${b.date}`;
-  document.getElementById('modalContent').innerHTML = b.content;
-  
-  document.getElementById('blogModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-  
-  // Delay slightly to ensure element is rendered before setting scroll position
-  setTimeout(() => {
-    const scrollWrapper = document.getElementById('blogModalScroll');
-    if(scrollWrapper) {
-      scrollWrapper.scrollTop = 0;
+        card.addEventListener('mouseenter', () => { cursor.style.width = '18px'; cursor.style.height = '18px'; cursorRing.style.width = '50px'; cursorRing.style.height = '50px'; });
+        card.addEventListener('mouseleave', () => { cursor.style.width = '10px'; cursor.style.height = '10px'; cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; });
+        grid.appendChild(card);
+      });
     }
-  }, 10);
-}
 
-function closeBlogModal() {
-  document.getElementById('blogModal').classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
+    function openBlogModal(id) {
+      const b = blogs.find(x => x.id === id);
+      if (!b) return;
+      document.getElementById('modalTitle').textContent = b.title;
+      document.getElementById('modalImg').src = b.img;
+      document.getElementById('modalImg').alt = b.title + ' cover image';
+      document.getElementById('modalMeta').innerHTML = `Published by Milindu Madushan &bull; ${b.date}`;
+      document.getElementById('modalContent').innerHTML = b.content;
+      document.getElementById('blogModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        const sw = document.getElementById('blogModalScroll');
+        if (sw) sw.scrollTop = 0;
+      }, 10);
+    }
 
-document.getElementById('blogModal').addEventListener('click', e => { 
-  if(e.target===e.currentTarget) closeBlogModal(); 
-});
+    function closeBlogModal() {
+      document.getElementById('blogModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
 
-renderBlogs();
-</script>
+    document.getElementById('blogModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeBlogModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBlogModal(); });
+
+    renderBlogs();
+  </script>
 </body>
+
 </html>

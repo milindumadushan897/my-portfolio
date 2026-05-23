@@ -1,610 +1,2265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Marketing Tools | Milindu Madushan</title>
-<link rel="icon" type="image/jpeg" href="images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-/* ======================== CSS VARIABLES ======================== */
-:root {
-  --dark-bg:#060810;--dark-bg2:#0b0e1a;--dark-card:#0f1423;--dark-card2:#131928;
-  --dark-border:rgba(59,130,246,0.15);--dark-text:#e8eaf0;--dark-text2:#8892b0;
-  --dark-accent:#3b82f6;--dark-accent2:#1d4ed8;--dark-gold:#c9a84c;--dark-glow:rgba(59,130,246,0.2);
-  --light-bg:#f0f4ff;--light-bg2:#ffffff;--light-card:#ffffff;--light-card2:#f8faff;
-  --light-border:rgba(29,78,216,0.12);--light-text:#0f1729;--light-text2:#3d4f72;
-  --light-accent:#1d4ed8;--light-accent2:#1e40af;--light-gold:#b8860b;--light-glow:rgba(29,78,216,0.1);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing Tools | Milindu Madushan</title>
+  <link rel="icon" type="image/jpeg" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ======================== CSS VARIABLES ======================== */
+    :root {
+      --dark-bg: #060810;
+      --dark-bg2: #0b0e1a;
+      --dark-card: #0f1423;
+      --dark-card2: #131928;
+      --dark-border: rgba(59, 130, 246, 0.15);
+      --dark-text: #e8eaf0;
+      --dark-text2: #8892b0;
+      --dark-accent: #3b82f6;
+      --dark-accent2: #1d4ed8;
+      --dark-gold: #c9a84c;
+      --dark-glow: rgba(59, 130, 246, 0.2);
+      --light-bg: #f0f4ff;
+      --light-bg2: #ffffff;
+      --light-card: #ffffff;
+      --light-card2: #f8faff;
+      --light-border: rgba(29, 78, 216, 0.12);
+      --light-text: #0f1729;
+      --light-text2: #3d4f72;
+      --light-accent: #1d4ed8;
+      --light-accent2: #1e40af;
+      --light-gold: #b8860b;
+      --light-glow: rgba(29, 78, 216, 0.1);
 
-  --bg:var(--dark-bg);--bg2:var(--dark-bg2);--card:var(--dark-card);--card2:var(--dark-card2);
-  --border:var(--dark-border);--text:var(--dark-text);--text2:var(--dark-text2);
-  --accent:var(--dark-accent);--accent2:var(--dark-accent2);--gold:var(--dark-gold);--glow:var(--dark-glow);
+      --bg: var(--dark-bg);
+      --bg2: var(--dark-bg2);
+      --card: var(--dark-card);
+      --card2: var(--dark-card2);
+      --border: var(--dark-border);
+      --text: var(--dark-text);
+      --text2: var(--dark-text2);
+      --accent: var(--dark-accent);
+      --accent2: var(--dark-accent2);
+      --gold: var(--dark-gold);
+      --glow: var(--dark-glow);
 
-  --font-display:'Poppins',system-ui,sans-serif;
-  --font-body:'Poppins',system-ui,sans-serif;
-  --font-mono:'Poppins',monospace;
-  --transition:0.35s cubic-bezier(0.4,0,0.2,1);--radius:16px;--radius-sm:8px;
-}
-[data-theme="light"]{
-  --bg:var(--light-bg);--bg2:var(--light-bg2);--card:var(--light-card);--card2:var(--light-card2);
-  --border:var(--light-border);--text:var(--light-text);--text2:var(--light-text2);
-  --accent:var(--light-accent);--accent2:var(--light-accent2);--gold:var(--light-gold);--glow:var(--light-glow);
-}
+      --font-display: 'Poppins', system-ui, sans-serif;
+      --font-body: 'Poppins', system-ui, sans-serif;
+      --font-mono: 'Poppins', monospace;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
 
-/* ======================== RESET & BASE ======================== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);overflow-x:hidden;line-height:1.6;}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-ul{list-style:none;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-track{background:var(--bg2);}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+    [data-theme="light"] {
+      --bg: var(--light-bg);
+      --bg2: var(--light-bg2);
+      --card: var(--light-card);
+      --card2: var(--light-card2);
+      --border: var(--light-border);
+      --text: var(--light-text);
+      --text2: var(--light-text2);
+      --accent: var(--light-accent);
+      --accent2: var(--light-accent2);
+      --gold: var(--light-gold);
+      --glow: var(--light-glow);
+    }
 
-/* ======================== CURSOR ======================== */
-.cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:screen;}
-.cursor-ring{width:36px;height:36px;border:1.5px solid var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
+    /* ======================== RESET & BASE ======================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ======================== BACKGROUND ======================== */
-.bg-blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.07;animation:floatBlob 18s ease-in-out infinite alternate;pointer-events:none;z-index:0;}
-.bg-blob:nth-child(1){width:500px;height:500px;background:#3b82f6;top:-10%;left:-10%;animation-delay:0s;}
-.bg-blob:nth-child(2){width:400px;height:400px;background:#1d4ed8;bottom:10%;right:-5%;animation-delay:-6s;}
-.bg-blob:nth-child(3){width:300px;height:300px;background:#c9a84c;top:40%;left:30%;animation-delay:-12s;opacity:.03;}
-@keyframes floatBlob{0%{transform:translateY(0) scale(1);}100%{transform:translateY(-60px) scale(1.1);}}
-body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-#particles-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ======================== NAVIGATION ======================== */
-nav#navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;
-  background:rgba(6,8,16,0.88);backdrop-filter:blur(20px);
-  box-shadow:0 1px 0 var(--border);
-  transition:background var(--transition),backdrop-filter var(--transition),box-shadow var(--transition);
-}
-[data-theme="light"] nav#navbar{background:rgba(240,244,255,0.90);}
-.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:.02em;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.nav-right{display:flex;align-items:center;gap:1rem;}
-.theme-toggle{width:48px;height:26px;background:var(--card2);border:1px solid var(--border);border-radius:13px;cursor:pointer;position:relative;transition:background var(--transition);outline:none;flex-shrink:0;}
-.theme-toggle::after{content:'';position:absolute;width:20px;height:20px;background:var(--accent);border-radius:50%;top:2px;left:2px;transition:transform var(--transition);}
-[data-theme="light"] .theme-toggle::after{transform:translateX(22px);background:var(--accent2);}
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-/* Mobile Menu Elements */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;outline:none;}
-.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all var(--transition);display:block;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.mobile-menu{
-  display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(6,8,16,.97);backdrop-filter:blur(20px);
-  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
-}
-[data-theme="light"] .mobile-menu{background:rgba(240,244,255,.97);}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:var(--font-mono);font-size:1.2rem;font-weight:500;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;transition:color var(--transition);}
-.mobile-menu a:hover{color:var(--accent);}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* ======================== BUTTONS ======================== */
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 1.8rem;border-radius:6px;cursor:pointer;transition:all var(--transition);outline:none;border:none;}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 0 0 rgba(59,130,246,.4);}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 25px var(--glow);}
-.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px var(--glow);}
+    ul {
+      list-style: none;
+    }
 
-/* ======================== APP CONTAINER ======================== */
-.app-container{max-width:1200px;margin:0 auto;padding:110px 2rem 4rem;position:relative;z-index:2;}
-.app-header{text-align:center;margin-bottom:3.5rem;}
-.app-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:.4rem .9rem;border-radius:30px;margin-bottom:1.2rem;}
-.app-tag span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s ease infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
-.app-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:.6rem;line-height:1.15;}
-.app-title em{font-style:italic;color:var(--accent);}
-.app-desc{color:var(--text2);font-size:.95rem;max-width:520px;margin:0 auto;}
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
 
-/* ======================== DASHBOARD GRID ======================== */
-#dashboardView{animation:fadeUp .6s ease forwards;}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
-.tool-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:2rem;cursor:pointer;transition:all var(--transition);text-align:left;
-  position:relative;overflow:hidden;
-}
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transition:transform var(--transition);transform-origin:left;}
-.tool-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 15px 50px var(--glow);}
-.tool-card:hover::before{transform:scaleX(1);}
-.tool-icon{width:52px;height:52px;background:rgba(59,130,246,.1);color:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem;transition:all var(--transition);}
-.tool-card:hover .tool-icon{background:rgba(59,130,246,.2);transform:scale(1.08);}
-.tool-card h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;}
-.tool-card p{font-size:.83rem;color:var(--text2);line-height:1.55;}
+    ::-webkit-scrollbar-track {
+      background: var(--bg2);
+    }
 
-/* ======================== TOOL VIEWS ======================== */
-.tool-view{display:none;animation:fadeUp .45s ease;}
-.tool-view.active{display:block;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 3px;
+    }
 
-/* ======================== TOOL HEADER ======================== */
-.tool-header-bar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
-.back-btn{display:inline-flex;align-items:center;gap:.5rem;color:var(--text2);font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;margin-bottom:.65rem;transition:color var(--transition);border:none;background:none;padding:0;font-weight:600;}
-.back-btn:hover{color:var(--accent);}
-.tool-header-left h2{font-size:1.55rem;font-weight:700;}
-.other-tools-nav{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;}
-.other-tools-label{font-size:.68rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-mono);margin-right:.3rem;white-space:nowrap;}
-.nav-tool-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--card2);border:1px solid var(--border);color:var(--text2);padding:.4rem .85rem;border-radius:30px;cursor:pointer;font-size:.71rem;font-weight:600;font-family:var(--font-mono);transition:all var(--transition);white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;}
-.nav-tool-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,130,246,.08);}
+    /* ======================== CURSOR ======================== */
+    .cursor {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .3s, height .3s;
+      mix-blend-mode: screen;
+    }
 
-/* ======================== TOOL CARD BODY ======================== */
-.tool-card-body{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;overflow: hidden;}
-.tool-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:3rem;align-items:start;}
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      opacity: .5;
+    }
 
-/* ======================== UI ELEMENTS ======================== */
-.input-group{margin-bottom:1.2rem;}
-.input-group label{display:block;font-family:var(--font-mono);font-size:.7rem;color:var(--text2);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
-.input-control{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:.8rem 1rem;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.9rem;outline:none;transition:border-color .3s;}
-.input-control:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.08);}
-textarea.input-control{resize:vertical;min-height:88px;}
-select.input-control{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238892b0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:2.5rem;}
+    /* ======================== BACKGROUND ======================== */
+    .bg-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .07;
+      animation: floatBlob 18s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* ======================== SECTION HELPERS ======================== */
-.section-label{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text2);font-weight:600;margin-bottom:.75rem;}
-.badge-pill{display:inline-block;padding:.15rem .55rem;border-radius:20px;font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:rgba(59,130,246,.12);color:var(--accent);border:1px solid rgba(59,130,246,.2);margin-left:.35rem;vertical-align:middle;}
-.divider{width:100%;height:1px;background:var(--border);margin:1.4rem 0;}
+    .bg-blob:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      background: #3b82f6;
+      top: -10%;
+      left: -10%;
+      animation-delay: 0s;
+    }
 
-/* ======================== UPLOAD ZONE ======================== */
-.upload-zone{border:2px dashed var(--border);border-radius:var(--radius-sm);padding:1.25rem;text-align:center;cursor:pointer;transition:all var(--transition);background:var(--bg2);position:relative;margin-bottom:.6rem;}
-.upload-zone:hover,.upload-zone.dragover{border-color:var(--accent);background:rgba(59,130,246,.05);}
-.upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.upload-zone i{font-size:1.4rem;color:var(--text2);margin-bottom:.4rem;display:block;}
-.upload-zone span{font-size:.78rem;color:var(--text2);}
-.upload-zone strong{color:var(--accent);}
-.upload-preview-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem;}
-.upload-preview-thumb{width:56px;height:56px;border-radius:6px;background-size:cover;background-position:center;border:2px solid var(--border);position:relative;flex-shrink:0;}
-.remove-thumb{position:absolute;top:-6px;right:-6px;width:17px;height:17px;background:#ef4444;border-radius:50%;border:none;cursor:pointer;color:#fff;font-size:.6rem;display:flex;align-items:center;justify-content:center;}
-.upload-note{font-size:.7rem;color:var(--text2);margin-top:.3rem;}
+    .bg-blob:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      background: #1d4ed8;
+      bottom: 10%;
+      right: -5%;
+      animation-delay: -6s;
+    }
 
-/* ======================== PLATFORM TABS ======================== */
-.plat-tabs{display:flex;gap:.5rem;margin-bottom:1.75rem;flex-wrap:wrap;}
-.plat-tab{background:var(--bg2);border:1px solid var(--border);color:var(--text2);padding:.55rem 1.1rem;border-radius:30px;cursor:pointer;font-family:var(--font-mono);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;transition:all .25s;}
-.plat-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+    .bg-blob:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      background: #c9a84c;
+      top: 40%;
+      left: 30%;
+      animation-delay: -12s;
+      opacity: .03;
+    }
 
-/* ======================== AD PREVIEW WRAPPER ======================== */
-.ad-preview-wrapper{background:#e4e6eb;border-radius:16px;padding:20px;display:flex;justify-content:center;align-items:flex-start;min-height:520px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;transition:background .3s;overflow-x:auto;}
-[data-theme="dark"] .ad-preview-wrapper{background:#1a1d27;}
-.preview-card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12);width:100%;max-width:380px;overflow:hidden;color:#1c1e21;text-align:left;display:none;margin:auto;}
-.preview-card.active{display:block;}
-[data-theme="dark"] .preview-card{background:#242526;color:#e4e6eb;box-shadow:0 4px 18px rgba(0,0,0,.45);}
+    @keyframes floatBlob {
+      0% {
+        transform: translateY(0) scale(1);
+      }
 
-/* ---- Facebook ---- */
-.fb-head{display:flex;align-items:center;padding:12px 14px;gap:10px;}
-.fb-pp{width:40px;height:40px;border-radius:50%;background:#b0b3b8;background-size:cover;background-position:center;flex-shrink:0;}
-.fb-name{font-size:14px;font-weight:700;}
-.fb-spon{font-size:12px;color:#65676b;display:flex;align-items:center;gap:3px;}
-[data-theme="dark"] .fb-spon{color:#b0b3b8;}
-.fb-text{padding:0 14px 12px;font-size:14px;white-space:pre-wrap;word-break:break-word;line-height:1.5;}
-/* FB image 4:5 */
-.fb-img{width:100%;aspect-ratio:4/5;background:#3a3b3c;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
-.img-placeholder-icon{opacity:.25;font-size:2.5rem;color:#aaa;}
-.fb-bot{background:#f0f2f5;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;}
-[data-theme="dark"] .fb-bot{background:#3a3b3c;}
-.fb-url{text-transform:uppercase;font-size:10px;color:#65676b;margin-bottom:1px;}
-[data-theme="dark"] .fb-url{color:#b0b3b8;}
-.fb-headl{font-size:14px;font-weight:700;}
-.fb-desc{font-size:12px;color:#65676b;}
-[data-theme="dark"] .fb-desc{color:#b0b3b8;}
-.fb-cta{background:#e4e6eb;padding:5px 11px;border-radius:6px;font-weight:700;font-size:13px;white-space:nowrap;cursor:pointer;flex-shrink:0;}
-[data-theme="dark"] .fb-cta{background:#4e4f50;color:#e4e6eb;}
-.fb-reactions{padding:9px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #e4e6eb;}
-[data-theme="dark"] .fb-reactions{border-color:#3a3b3c;}
-.fb-react-row{display:flex;align-items:center;gap:5px;font-size:12px;color:#65676b;}
-[data-theme="dark"] .fb-react-row{color:#b0b3b8;}
-.fb-react-icons{display:flex;}
-.fb-react-icons span{width:17px;height:17px;border-radius:50%;font-size:10px;display:flex;align-items:center;justify-content:center;margin-left:-3px;border:2px solid #fff;}
-[data-theme="dark"] .fb-react-icons span{border-color:#242526;}
+      100% {
+        transform: translateY(-60px) scale(1.1);
+      }
+    }
 
-/* ---- Instagram 4:5 ---- */
-.ig-head{display:flex;align-items:center;padding:10px 12px;justify-content:space-between;}
-.ig-head-left{display:flex;align-items:center;gap:9px;}
-.ig-pp-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);padding:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.ig-pp-inner{width:100%;height:100%;border-radius:50%;background:#888;background-size:cover;background-position:center;}
-/* IG image 4:5 */
-.ig-img{width:100%;aspect-ratio:4/5;background:#3a3b3c;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
-.ig-actions{padding:9px 12px;display:flex;gap:13px;justify-content:space-between;}
-.ig-actions-left{display:flex;gap:13px;font-size:20px;}
-.ig-likes{padding:0 12px 4px;font-weight:700;font-size:13px;}
-.ig-cap{padding:0 12px 12px;font-size:13px;line-height:1.4;}
-.ig-spon-tag{font-size:10px;color:#8e8e8e;padding:0 12px 6px;text-transform:uppercase;letter-spacing:.08em;}
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
 
-/* ---- TikTok 9:16 ---- */
-.tt-wrapper{background:#000;color:#fff;border-radius:16px;width:100%;max-width:240px;aspect-ratio:9/16;position:relative;overflow:hidden;margin:0 auto;display:none;box-shadow:0 8px 30px rgba(0,0,0,.55);}
-.tt-wrapper.active{display:block;}
-.tt-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-color:#111;}
-.tt-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.2) 40%,transparent 70%);}
-.tt-top-bar{position:absolute;top:0;left:0;right:0;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;}
-.tt-right-bar{position:absolute;right:8px;bottom:80px;display:flex;flex-direction:column;gap:14px;align-items:center;}
-.tt-icon-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;}
-.tt-icon{width:36px;height:36px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
-.tt-icon-label{font-size:9px;opacity:.8;}
-.tt-bottom{position:absolute;bottom:14px;left:12px;right:52px;}
-.tt-pp-row{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
-.tt-pp-sm{width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:#333;background-size:cover;background-position:center;flex-shrink:0;}
-.tt-handle{font-weight:700;font-size:12px;}
-.tt-follow{font-size:10px;border:1px solid rgba(255,255,255,.6);padding:1px 7px;border-radius:3px;margin-left:5px;display:inline-block;}
-.tt-caption{font-size:11px;line-height:1.45;margin-bottom:6px;opacity:.95;}
-.tt-music{font-size:10px;opacity:.75;display:flex;align-items:center;gap:4px;}
-.tt-disc{width:12px;height:12px;background:#fff;border-radius:50%;opacity:.7;animation:spin 3s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.tt-cta{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(90deg,#fe2c55,#ee1d52);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:700;}
+    #particles-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-/* ---- YouTube 16:9 ---- */
-.yt-wrapper{background:#0f0f0f;color:#fff;border-radius:12px;padding:14px;width:100%;max-width:400px;margin:0 auto;display:none;font-family:'Roboto',Arial,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,.45);}
-.yt-wrapper.active{display:block;}
-/* YT image 16:9 */
-.yt-img{width:100%;aspect-ratio:16/9;background:#272727;border-radius:8px;position:relative;background-size:cover;background-position:center;margin-bottom:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.yt-ad-badge{position:absolute;top:7px;left:7px;background:#f1c40f;color:#000;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;}
-.yt-skip-btn{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.7);color:#fff;font-size:11px;padding:3px 9px;border-radius:3px;display:flex;align-items:center;gap:4px;}
-.yt-progress-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.2);}
-.yt-progress-fill{height:100%;width:28%;background:#f00;}
-.yt-info{display:flex;gap:10px;align-items:flex-start;}
-.yt-title{font-size:14px;font-weight:500;margin-bottom:3px;line-height:1.4;}
-.yt-chan{font-size:12px;color:#aaa;display:flex;align-items:center;gap:5px;margin-bottom:7px;}
-.yt-actions{display:flex;gap:7px;margin-top:6px;}
-.yt-visit{background:#fff;color:#000;font-weight:700;font-size:11px;padding:4px 12px;border-radius:18px;cursor:pointer;}
-.yt-skip-text{background:transparent;border:1px solid #777;color:#fff;font-size:11px;padding:4px 12px;border-radius:18px;cursor:pointer;}
+    /* ======================== NAVIGATION ======================== */
+    nav#navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(6, 8, 16, 0.88);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+      transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+    }
 
-/* ======================== METRICS CALCULATOR ======================== */
-.search-wrapper{position:relative;margin-bottom:2rem;}
-.search-wrapper i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:.82rem;}
-.search-input{width:100%;padding:.95rem 1rem .95rem 2.8rem;background:var(--bg2);border:1px solid var(--border);border-radius:30px;color:var(--text);outline:none;font-family:var(--font-body);font-size:.9rem;transition:border-color .3s;}
-.search-input:focus{border-color:var(--accent);}
-.metric-category-title{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);margin:2rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.45rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;}
-.metrics-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;}
-.metric-btn{background:var(--card2);border:1px solid var(--border);padding:.9rem 1rem;border-radius:10px;text-align:left;cursor:pointer;transition:all var(--transition);color:var(--text);}
-.metric-btn:hover{border-color:var(--accent);background:rgba(59,130,246,.08);}
-.metric-abbr{font-weight:700;font-size:.95rem;color:var(--accent);margin-bottom:.15rem;}
-.metric-full{font-size:.72rem;color:var(--text2);}
+    [data-theme="light"] nav#navbar {
+      background: rgba(240, 244, 255, 0.90);
+    }
 
-/* ======================== METRICS MODAL ======================== */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;}
-.modal-overlay.active{display:flex;}
-.modal-box{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  width:90%;max-width:500px;position:relative;animation:fadeUp .3s ease;
-  max-height:90vh;overflow:hidden;display:flex;flex-direction:column;
-}
-.modal-header{
-  padding:1.8rem 2rem 1.4rem;border-bottom:1px solid var(--border);
-  background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(201,168,76,.04));
-  flex-shrink:0;
-}
-.modal-metric-abbr{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.3rem;}
-.modal-title{font-size:1.25rem;font-weight:700;margin-bottom:.3rem;}
-.modal-desc{font-size:.82rem;color:var(--text2);}
-.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.2rem;color:var(--text2);cursor:pointer;transition:color .2s;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
-.modal-close:hover{color:var(--text);background:rgba(255,255,255,.06);}
-.modal-body{padding:1.8rem 2rem;overflow-y:auto;flex:1;}
-.calc-result-box{
-  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
-  padding:1.6rem;margin-top:1.5rem;display:none;
-  animation:fadeUp .3s ease;
-}
-.calc-result-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;}
-.calc-result-icon{width:46px;height:46px;background:rgba(59,130,246,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.2rem;flex-shrink:0;}
-.calc-result-val{font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1;}
-.calc-result-label{font-family:var(--font-mono);font-size:.65rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem;}
-.calc-result-steps{
-  font-family:var(--font-mono);font-size:.75rem;color:var(--text2);
-  background:rgba(0,0,0,.15);padding:1.1rem 1.2rem;border-radius:8px;
-  border-left:3px solid var(--accent);line-height:1.8;
-}
-[data-theme="light"] .calc-result-steps{background:rgba(0,0,0,.04);}
-.calc-result-steps strong{color:var(--text);}
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-/* ======================== KPI ESTIMATOR ======================== */
-.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
-.kpi-card{background:var(--bg2);border:1px solid var(--border);padding:1.5rem;border-radius:10px;text-align:center;}
-.kpi-card h4{font-family:var(--font-mono);font-size:.66rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-weight:700;}
-.kpi-card .val{font-size:1.75rem;font-weight:700;color:var(--accent);}
-.tg-note{font-size:.75rem;color:var(--gold);margin-top:1rem;text-align:center;display:none;padding:.7rem;background:rgba(201,168,76,.08);border-radius:8px;border:1px solid rgba(201,168,76,.18);}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-/* ======================== SAFE ZONE ======================== */
-.sz-tabs{display:flex;gap:1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
-.sz-tab{background:none;border:none;color:var(--text2);font-family:var(--font-mono);font-weight:600;font-size:.85rem;cursor:pointer;padding:.45rem 1rem;transition:all var(--transition);border-radius:30px;}
-.sz-tab.active{background:var(--accent);color:#fff;}
-.safe-zone-preview{position:relative;width:100%;max-width:290px;aspect-ratio:9/16;background:#111;margin:0 auto;border-radius:16px;overflow:hidden;border:3px solid var(--border);background-size:cover;background-position:center;}
-.sz-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;opacity:.3;}
-.sz-placeholder i{font-size:2.2rem;color:#fff;}
-.sz-placeholder span{font-size:.75rem;color:#fff;}
-.sz-overlay{position:absolute;background:rgba(239,68,68,.35);backdrop-filter:blur(2px);pointer-events:none;color:#fff;font-size:.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed rgba(239,68,68,.8);text-shadow:0 1px 3px rgba(0,0,0,.9);padding:2px 4px;}
-.tiktok-top{top:0;left:0;right:0;height:12%;}
-.tiktok-right{bottom:15%;right:0;width:20%;height:50%;}
-.tiktok-bottom{bottom:0;left:0;right:0;height:18%;}
-.reels-top{top:0;left:0;right:0;height:10%;}
-.reels-right{bottom:10%;right:0;width:15%;height:45%;}
-.reels-bottom{bottom:0;left:0;right:0;height:22%;}
-.sz-safe-outline{position:absolute;inset:0;border:2px solid rgba(34,197,94,.45);pointer-events:none;border-radius:13px;}
-.sz-legend{display:flex;gap:1rem;margin-top:1rem;justify-content:center;flex-wrap:wrap;}
-.sz-legend-item{display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text2);}
-.sz-legend-dot{width:12px;height:12px;border-radius:3px;}
+    .theme-toggle {
+      width: 48px;
+      height: 26px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      outline: none;
+      flex-shrink: 0;
+    }
 
-/* ======================== FOOTER ======================== */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;position:relative;z-index:2;}
-.footer-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:1rem;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-bottom:2rem;}
-.footer-nav a{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;transition:color var(--transition);}
-.footer-nav a:hover{color:var(--accent);}
-.footer-copy{font-size:.8rem;color:var(--text2);line-height:1.8;}
-.footer-copy a{color:var(--accent);}
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform var(--transition);
+    }
 
-/* ======================== BACK TO TOP ======================== */
-.back-to-top{position:fixed;bottom:2rem;right:2rem;z-index:500;width:44px;height:44px;border-radius:10px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);border:none;outline:none;opacity:0;pointer-events:none;box-shadow:0 4px 20px var(--glow);}
-.back-to-top.visible{opacity:1;pointer-events:all;}
-.back-to-top:hover{background:var(--accent2);transform:translateY(-3px);}
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(22px);
+      background: var(--accent2);
+    }
 
-/* ======================== RESPONSIVE ======================== */
-@media(max-width:900px){.tool-layout{grid-template-columns:1fr;}.tool-header-bar{flex-direction:column;}}
-@media(max-width:768px){
-  .cursor,.cursor-ring{display:none!important;}
-  .app-container{padding:90px 1.2rem 3rem;}
-  .tool-card-body{padding:1.5rem;}
-  /* Hide Desktop buttons & show Hamburger on mobile */
-  .desktop-btn { display: none !important; }
-  .hamburger { display: flex; }
-}
-@media(max-width:480px){.app-title{font-size:1.75rem;}.results-grid{grid-template-columns:1fr;}}
-</style>
+    /* Mobile Menu Elements */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all var(--transition);
+      display: block;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(6, 8, 16, .97);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    [data-theme="light"] .mobile-menu {
+      background: rgba(240, 244, 255, .97);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text2);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+
+    /* ======================== BUTTONS ======================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .85rem 1.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all var(--transition);
+      outline: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, .4);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px var(--glow);
+    }
+
+    /* ======================== APP CONTAINER ======================== */
+    .app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 110px 2rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .app-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .app-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(59, 130, 246, .08);
+      border: 1px solid rgba(59, 130, 246, .2);
+      padding: .4rem .9rem;
+      border-radius: 30px;
+      margin-bottom: 1.2rem;
+    }
+
+    .app-tag span {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(.8);
+      }
+    }
+
+    .app-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: .6rem;
+      line-height: 1.15;
+    }
+
+    .app-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .app-desc {
+      color: var(--text2);
+      font-size: .95rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ======================== DASHBOARD GRID ======================== */
+    #dashboardView {
+      animation: fadeUp .6s ease forwards;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px var(--glow);
+    }
+
+    .tool-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .tool-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(59, 130, 246, .1);
+      color: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: all var(--transition);
+    }
+
+    .tool-card:hover .tool-icon {
+      background: rgba(59, 130, 246, .2);
+      transform: scale(1.08);
+    }
+
+    .tool-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: .4rem;
+    }
+
+    .tool-card p {
+      font-size: .83rem;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+
+    /* ======================== TOOL VIEWS ======================== */
+    .tool-view {
+      display: none;
+      animation: fadeUp .45s ease;
+    }
+
+    .tool-view.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ======================== TOOL HEADER ======================== */
+    .tool-header-bar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--text2);
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      cursor: pointer;
+      margin-bottom: .65rem;
+      transition: color var(--transition);
+      border: none;
+      background: none;
+      padding: 0;
+      font-weight: 600;
+    }
+
+    .back-btn:hover {
+      color: var(--accent);
+    }
+
+    .tool-header-left h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+
+    .other-tools-nav {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .other-tools-label {
+      font-size: .68rem;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-family: var(--font-mono);
+      margin-right: .3rem;
+      white-space: nowrap;
+    }
+
+    .nav-tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: .4rem .85rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: .71rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      transition: all var(--transition);
+      white-space: nowrap;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .nav-tool-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(59, 130, 246, .08);
+    }
+
+    /* ======================== TOOL CARD BODY ======================== */
+    .tool-card-body {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      overflow: hidden;
+    }
+
+    .tool-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ======================== UI ELEMENTS ======================== */
+    .input-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--text2);
+      margin-bottom: .4rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 600;
+    }
+
+    .input-control {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: .8rem 1rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .3s;
+    }
+
+    .input-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, .08);
+    }
+
+    textarea.input-control {
+      resize: vertical;
+      min-height: 88px;
+    }
+
+    select.input-control {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238892b0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 2.5rem;
+    }
+
+    /* ======================== SECTION HELPERS ======================== */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--text2);
+      font-weight: 600;
+      margin-bottom: .75rem;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: .15rem .55rem;
+      border-radius: 20px;
+      font-size: .63rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: rgba(59, 130, 246, .12);
+      color: var(--accent);
+      border: 1px solid rgba(59, 130, 246, .2);
+      margin-left: .35rem;
+      vertical-align: middle;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 1.4rem 0;
+    }
+
+    /* ======================== UPLOAD ZONE ======================== */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: var(--bg2);
+      position: relative;
+      margin-bottom: .6rem;
+    }
+
+    .upload-zone:hover,
+    .upload-zone.dragover {
+      border-color: var(--accent);
+      background: rgba(59, 130, 246, .05);
+    }
+
+    .upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-zone i {
+      font-size: 1.4rem;
+      color: var(--text2);
+      margin-bottom: .4rem;
+      display: block;
+    }
+
+    .upload-zone span {
+      font-size: .78rem;
+      color: var(--text2);
+    }
+
+    .upload-zone strong {
+      color: var(--accent);
+    }
+
+    .upload-preview-strip {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: .5rem;
+    }
+
+    .upload-preview-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 6px;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid var(--border);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .remove-thumb {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 17px;
+      height: 17px;
+      background: #ef4444;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: .6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .upload-note {
+      font-size: .7rem;
+      color: var(--text2);
+      margin-top: .3rem;
+    }
+
+    /* ======================== PLATFORM TABS ======================== */
+    .plat-tabs {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .plat-tab {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: .55rem 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: all .25s;
+    }
+
+    .plat-tab.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* ======================== AD PREVIEW WRAPPER ======================== */
+    .ad-preview-wrapper {
+      background: #e4e6eb;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 520px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      transition: background .3s;
+      overflow-x: auto;
+    }
+
+    [data-theme="dark"] .ad-preview-wrapper {
+      background: #1a1d27;
+    }
+
+    .preview-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+      width: 100%;
+      max-width: 380px;
+      overflow: hidden;
+      color: #1c1e21;
+      text-align: left;
+      display: none;
+      margin: auto;
+    }
+
+    .preview-card.active {
+      display: block;
+    }
+
+    [data-theme="dark"] .preview-card {
+      background: #242526;
+      color: #e4e6eb;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .45);
+    }
+
+    /* ---- Facebook ---- */
+    .fb-head {
+      display: flex;
+      align-items: center;
+      padding: 12px 14px;
+      gap: 10px;
+    }
+
+    .fb-pp {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #b0b3b8;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+
+    .fb-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .fb-spon {
+      font-size: 12px;
+      color: #65676b;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    [data-theme="dark"] .fb-spon {
+      color: #b0b3b8;
+    }
+
+    .fb-text {
+      padding: 0 14px 12px;
+      font-size: 14px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    /* FB image 4:5 */
+    .fb-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #3a3b3c;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .img-placeholder-icon {
+      opacity: .25;
+      font-size: 2.5rem;
+      color: #aaa;
+    }
+
+    .fb-bot {
+      background: #f0f2f5;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    [data-theme="dark"] .fb-bot {
+      background: #3a3b3c;
+    }
+
+    .fb-url {
+      text-transform: uppercase;
+      font-size: 10px;
+      color: #65676b;
+      margin-bottom: 1px;
+    }
+
+    [data-theme="dark"] .fb-url {
+      color: #b0b3b8;
+    }
+
+    .fb-headl {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .fb-desc {
+      font-size: 12px;
+      color: #65676b;
+    }
+
+    [data-theme="dark"] .fb-desc {
+      color: #b0b3b8;
+    }
+
+    .fb-cta {
+      background: #e4e6eb;
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    [data-theme="dark"] .fb-cta {
+      background: #4e4f50;
+      color: #e4e6eb;
+    }
+
+    .fb-reactions {
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #e4e6eb;
+    }
+
+    [data-theme="dark"] .fb-reactions {
+      border-color: #3a3b3c;
+    }
+
+    .fb-react-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: #65676b;
+    }
+
+    [data-theme="dark"] .fb-react-row {
+      color: #b0b3b8;
+    }
+
+    .fb-react-icons {
+      display: flex;
+    }
+
+    .fb-react-icons span {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -3px;
+      border: 2px solid #fff;
+    }
+
+    [data-theme="dark"] .fb-react-icons span {
+      border-color: #242526;
+    }
+
+    /* ---- Instagram 4:5 ---- */
+    .ig-head {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      justify-content: space-between;
+    }
+
+    .ig-head-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .ig-pp-ring {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ig-pp-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #888;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* IG image 4:5 */
+    .ig-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #3a3b3c;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ig-actions {
+      padding: 9px 12px;
+      display: flex;
+      gap: 13px;
+      justify-content: space-between;
+    }
+
+    .ig-actions-left {
+      display: flex;
+      gap: 13px;
+      font-size: 20px;
+    }
+
+    .ig-likes {
+      padding: 0 12px 4px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .ig-cap {
+      padding: 0 12px 12px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .ig-spon-tag {
+      font-size: 10px;
+      color: #8e8e8e;
+      padding: 0 12px 6px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* ---- TikTok 9:16 ---- */
+    .tt-wrapper {
+      background: #000;
+      color: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 240px;
+      aspect-ratio: 9/16;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      display: none;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .55);
+    }
+
+    .tt-wrapper.active {
+      display: block;
+    }
+
+    .tt-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-color: #111;
+    }
+
+    .tt-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .2) 40%, transparent 70%);
+    }
+
+    .tt-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tt-right-bar {
+      position: absolute;
+      right: 8px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .tt-icon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .tt-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .tt-icon-label {
+      font-size: 9px;
+      opacity: .8;
+    }
+
+    .tt-bottom {
+      position: absolute;
+      bottom: 14px;
+      left: 12px;
+      right: 52px;
+    }
+
+    .tt-pp-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 7px;
+    }
+
+    .tt-pp-sm {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: #333;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+
+    .tt-handle {
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .tt-follow {
+      font-size: 10px;
+      border: 1px solid rgba(255, 255, 255, .6);
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-left: 5px;
+      display: inline-block;
+    }
+
+    .tt-caption {
+      font-size: 11px;
+      line-height: 1.45;
+      margin-bottom: 6px;
+      opacity: .95;
+    }
+
+    .tt-music {
+      font-size: 10px;
+      opacity: .75;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tt-disc {
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: .7;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .tt-cta {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #fe2c55, #ee1d52);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ---- YouTube 16:9 ---- */
+    .yt-wrapper {
+      background: #0f0f0f;
+      color: #fff;
+      border-radius: 12px;
+      padding: 14px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: none;
+      font-family: 'Roboto', Arial, sans-serif;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .45);
+    }
+
+    .yt-wrapper.active {
+      display: block;
+    }
+
+    /* YT image 16:9 */
+    .yt-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #272727;
+      border-radius: 8px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .yt-ad-badge {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      background: #f1c40f;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .yt-skip-btn {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, .7);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .yt-progress-bar-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(255, 255, 255, .2);
+    }
+
+    .yt-progress-fill {
+      height: 100%;
+      width: 28%;
+      background: #f00;
+    }
+
+    .yt-info {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .yt-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .yt-chan {
+      font-size: 12px;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 7px;
+    }
+
+    .yt-actions {
+      display: flex;
+      gap: 7px;
+      margin-top: 6px;
+    }
+
+    .yt-visit {
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 18px;
+      cursor: pointer;
+    }
+
+    .yt-skip-text {
+      background: transparent;
+      border: 1px solid #777;
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 18px;
+      cursor: pointer;
+    }
+
+    /* ======================== METRICS CALCULATOR ======================== */
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .search-wrapper i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text2);
+      font-size: .82rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: .95rem 1rem .95rem 2.8rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--text);
+      outline: none;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      transition: border-color .3s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+
+    .metric-category-title {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--accent);
+      margin: 2rem 0 .7rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .45rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
+
+    .metrics-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: .7rem;
+    }
+
+    .metric-btn {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      text-align: left;
+      cursor: pointer;
+      transition: all var(--transition);
+      color: var(--text);
+    }
+
+    .metric-btn:hover {
+      border-color: var(--accent);
+      background: rgba(59, 130, 246, .08);
+    }
+
+    .metric-abbr {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--accent);
+      margin-bottom: .15rem;
+    }
+
+    .metric-full {
+      font-size: .72rem;
+      color: var(--text2);
+    }
+
+    /* ======================== METRICS MODAL ======================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .88);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      animation: fadeUp .3s ease;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 1.8rem 2rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(59, 130, 246, .06), rgba(201, 168, 76, .04));
+      flex-shrink: 0;
+    }
+
+    .modal-metric-abbr {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: .3rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: .3rem;
+    }
+
+    .modal-desc {
+      font-size: .82rem;
+      color: var(--text2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: var(--text2);
+      cursor: pointer;
+      transition: color .2s;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .modal-body {
+      padding: 1.8rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .calc-result-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      margin-top: 1.5rem;
+      display: none;
+      animation: fadeUp .3s ease;
+    }
+
+    .calc-result-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .calc-result-icon {
+      width: 46px;
+      height: 46px;
+      background: rgba(59, 130, 246, .1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .calc-result-val {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .calc-result-label {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-top: .2rem;
+    }
+
+    .calc-result-steps {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--text2);
+      background: rgba(0, 0, 0, .15);
+      padding: 1.1rem 1.2rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      line-height: 1.8;
+    }
+
+    [data-theme="light"] .calc-result-steps {
+      background: rgba(0, 0, 0, .04);
+    }
+
+    .calc-result-steps strong {
+      color: var(--text);
+    }
+
+    /* ======================== KPI ESTIMATOR ======================== */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .kpi-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .kpi-card h4 {
+      font-family: var(--font-mono);
+      font-size: .66rem;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: .5rem;
+      font-weight: 700;
+    }
+
+    .kpi-card .val {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .tg-note {
+      font-size: .75rem;
+      color: var(--gold);
+      margin-top: 1rem;
+      text-align: center;
+      display: none;
+      padding: .7rem;
+      background: rgba(201, 168, 76, .08);
+      border-radius: 8px;
+      border: 1px solid rgba(201, 168, 76, .18);
+    }
+
+    /* ======================== SAFE ZONE ======================== */
+    .sz-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .sz-tab {
+      background: none;
+      border: none;
+      color: var(--text2);
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: .85rem;
+      cursor: pointer;
+      padding: .45rem 1rem;
+      transition: all var(--transition);
+      border-radius: 30px;
+    }
+
+    .sz-tab.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .safe-zone-preview {
+      position: relative;
+      width: 100%;
+      max-width: 290px;
+      aspect-ratio: 9/16;
+      background: #111;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 3px solid var(--border);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .sz-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      opacity: .3;
+    }
+
+    .sz-placeholder i {
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
+    .sz-placeholder span {
+      font-size: .75rem;
+      color: #fff;
+    }
+
+    .sz-overlay {
+      position: absolute;
+      background: rgba(239, 68, 68, .35);
+      backdrop-filter: blur(2px);
+      pointer-events: none;
+      color: #fff;
+      font-size: .6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px dashed rgba(239, 68, 68, .8);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+      padding: 2px 4px;
+    }
+
+    .tiktok-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 12%;
+    }
+
+    .tiktok-right {
+      bottom: 15%;
+      right: 0;
+      width: 20%;
+      height: 50%;
+    }
+
+    .tiktok-bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 18%;
+    }
+
+    .reels-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10%;
+    }
+
+    .reels-right {
+      bottom: 10%;
+      right: 0;
+      width: 15%;
+      height: 45%;
+    }
+
+    .reels-bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 22%;
+    }
+
+    .sz-safe-outline {
+      position: absolute;
+      inset: 0;
+      border: 2px solid rgba(34, 197, 94, .45);
+      pointer-events: none;
+      border-radius: 13px;
+    }
+
+    .sz-legend {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .sz-legend-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .7rem;
+      color: var(--text2);
+    }
+
+    .sz-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    /* ======================== FOOTER ======================== */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-nav a {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--text2);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .footer-nav a:hover {
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      font-size: .8rem;
+      color: var(--text2);
+      line-height: 1.8;
+    }
+
+    .footer-copy a {
+      color: var(--accent);
+    }
+
+    /* ======================== BACK TO TOP ======================== */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 500;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      outline: none;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 4px 20px var(--glow);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .back-to-top:hover {
+      background: var(--accent2);
+      transform: translateY(-3px);
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media(max-width:900px) {
+      .tool-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-header-bar {
+        flex-direction: column;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .cursor,
+      .cursor-ring {
+        display: none !important;
+      }
+
+      .app-container {
+        padding: 90px 1.2rem 3rem;
+      }
+
+      .tool-card-body {
+        padding: 1.5rem;
+      }
+
+      /* Hide Desktop buttons & show Hamburger on mobile */
+      .desktop-btn {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media(max-width:480px) {
+      .app-title {
+        font-size: 1.75rem;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body data-theme="dark">
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
-<canvas id="particles-canvas"></canvas>
-<div class="bg-blob"></div>
-<div class="bg-blob"></div>
-<div class="bg-blob"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
 
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">Milindu Madushan</a>
-  <div class="nav-right">
-    <a href="blog.html" class="btn btn-primary desktop-btn" style="padding: 0.5rem 1rem; font-size: 0.75rem; margin-right: 0.5rem;"><i class="fa fa-pencil-alt"></i> Blog</a>
-    <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr; Portfolio</a>
-    
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Milindu Madushan</a>
+    <div class="nav-right">
+      <a href="blog.html" class="btn btn-primary desktop-btn"
+        style="padding: 0.5rem 1rem; font-size: 0.75rem; margin-right: 0.5rem;"><i class="fa fa-pencil-alt"></i>
+        Blog</a>
+      <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr;
+        Portfolio</a>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="mobile-link">Portfolio</a>
-  <a href="blog.html" class="mobile-link">Blog</a>
-</div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-<div class="app-container">
-
-  <div class="app-header">
-    <div class="app-tag"><span></span> Free Tools</div>
-    <h1 class="app-title">Digital Marketing <em>Tools</em></h1>
-    <p class="app-desc">Calculators, estimators, and visual previews designed for FMCG media planning.</p>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">Portfolio</a>
+    <a href="blog.html" class="mobile-link">Blog</a>
   </div>
 
-  <div id="dashboardView" class="tools-grid">
-    <div class="tool-card" onclick="openTool('tool-metrics')">
-      <div class="tool-icon"><i class="fa fa-calculator"></i></div>
-      <h3>Metrics Calculator</h3>
-      <p>Calculate 25+ essential digital marketing metrics with correct formulas and step-by-step breakdowns.</p>
-    </div>
-    <div class="tool-card" onclick="openTool('tool-copy')">
-      <div class="tool-icon"><i class="fa fa-image"></i></div>
-      <h3>Ad Previewer</h3>
-      <p>Upload your ad creative and preview it on Facebook, Instagram, TikTok, and YouTube in real aspect ratios.</p>
-    </div>
-    <div class="tool-card" onclick="openTool('tool-kpi')">
-      <div class="tool-icon"><i class="fa fa-chart-line"></i></div>
-      <h3>KPI Estimator</h3>
-      <p>Estimate Reach, Impressions, and campaign Results based on budget and platform objectives.</p>
-    </div>
-    <div class="tool-card" onclick="openTool('tool-sz')">
-      <div class="tool-icon"><i class="fa fa-mobile-alt"></i></div>
-      <h3>Video Safe Zone</h3>
-      <p>Check if your vertical video text overlaps with TikTok or Instagram Reels UI elements.</p>
-    </div>
-  </div>
+  <div class="app-container">
 
-  <div id="tool-metrics" class="tool-view">
-    <div class="tool-header-bar">
-      <div class="tool-header-left">
-        <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
-        <h2>Metrics Calculator</h2>
-      </div>
-      <div>
-        <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
-        <div class="other-tools-nav">
-          <button class="nav-tool-btn" onclick="openTool('tool-copy')"><i class="fa fa-image"></i> Ad Previewer</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-kpi')"><i class="fa fa-chart-line"></i> KPI Estimator</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-sz')"><i class="fa fa-mobile-alt"></i> Safe Zone</button>
-        </div>
-      </div>
+    <div class="app-header">
+      <div class="app-tag"><span></span> Free Tools</div>
+      <h1 class="app-title">Digital Marketing <em>Tools</em></h1>
+      <p class="app-desc">Calculators, estimators, and visual previews designed for FMCG media planning.</p>
     </div>
-    <div class="tool-card-body">
-      <div class="search-wrapper">
-        <i class="fa fa-search"></i>
-        <input type="text" id="metricSearch" class="search-input" placeholder="Search metric (e.g. ROAS, CTR, CPM)…" oninput="renderMetrics()">
-      </div>
-      <div id="metricsContainer"></div>
-    </div>
-  </div>
 
-  <div id="tool-copy" class="tool-view">
-    <div class="tool-header-bar">
-      <div class="tool-header-left">
-        <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
-        <h2>Ad Previewer</h2>
+    <div id="dashboardView" class="tools-grid">
+      <div class="tool-card" onclick="openTool('tool-metrics')">
+        <div class="tool-icon"><i class="fa fa-calculator"></i></div>
+        <h3>Metrics Calculator</h3>
+        <p>Calculate 25+ essential digital marketing metrics with correct formulas and step-by-step breakdowns.</p>
       </div>
-      <div>
-        <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
-        <div class="other-tools-nav">
-          <button class="nav-tool-btn" onclick="openTool('tool-metrics')"><i class="fa fa-calculator"></i> Metrics Calculator</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-kpi')"><i class="fa fa-chart-line"></i> KPI Estimator</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-sz')"><i class="fa fa-mobile-alt"></i> Safe Zone</button>
-        </div>
+      <div class="tool-card" onclick="openTool('tool-copy')">
+        <div class="tool-icon"><i class="fa fa-image"></i></div>
+        <h3>Ad Previewer</h3>
+        <p>Upload your ad creative and preview it on Facebook, Instagram, TikTok, and YouTube in real aspect ratios.</p>
+      </div>
+      <div class="tool-card" onclick="openTool('tool-kpi')">
+        <div class="tool-icon"><i class="fa fa-chart-line"></i></div>
+        <h3>KPI Estimator</h3>
+        <p>Estimate Reach, Impressions, and campaign Results based on budget and platform objectives.</p>
+      </div>
+      <div class="tool-card" onclick="openTool('tool-sz')">
+        <div class="tool-icon"><i class="fa fa-mobile-alt"></i></div>
+        <h3>Video Safe Zone</h3>
+        <p>Check if your vertical video text overlaps with TikTok or Instagram Reels UI elements.</p>
       </div>
     </div>
-    <div class="tool-card-body">
-      <div class="plat-tabs">
-        <button class="plat-tab active" onclick="setPreview('fb',event)"><i class="fab fa-facebook" style="margin-right:4px;"></i>Facebook</button>
-        <button class="plat-tab" onclick="setPreview('ig',event)"><i class="fab fa-instagram" style="margin-right:4px;"></i>Instagram</button>
-        <button class="plat-tab" onclick="setPreview('tt',event)"><i class="fab fa-tiktok" style="margin-right:4px;"></i>TikTok</button>
-        <button class="plat-tab" onclick="setPreview('yt',event)"><i class="fab fa-youtube" style="margin-right:4px;"></i>YouTube</button>
-      </div>
-      <div class="tool-layout">
-        <div>
-          <p class="section-label">Ad Details</p>
-          <div class="input-group">
-            <label>Brand / Channel Name</label>
-            <input type="text" id="prevName" class="input-control" value="Milindu Marketing" oninput="updatePreviews()">
-          </div>
-          <div class="input-group">
-            <label>Profile Picture</label>
-            <div class="upload-zone" style="padding:1rem;">
-              <input type="file" id="ppFileInput" accept="image/*" onchange="handlePPUpload(event)">
-              <i class="fa fa-user-circle"></i>
-              <span>Click to upload or <strong>drag & drop</strong></span>
-            </div>
-            <div id="ppPreviewStrip" class="upload-preview-strip"></div>
-          </div>
-          <div class="input-group">
-            <label>Primary Text / Caption</label>
-            <textarea id="prevText" class="input-control" rows="3" oninput="updatePreviews()">Check out our latest digital marketing toolkit. Perfect for media buyers and planners in Sri Lanka!</textarea>
-          </div>
-          <div class="input-group" id="headGroup">
-            <label>Headline <span class="badge-pill">FB / YT</span></label>
-            <input type="text" id="prevHead" class="input-control" value="Boost Your ROAS Today" oninput="updatePreviews()">
-          </div>
-          <div class="input-group" id="descGroup">
-            <label>Description <span class="badge-pill">FB only</span></label>
-            <input type="text" id="prevDesc" class="input-control" value="Free tools and templates." oninput="updatePreviews()">
-          </div>
-          <div class="divider"></div>
-          <p class="section-label">Creative Upload</p>
-          <div class="input-group">
-            <label>Ad Image / Video Screenshot</label>
-            <div class="upload-zone" id="creativeUploadZone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
-              <input type="file" id="creativeFileInput" accept="image/*" onchange="handleCreativeUpload(event)">
-              <i class="fa fa-cloud-upload-alt"></i>
-              <span>Upload image or video screenshot — <strong>drag & drop</strong></span>
-            </div>
-            <div id="creativePreviewStrip" class="upload-preview-strip"></div>
-            <p class="upload-note"><i class="fa fa-info-circle"></i> JPG, PNG, WEBP, GIF supported. For video ads upload a thumbnail frame.</p>
-          </div>
-          <button class="btn btn-outline" style="width:100%;margin-top:.4rem;" onclick="clearCreative()"><i class="fa fa-trash-alt"></i> Clear Creative</button>
+
+    <div id="tool-metrics" class="tool-view">
+      <div class="tool-header-bar">
+        <div class="tool-header-left">
+          <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
+          <h2>Metrics Calculator</h2>
         </div>
         <div>
-          <p class="section-label" style="text-align:center;">Live Preview</p>
-          <div class="ad-preview-wrapper">
-            <div id="prev-fb" class="preview-card active">
-              <div class="fb-head">
-                <div class="fb-pp" id="fb-pp-out"></div>
-                <div style="flex:1;">
-                  <div class="fb-name" id="fb-name-out">Milindu Marketing</div>
-                  <div class="fb-spon">Sponsored <i class="fa fa-globe-americas" style="font-size:9px;margin-left:2px;"></i></div>
-                </div>
-                <i class="fa fa-ellipsis-h" style="color:#65676b;font-size:12px;"></i>
-              </div>
-              <div class="fb-text" id="fb-text-out">Caption text</div>
-              <div class="fb-img" id="fb-img-out"><i class="fa fa-image img-placeholder-icon"></i></div>
-              <div class="fb-bot">
-                <div style="overflow:hidden;padding-right:10px;">
-                  <div class="fb-url">website.com</div>
-                  <div class="fb-headl" id="fb-head-out">Headline</div>
-                  <div class="fb-desc" id="fb-desc-out">Description</div>
-                </div>
-                <div class="fb-cta">Learn More</div>
-              </div>
-              <div class="fb-reactions">
-                <div class="fb-react-row">
-                  <div class="fb-react-icons">
-                    <span style="background:#1877f2;">👍</span><span style="background:#f02849;">❤️</span><span style="background:#f7b125;">😮</span>
-                  </div>&nbsp;1.2K
-                </div>
-                <div class="fb-react-row">84 comments · 32 shares</div>
-              </div>
+          <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
+          <div class="other-tools-nav">
+            <button class="nav-tool-btn" onclick="openTool('tool-copy')"><i class="fa fa-image"></i> Ad
+              Previewer</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-kpi')"><i class="fa fa-chart-line"></i> KPI
+              Estimator</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-sz')"><i class="fa fa-mobile-alt"></i> Safe
+              Zone</button>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="search-wrapper">
+          <i class="fa fa-search"></i>
+          <input type="text" id="metricSearch" class="search-input" placeholder="Search metric (e.g. ROAS, CTR, CPM)…"
+            oninput="renderMetrics()">
+        </div>
+        <div id="metricsContainer"></div>
+      </div>
+    </div>
+
+    <div id="tool-copy" class="tool-view">
+      <div class="tool-header-bar">
+        <div class="tool-header-left">
+          <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
+          <h2>Ad Previewer</h2>
+        </div>
+        <div>
+          <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
+          <div class="other-tools-nav">
+            <button class="nav-tool-btn" onclick="openTool('tool-metrics')"><i class="fa fa-calculator"></i> Metrics
+              Calculator</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-kpi')"><i class="fa fa-chart-line"></i> KPI
+              Estimator</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-sz')"><i class="fa fa-mobile-alt"></i> Safe
+              Zone</button>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="plat-tabs">
+          <button class="plat-tab active" onclick="setPreview('fb',event)"><i class="fab fa-facebook"
+              style="margin-right:4px;"></i>Facebook</button>
+          <button class="plat-tab" onclick="setPreview('ig',event)"><i class="fab fa-instagram"
+              style="margin-right:4px;"></i>Instagram</button>
+          <button class="plat-tab" onclick="setPreview('tt',event)"><i class="fab fa-tiktok"
+              style="margin-right:4px;"></i>TikTok</button>
+          <button class="plat-tab" onclick="setPreview('yt',event)"><i class="fab fa-youtube"
+              style="margin-right:4px;"></i>YouTube</button>
+        </div>
+        <div class="tool-layout">
+          <div>
+            <p class="section-label">Ad Details</p>
+            <div class="input-group">
+              <label>Brand / Channel Name</label>
+              <input type="text" id="prevName" class="input-control" value="Milindu Marketing"
+                oninput="updatePreviews()">
             </div>
-            <div id="prev-ig" class="preview-card">
-              <div class="ig-head">
-                <div class="ig-head-left">
-                  <div class="ig-pp-ring"><div class="ig-pp-inner" id="ig-pp-out"></div></div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;" id="ig-name-out">milindumarketing</div>
-                    <div style="font-size:11px;color:#8e8e8e;">Sponsored</div>
+            <div class="input-group">
+              <label>Profile Picture</label>
+              <div class="upload-zone" style="padding:1rem;">
+                <input type="file" id="ppFileInput" accept="image/*" onchange="handlePPUpload(event)">
+                <i class="fa fa-user-circle"></i>
+                <span>Click to upload or <strong>drag & drop</strong></span>
+              </div>
+              <div id="ppPreviewStrip" class="upload-preview-strip"></div>
+            </div>
+            <div class="input-group">
+              <label>Primary Text / Caption</label>
+              <textarea id="prevText" class="input-control" rows="3"
+                oninput="updatePreviews()">Check out our latest digital marketing toolkit. Perfect for media buyers and planners in Sri Lanka!</textarea>
+            </div>
+            <div class="input-group" id="headGroup">
+              <label>Headline <span class="badge-pill">FB / YT</span></label>
+              <input type="text" id="prevHead" class="input-control" value="Boost Your ROAS Today"
+                oninput="updatePreviews()">
+            </div>
+            <div class="input-group" id="descGroup">
+              <label>Description <span class="badge-pill">FB only</span></label>
+              <input type="text" id="prevDesc" class="input-control" value="Free tools and templates."
+                oninput="updatePreviews()">
+            </div>
+            <div class="divider"></div>
+            <p class="section-label">Creative Upload</p>
+            <div class="input-group">
+              <label>Ad Image / Video Screenshot</label>
+              <div class="upload-zone" id="creativeUploadZone" ondragover="handleDragOver(event)"
+                ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                <input type="file" id="creativeFileInput" accept="image/*" onchange="handleCreativeUpload(event)">
+                <i class="fa fa-cloud-upload-alt"></i>
+                <span>Upload image or video screenshot — <strong>drag & drop</strong></span>
+              </div>
+              <div id="creativePreviewStrip" class="upload-preview-strip"></div>
+              <p class="upload-note"><i class="fa fa-info-circle"></i> JPG, PNG, WEBP, GIF supported. For video ads
+                upload a thumbnail frame.</p>
+            </div>
+            <button class="btn btn-outline" style="width:100%;margin-top:.4rem;" onclick="clearCreative()"><i
+                class="fa fa-trash-alt"></i> Clear Creative</button>
+          </div>
+          <div>
+            <p class="section-label" style="text-align:center;">Live Preview</p>
+            <div class="ad-preview-wrapper">
+              <div id="prev-fb" class="preview-card active">
+                <div class="fb-head">
+                  <div class="fb-pp" id="fb-pp-out"></div>
+                  <div style="flex:1;">
+                    <div class="fb-name" id="fb-name-out">Milindu Marketing</div>
+                    <div class="fb-spon">Sponsored <i class="fa fa-globe-americas"
+                        style="font-size:9px;margin-left:2px;"></i></div>
+                  </div>
+                  <i class="fa fa-ellipsis-h" style="color:#65676b;font-size:12px;"></i>
+                </div>
+                <div class="fb-text" id="fb-text-out">Caption text</div>
+                <div class="fb-img" id="fb-img-out"><i class="fa fa-image img-placeholder-icon"></i></div>
+                <div class="fb-bot">
+                  <div style="overflow:hidden;padding-right:10px;">
+                    <div class="fb-url">website.com</div>
+                    <div class="fb-headl" id="fb-head-out">Headline</div>
+                    <div class="fb-desc" id="fb-desc-out">Description</div>
+                  </div>
+                  <div class="fb-cta">Learn More</div>
+                </div>
+                <div class="fb-reactions">
+                  <div class="fb-react-row">
+                    <div class="fb-react-icons">
+                      <span style="background:#1877f2;">👍</span><span style="background:#f02849;">❤️</span><span
+                        style="background:#f7b125;">😮</span>
+                    </div>&nbsp;1.2K
+                  </div>
+                  <div class="fb-react-row">84 comments · 32 shares</div>
+                </div>
+              </div>
+              <div id="prev-ig" class="preview-card">
+                <div class="ig-head">
+                  <div class="ig-head-left">
+                    <div class="ig-pp-ring">
+                      <div class="ig-pp-inner" id="ig-pp-out"></div>
+                    </div>
+                    <div>
+                      <div style="font-size:13px;font-weight:700;" id="ig-name-out">milindumarketing</div>
+                      <div style="font-size:11px;color:#8e8e8e;">Sponsored</div>
+                    </div>
+                  </div>
+                  <i class="fa fa-ellipsis-h" style="color:#8e8e8e;font-size:12px;"></i>
+                </div>
+                <div class="ig-img" id="ig-img-out"><i class="fa fa-image img-placeholder-icon"></i></div>
+                <div style="padding:9px 12px;display:flex;justify-content:space-between;">
+                  <div class="ig-actions-left"><i class="far fa-heart"></i><i class="far fa-comment"></i><i
+                      class="far fa-paper-plane"></i></div>
+                  <i class="far fa-bookmark" style="font-size:19px;"></i>
+                </div>
+                <div class="ig-spon-tag">Sponsored</div>
+                <div class="ig-likes">1,245 likes</div>
+                <div class="ig-cap"><strong id="ig-name2-out">milindumarketing</strong> <span
+                    id="ig-text-out">Caption</span></div>
+                <div style="padding:0 12px 12px;font-size:12px;color:#8e8e8e;">View all 84 comments</div>
+              </div>
+              <div id="prev-tt" class="tt-wrapper">
+                <div class="tt-bg" id="tt-bg-out"></div>
+                <div class="tt-gradient"></div>
+                <div class="tt-top-bar">
+                  <span>Following &nbsp;|&nbsp; <strong>For You</strong></span>
+                  <i class="fa fa-search" style="font-size:16px;"></i>
+                </div>
+                <div class="tt-right-bar">
+                  <div class="tt-icon-wrap">
+                    <div class="tt-icon" id="tt-pp-side" style="background-size:cover;background-position:center;"><i
+                        class="fa fa-user" style="font-size:12px;"></i></div>
+                  </div>
+                  <div class="tt-icon-wrap">
+                    <div class="tt-icon"><i class="fa fa-heart"></i></div>
+                    <span class="tt-icon-label">24.5K</span>
+                  </div>
+                  <div class="tt-icon-wrap">
+                    <div class="tt-icon"><i class="far fa-comment"></i></div>
+                    <span class="tt-icon-label">843</span>
+                  </div>
+                  <div class="tt-icon-wrap">
+                    <div class="tt-icon"><i class="fa fa-share"></i></div>
+                    <span class="tt-icon-label">Share</span>
                   </div>
                 </div>
-                <i class="fa fa-ellipsis-h" style="color:#8e8e8e;font-size:12px;"></i>
-              </div>
-              <div class="ig-img" id="ig-img-out"><i class="fa fa-image img-placeholder-icon"></i></div>
-              <div style="padding:9px 12px;display:flex;justify-content:space-between;">
-                <div class="ig-actions-left"><i class="far fa-heart"></i><i class="far fa-comment"></i><i class="far fa-paper-plane"></i></div>
-                <i class="far fa-bookmark" style="font-size:19px;"></i>
-              </div>
-              <div class="ig-spon-tag">Sponsored</div>
-              <div class="ig-likes">1,245 likes</div>
-              <div class="ig-cap"><strong id="ig-name2-out">milindumarketing</strong> <span id="ig-text-out">Caption</span></div>
-              <div style="padding:0 12px 12px;font-size:12px;color:#8e8e8e;">View all 84 comments</div>
-            </div>
-            <div id="prev-tt" class="tt-wrapper">
-              <div class="tt-bg" id="tt-bg-out"></div>
-              <div class="tt-gradient"></div>
-              <div class="tt-top-bar">
-                <span>Following &nbsp;|&nbsp; <strong>For You</strong></span>
-                <i class="fa fa-search" style="font-size:16px;"></i>
-              </div>
-              <div class="tt-right-bar">
-                <div class="tt-icon-wrap">
-                  <div class="tt-icon" id="tt-pp-side" style="background-size:cover;background-position:center;"><i class="fa fa-user" style="font-size:12px;"></i></div>
+                <div class="tt-bottom">
+                  <div class="tt-pp-row">
+                    <div class="tt-pp-sm" id="tt-pp-out"></div>
+                    <span class="tt-handle" id="tt-name-out">@milindumarketing</span>
+                    <span class="tt-follow">Follow</span>
+                  </div>
+                  <div class="tt-caption" id="tt-text-out">Caption</div>
+                  <div class="tt-music">
+                    <div class="tt-disc"></div> Original Audio – Brand
+                  </div>
                 </div>
-                <div class="tt-icon-wrap">
-                  <div class="tt-icon"><i class="fa fa-heart"></i></div>
-                  <span class="tt-icon-label">24.5K</span>
-                </div>
-                <div class="tt-icon-wrap">
-                  <div class="tt-icon"><i class="far fa-comment"></i></div>
-                  <span class="tt-icon-label">843</span>
-                </div>
-                <div class="tt-icon-wrap">
-                  <div class="tt-icon"><i class="fa fa-share"></i></div>
-                  <span class="tt-icon-label">Share</span>
-                </div>
+                <div class="tt-cta"><span>Learn More</span><i class="fa fa-chevron-right"></i></div>
               </div>
-              <div class="tt-bottom">
-                <div class="tt-pp-row">
-                  <div class="tt-pp-sm" id="tt-pp-out"></div>
-                  <span class="tt-handle" id="tt-name-out">@milindumarketing</span>
-                  <span class="tt-follow">Follow</span>
+              <div id="prev-yt" class="yt-wrapper">
+                <div class="yt-img" id="yt-img-out">
+                  <i class="fab fa-youtube img-placeholder-icon" style="opacity:.18;font-size:2.8rem;color:#fff;"></i>
+                  <div class="yt-ad-badge">Ad</div>
+                  <div class="yt-skip-btn"><i class="fa fa-forward"></i> Skip Ad</div>
+                  <div class="yt-progress-bar-wrap">
+                    <div class="yt-progress-fill"></div>
+                  </div>
                 </div>
-                <div class="tt-caption" id="tt-text-out">Caption</div>
-                <div class="tt-music"><div class="tt-disc"></div> Original Audio – Brand</div>
-              </div>
-              <div class="tt-cta"><span>Learn More</span><i class="fa fa-chevron-right"></i></div>
-            </div>
-            <div id="prev-yt" class="yt-wrapper">
-              <div class="yt-img" id="yt-img-out">
-                <i class="fab fa-youtube img-placeholder-icon" style="opacity:.18;font-size:2.8rem;color:#fff;"></i>
-                <div class="yt-ad-badge">Ad</div>
-                <div class="yt-skip-btn"><i class="fa fa-forward"></i> Skip Ad</div>
-                <div class="yt-progress-bar-wrap"><div class="yt-progress-fill"></div></div>
-              </div>
-              <div class="yt-info">
-                <div class="fb-pp" id="yt-pp-out" style="background:#444;"></div>
-                <div style="flex:1;">
-                  <div class="yt-title" id="yt-head-out">Boost Your ROAS Today</div>
-                  <div class="yt-chan"><span id="yt-name-out">Milindu Marketing</span><span style="font-size:10px;">✓</span>· Sponsored</div>
-                  <div class="yt-actions"><div class="yt-visit">Visit Website</div><div class="yt-skip-text">Skip</div></div>
+                <div class="yt-info">
+                  <div class="fb-pp" id="yt-pp-out" style="background:#444;"></div>
+                  <div style="flex:1;">
+                    <div class="yt-title" id="yt-head-out">Boost Your ROAS Today</div>
+                    <div class="yt-chan"><span id="yt-name-out">Milindu Marketing</span><span
+                        style="font-size:10px;">✓</span>· Sponsored</div>
+                    <div class="yt-actions">
+                      <div class="yt-visit">Visit Website</div>
+                      <div class="yt-skip-text">Skip</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -612,547 +2267,578 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         </div>
       </div>
     </div>
-  </div>
 
-  <div id="tool-kpi" class="tool-view">
-    <div class="tool-header-bar">
-      <div class="tool-header-left">
-        <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
-        <h2>KPI Estimator</h2>
-      </div>
-      <div>
-        <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
-        <div class="other-tools-nav">
-          <button class="nav-tool-btn" onclick="openTool('tool-metrics')"><i class="fa fa-calculator"></i> Metrics Calculator</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-copy')"><i class="fa fa-image"></i> Ad Previewer</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-sz')"><i class="fa fa-mobile-alt"></i> Safe Zone</button>
-        </div>
-      </div>
-    </div>
-    <div class="tool-card-body">
-      <div class="tool-layout">
-        <div>
-          <div class="input-group">
-            <label>Platform</label>
-            <select id="kpiPlatform" class="input-control" onchange="updateObjectiveOptions()">
-              <option value="meta">Meta Ads</option>
-              <option value="tiktok">TikTok Ads</option>
-              <option value="youtube">YouTube Ads</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>Campaign Objective</label>
-            <select id="kpiObj" class="input-control" onchange="updateKPIInputs()"></select>
-          </div>
-          <div class="input-group">
-            <label>Total Budget (LKR)</label>
-            <input type="number" id="kpiBudget" class="input-control" value="100000" oninput="calculateKPI()">
-          </div>
-          <div id="dynamicKPIInputs"></div>
-          <div class="input-group" style="margin-top:1.4rem;border-top:1px solid var(--border);padding-top:1.4rem;">
-            <label>Target Audience Size <span style="font-weight:400;text-transform:none;font-size:.7rem;">(optional — for Reach %)</span></label>
-            <input type="number" id="kpiTG" class="input-control" placeholder="E.g. 2500000" oninput="calculateKPI()">
-          </div>
-          <button class="btn btn-primary" style="width:100%;margin-top:.4rem;" onclick="calculateKPI()"><i class="fa fa-chart-bar"></i> Calculate Estimates</button>
+    <div id="tool-kpi" class="tool-view">
+      <div class="tool-header-bar">
+        <div class="tool-header-left">
+          <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
+          <h2>KPI Estimator</h2>
         </div>
         <div>
-          <h3 style="margin-bottom:1.1rem;font-size:.82rem;text-align:center;color:var(--text2);text-transform:uppercase;letter-spacing:.12em;font-family:var(--font-mono);">Estimated Delivery</h3>
-          <div class="results-grid">
-            <div class="kpi-card"><h4>Impressions</h4><div class="val" id="outImp">0</div></div>
-            <div class="kpi-card"><h4>Est. Reach</h4><div class="val" id="outReach">0</div></div>
-            <div class="kpi-card" style="grid-column:1/-1;"><h4 id="outResultLabel">Results</h4><div class="val" id="outResult">0</div></div>
-          </div>
-          <div class="tg-note" id="tgNote"><i class="fa fa-bullseye"></i> Reaching <strong id="outReachPct">0%</strong> of your total Target Audience.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="tool-sz" class="tool-view">
-    <div class="tool-header-bar">
-      <div class="tool-header-left">
-        <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
-        <h2>Video Safe Zone Checker</h2>
-      </div>
-      <div>
-        <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
-        <div class="other-tools-nav">
-          <button class="nav-tool-btn" onclick="openTool('tool-metrics')"><i class="fa fa-calculator"></i> Metrics Calculator</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-copy')"><i class="fa fa-image"></i> Ad Previewer</button>
-          <button class="nav-tool-btn" onclick="openTool('tool-kpi')"><i class="fa fa-chart-line"></i> KPI Estimator</button>
-        </div>
-      </div>
-    </div>
-    <div class="tool-card-body">
-      <div class="tool-layout">
-        <div>
-          <div class="sz-tabs">
-            <button class="sz-tab active" onclick="setSafeZone('tiktok',event)"><i class="fab fa-tiktok"></i> TikTok</button>
-            <button class="sz-tab" onclick="setSafeZone('reels',event)"><i class="fab fa-instagram"></i> IG Reels</button>
-          </div>
-          <p style="color:var(--text2);font-size:.88rem;margin-bottom:1.5rem;line-height:1.65;">Upload a frame from your vertical video to check if key text overlaps with platform UI elements.</p>
-          <div class="input-group">
-            <label>Upload Video Frame</label>
-            <div class="upload-zone">
-              <input type="file" id="szFile" accept="image/*" onchange="loadSZImage(event)">
-              <i class="fa fa-film"></i>
-              <span>Upload a <strong>screenshot or frame</strong> from your vertical video</span>
-            </div>
-          </div>
-          <button class="btn btn-outline" style="width:100%" onclick="clearSafeZone()"><i class="fa fa-redo"></i> Clear Image</button>
-          <div class="sz-legend">
-            <div class="sz-legend-item"><div class="sz-legend-dot" style="background:rgba(239,68,68,.45);border:1px dashed #ef4444;"></div>UI Overlap Zone</div>
-            <div class="sz-legend-item"><div class="sz-legend-dot" style="background:transparent;border:2px solid rgba(34,197,94,.5);"></div>Safe Zone</div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;">
-          <div class="safe-zone-preview" id="szPreviewBox">
-            <div class="sz-placeholder" id="szPlaceholder">
-              <i class="fa fa-mobile-alt"></i>
-              <span>Upload a frame above</span>
-            </div>
-            <div id="szOverlays"></div>
-            <div class="sz-safe-outline"></div>
+          <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
+          <div class="other-tools-nav">
+            <button class="nav-tool-btn" onclick="openTool('tool-metrics')"><i class="fa fa-calculator"></i> Metrics
+              Calculator</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-copy')"><i class="fa fa-image"></i> Ad
+              Previewer</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-sz')"><i class="fa fa-mobile-alt"></i> Safe
+              Zone</button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="modal-overlay" id="metricsModal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <div class="modal-metric-abbr" id="modalAbbr">CTR</div>
-      <div class="modal-title" id="modalTitle">Metric Name</div>
-      <div class="modal-desc" id="modalDesc">Description</div>
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div id="modalInputs"></div>
-      <button class="btn btn-primary" style="width:100%;margin-top:.4rem;" onclick="executeCalc()"><i class="fa fa-equals"></i> Calculate</button>
-      
-      <div class="calc-result-box" id="calcResultBox">
-        <div class="calc-result-top">
-          <div class="calc-result-icon"><i class="fa fa-check"></i></div>
+      <div class="tool-card-body">
+        <div class="tool-layout">
           <div>
-            <div class="calc-result-val" id="calcVal">0</div>
-            <div class="calc-result-label">Result</div>
+            <div class="input-group">
+              <label>Platform</label>
+              <select id="kpiPlatform" class="input-control" onchange="updateObjectiveOptions()">
+                <option value="meta">Meta Ads</option>
+                <option value="tiktok">TikTok Ads</option>
+                <option value="youtube">YouTube Ads</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Campaign Objective</label>
+              <select id="kpiObj" class="input-control" onchange="updateKPIInputs()"></select>
+            </div>
+            <div class="input-group">
+              <label>Total Budget (LKR)</label>
+              <input type="number" id="kpiBudget" class="input-control" value="100000" oninput="calculateKPI()">
+            </div>
+            <div id="dynamicKPIInputs"></div>
+            <div class="input-group" style="margin-top:1.4rem;border-top:1px solid var(--border);padding-top:1.4rem;">
+              <label>Target Audience Size <span style="font-weight:400;text-transform:none;font-size:.7rem;">(optional —
+                  for Reach %)</span></label>
+              <input type="number" id="kpiTG" class="input-control" placeholder="E.g. 2500000" oninput="calculateKPI()">
+            </div>
+            <button class="btn btn-primary" style="width:100%;margin-top:.4rem;" onclick="calculateKPI()"><i
+                class="fa fa-chart-bar"></i> Calculate Estimates</button>
+          </div>
+          <div>
+            <h3
+              style="margin-bottom:1.1rem;font-size:.82rem;text-align:center;color:var(--text2);text-transform:uppercase;letter-spacing:.12em;font-family:var(--font-mono);">
+              Estimated Delivery</h3>
+            <div class="results-grid">
+              <div class="kpi-card">
+                <h4>Impressions</h4>
+                <div class="val" id="outImp">0</div>
+              </div>
+              <div class="kpi-card">
+                <h4>Est. Reach</h4>
+                <div class="val" id="outReach">0</div>
+              </div>
+              <div class="kpi-card" style="grid-column:1/-1;">
+                <h4 id="outResultLabel">Results</h4>
+                <div class="val" id="outResult">0</div>
+              </div>
+            </div>
+            <div class="tg-note" id="tgNote"><i class="fa fa-bullseye"></i> Reaching <strong
+                id="outReachPct">0%</strong> of your total Target Audience.</div>
           </div>
         </div>
-        <div class="calc-result-steps">
-          <strong>Simply put:</strong> <span id="calcFormulaDesc" style="color:var(--text);"></span><br><br>
-          <strong>Formula:</strong><br>
-          <span id="calcFormulaBase" style="color:var(--accent);"></span><br><br>
-          <strong>Calculation:</strong><br>
-          <span id="calcStepsMath"></span>
+      </div>
+    </div>
+
+    <div id="tool-sz" class="tool-view">
+      <div class="tool-header-bar">
+        <div class="tool-header-left">
+          <button class="back-btn" onclick="closeTool()"><i class="fa fa-arrow-left"></i> Dashboard</button>
+          <h2>Video Safe Zone Checker</h2>
+        </div>
+        <div>
+          <div class="other-tools-label" style="margin-bottom:.4rem;">Jump to another tool</div>
+          <div class="other-tools-nav">
+            <button class="nav-tool-btn" onclick="openTool('tool-metrics')"><i class="fa fa-calculator"></i> Metrics
+              Calculator</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-copy')"><i class="fa fa-image"></i> Ad
+              Previewer</button>
+            <button class="nav-tool-btn" onclick="openTool('tool-kpi')"><i class="fa fa-chart-line"></i> KPI
+              Estimator</button>
+          </div>
         </div>
       </div>
+      <div class="tool-card-body">
+        <div class="tool-layout">
+          <div>
+            <div class="sz-tabs">
+              <button class="sz-tab active" onclick="setSafeZone('tiktok',event)"><i class="fab fa-tiktok"></i>
+                TikTok</button>
+              <button class="sz-tab" onclick="setSafeZone('reels',event)"><i class="fab fa-instagram"></i> IG
+                Reels</button>
+            </div>
+            <p style="color:var(--text2);font-size:.88rem;margin-bottom:1.5rem;line-height:1.65;">Upload a frame from
+              your vertical video to check if key text overlaps with platform UI elements.</p>
+            <div class="input-group">
+              <label>Upload Video Frame</label>
+              <div class="upload-zone">
+                <input type="file" id="szFile" accept="image/*" onchange="loadSZImage(event)">
+                <i class="fa fa-film"></i>
+                <span>Upload a <strong>screenshot or frame</strong> from your vertical video</span>
+              </div>
+            </div>
+            <button class="btn btn-outline" style="width:100%" onclick="clearSafeZone()"><i class="fa fa-redo"></i>
+              Clear Image</button>
+            <div class="sz-legend">
+              <div class="sz-legend-item">
+                <div class="sz-legend-dot" style="background:rgba(239,68,68,.45);border:1px dashed #ef4444;"></div>UI
+                Overlap Zone
+              </div>
+              <div class="sz-legend-item">
+                <div class="sz-legend-dot" style="background:transparent;border:2px solid rgba(34,197,94,.5);"></div>
+                Safe Zone
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div class="safe-zone-preview" id="szPreviewBox">
+              <div class="sz-placeholder" id="szPlaceholder">
+                <i class="fa fa-mobile-alt"></i>
+                <span>Upload a frame above</span>
+              </div>
+              <div id="szOverlays"></div>
+              <div class="sz-safe-outline"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+  </div>
+
+  <div class="modal-overlay" id="metricsModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-metric-abbr" id="modalAbbr">CTR</div>
+        <div class="modal-title" id="modalTitle">Metric Name</div>
+        <div class="modal-desc" id="modalDesc">Description</div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modalInputs"></div>
+        <button class="btn btn-primary" style="width:100%;margin-top:.4rem;" onclick="executeCalc()"><i
+            class="fa fa-equals"></i> Calculate</button>
+
+        <div class="calc-result-box" id="calcResultBox">
+          <div class="calc-result-top">
+            <div class="calc-result-icon"><i class="fa fa-check"></i></div>
+            <div>
+              <div class="calc-result-val" id="calcVal">0</div>
+              <div class="calc-result-label">Result</div>
+            </div>
+          </div>
+          <div class="calc-result-steps">
+            <strong>Simply put:</strong> <span id="calcFormulaDesc" style="color:var(--text);"></span><br><br>
+            <strong>Formula:</strong><br>
+            <span id="calcFormulaBase" style="color:var(--accent);"></span><br><br>
+            <strong>Calculation:</strong><br>
+            <span id="calcStepsMath"></span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
-<footer>
-  <div class="footer-logo">Milindu Madushan</div>
-  <nav class="footer-nav">
-    <a href="index.html#about">About</a>
-    <a href="index.html#experience">Experience</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#certifications">Badges</a>
-    <a href="index.html#education">Education</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="blog.html">Blog</a>
-    <a href="tools.html">Tools</a>
-  </nav>
-  <p class="footer-copy">
-    © 2026 Milindu Madushan · Meta Certified Digital Marketer · Mindshare WPP Media<br>
-    <small>
-      <a href="https://www.linkedin.com/in/milindu-madushan/" target="_blank">LinkedIn</a> ·
-      <a href="https://www.credly.com/users/milindu-madushan/badges#credly" target="_blank">Credly Badges</a>
-    </small>
-  </p>
-</footer>
+  <footer>
+    <div class="footer-logo">Milindu Madushan</div>
+    <nav class="footer-nav">
+      <a href="index.html#about">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#certifications">Badges</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="blog.html">Blog</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+    <p class="footer-copy">
+      © 2026 Milindu Madushan · Meta Certified Digital Marketer · Mindshare WPP Media<br>
+      <small>
+        <a href="https://www.linkedin.com/in/milindu-madushan/" target="_blank">LinkedIn</a> ·
+        <a href="https://www.credly.com/users/milindu-madushan/badges#credly" target="_blank">Credly Badges</a>
+      </small>
+    </p>
+  </footer>
 
-<button class="back-to-top" id="backTop" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+  <button class="back-to-top" id="backTop" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
 
-<script>
-/* =========================================================
-   THEME
-========================================================= */
-const body = document.body;
-body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const t = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  body.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-});
+  <script>
+    /* =========================================================
+       THEME
+    ========================================================= */
+    const body = document.body;
+    body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const t = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    });
 
-/* =========================================================
-   MOBILE MENU (Hamburger Logic Added)
-========================================================= */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-if(hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-  });
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-  }));
-}
-
-/* =========================================================
-   CURSOR
-========================================================= */
-const cursor = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursor-ring');
-let mx=0, my=0, rx=0, ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-(function animC(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px'; requestAnimationFrame(animC); })();
-document.querySelectorAll('a,button,.tool-card,.metric-btn').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ cursor.style.width='18px'; cursor.style.height='18px'; cursorRing.style.width='50px'; cursorRing.style.height='50px'; });
-  el.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; });
-});
-
-/* =========================================================
-   PARTICLES
-========================================================= */
-const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-function resizeC(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
-resizeC(); window.addEventListener('resize', resizeC);
-class P {
-  constructor(){ this.r(); }
-  r(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.vx=(Math.random()-.5)*.3; this.vy=(Math.random()-.5)*.3; this.s=Math.random()*1.5+.5; this.o=Math.random()*.4+.1; }
-  u(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height) this.r(); }
-  d(){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.arc(this.x,this.y,this.s,0,Math.PI*2); ctx.fillStyle=dk?`rgba(59,130,246,${this.o})`:`rgba(29,78,216,${this.o*.5})`; ctx.fill(); }
-}
-const ps=Array.from({length:80},()=>new P());
-function dLines(){ for(let i=0;i<ps.length;i++) for(let j=i+1;j<ps.length;j++){ const dx=ps[i].x-ps[j].x, dy=ps[i].y-ps[j].y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.strokeStyle=dk?`rgba(59,130,246,${.06*(1-dist/120)})`:`rgba(29,78,216,${.04*(1-dist/120)})`; ctx.lineWidth=.5; ctx.moveTo(ps[i].x,ps[i].y); ctx.lineTo(ps[j].x,ps[j].y); ctx.stroke(); }}}
-(function anim(){ ctx.clearRect(0,0,canvas.width,canvas.height); ps.forEach(p=>{ p.u(); p.d(); }); dLines(); requestAnimationFrame(anim); })();
-
-/* =========================================================
-   NAVBAR SCROLL & BACK TO TOP
-========================================================= */
-window.addEventListener('scroll', () => {
-  document.getElementById('backTop').classList.toggle('visible', window.scrollY > 300);
-});
-document.getElementById('backTop').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-/* =========================================================
-   DASHBOARD NAVIGATION
-========================================================= */
-function openTool(id) {
-  document.getElementById('dashboardView').style.display = 'none';
-  document.querySelectorAll('.tool-view').forEach(el => el.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
-  if(id==='tool-copy') updatePreviews();
-  if(id==='tool-kpi'){ updateObjectiveOptions(); calculateKPI(); }
-  if(id==='tool-sz') setSafeZone('tiktok');
-}
-function closeTool() {
-  document.querySelectorAll('.tool-view').forEach(el => el.classList.remove('active'));
-  document.getElementById('dashboardView').style.display = 'grid';
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-/* =========================================================
-   TOOL 1: METRICS CALCULATOR (Simple Formula Descriptions Added)
-========================================================= */
-const metricData = [
-  {cat:'Traffic & Click Metrics',id:'ctr',abbr:'CTR',name:'Click-Through Rate',desc:'Percentage of people who clicked your ad after seeing it',inputs:['Clicks','Impressions'],fmt:'%',fStr:'(Clicks ÷ Impressions) × 100',fDesc:'Total Clicks divided by Total Impressions.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Traffic & Click Metrics',id:'cpc',abbr:'CPC',name:'Cost Per Click',desc:'How much you pay for each click on your ad',inputs:['Spend','Clicks'],fmt:'curr',fStr:'Spend ÷ Clicks',fDesc:'Total Ad Spend divided by Total Clicks.',calc:v=>v[0]/v[1]},
-  {cat:'Traffic & Click Metrics',id:'cpm',abbr:'CPM',name:'Cost Per Mille',desc:'Cost per 1,000 impressions',inputs:['Spend','Impressions'],fmt:'curr',fStr:'(Spend ÷ Impressions) × 1000',fDesc:'Total Ad Spend divided by Total Impressions, multiplied by 1,000.',calc:v=>(v[0]/v[1])*1000},
-  {cat:'Traffic & Click Metrics',id:'cpl',abbr:'CPL',name:'Cost Per Lead',desc:'How much you pay to generate one lead',inputs:['Spend','Leads'],fmt:'curr',fStr:'Spend ÷ Leads',fDesc:'Total Ad Spend divided by Total Leads.',calc:v=>v[0]/v[1]},
-  {cat:'Traffic & Click Metrics',id:'cpa',abbr:'CPA',name:'Cost Per Acquisition',desc:'Cost per purchase or desired action',inputs:['Spend','Conversions'],fmt:'curr',fStr:'Spend ÷ Conversions',fDesc:'Total Ad Spend divided by Total Conversions.',calc:v=>v[0]/v[1]},
-  {cat:'Traffic & Click Metrics',id:'cpmv',abbr:'CPMV',name:'Cost Per Mille Views',desc:'Cost per 1,000 video views',inputs:['Spend','Video Views'],fmt:'curr',fStr:'(Spend ÷ Video Views) × 1000',fDesc:'Total Ad Spend divided by Video Views, multiplied by 1,000.',calc:v=>(v[0]/v[1])*1000},
-  {cat:'Conversion Metrics',id:'cvr',abbr:'CVR',name:'Conversion Rate',desc:'Percentage of clicks that resulted in a conversion',inputs:['Conversions','Clicks'],fmt:'%',fStr:'(Conversions ÷ Clicks) × 100',fDesc:'Total Conversions divided by Total Clicks.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Conversion Metrics',id:'lcr',abbr:'Lead Conv. Rate',name:'Lead Conversion Rate',desc:'Quality of leads — how many become qualified',inputs:['Qualified Leads','Total Leads'],fmt:'%',fStr:'(Qualified Leads ÷ Total Leads) × 100',fDesc:'Qualified Leads divided by Total Leads.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Conversion Metrics',id:'car',abbr:'Cart Abandonment',name:'Cart Abandonment Rate',desc:'Percentage of users who added to cart but did not purchase',inputs:['Total Carts','Purchases'],fmt:'%',fStr:'((Carts - Purchases) ÷ Carts) × 100',fDesc:'Total Carts minus Purchases, divided by Total Carts.',calc:v=>((v[0]-v[1])/v[0])*100},
-  {cat:'Conversion Metrics',id:'ccr',abbr:'Checkout Completion',name:'Checkout Completion Rate',desc:'How many who started checkout actually completed it',inputs:['Purchases','Checkout Starts'],fmt:'%',fStr:'(Purchases ÷ Checkout Starts) × 100',fDesc:'Total Purchases divided by Checkout Starts.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Revenue Metrics',id:'roas',abbr:'ROAS',name:'Return on Ad Spend',desc:'Revenue generated for every rupee spent on ads',inputs:['Revenue','Ad Spend'],fmt:'x',fStr:'Revenue ÷ Ad Spend',fDesc:'Total Revenue divided by Total Ad Spend.',calc:v=>v[0]/v[1]},
-  {cat:'Revenue Metrics',id:'roi',abbr:'ROI',name:'Return on Investment',desc:'Overall profitability of your marketing investment',inputs:['Revenue','Cost'],fmt:'%',fStr:'((Revenue - Cost) ÷ Cost) × 100',fDesc:'Total Revenue minus Cost, divided by Cost.',calc:v=>((v[0]-v[1])/v[1])*100},
-  {cat:'Revenue Metrics',id:'aov',abbr:'AOV',name:'Average Order Value',desc:'Average amount spent per transaction',inputs:['Revenue','Orders'],fmt:'curr',fStr:'Revenue ÷ Orders',fDesc:'Total Revenue divided by Total Orders.',calc:v=>v[0]/v[1]},
-  {cat:'Revenue Metrics',id:'rpc',abbr:'RPC',name:'Revenue Per Click',desc:'Average revenue generated by each click',inputs:['Revenue','Clicks'],fmt:'curr',fStr:'Revenue ÷ Clicks',fDesc:'Total Revenue divided by Total Clicks.',calc:v=>v[0]/v[1]},
-  {cat:'Revenue Metrics',id:'mer',abbr:'MER',name:'Marketing Efficiency Ratio',desc:'Overall return across all marketing spend',inputs:['Total Revenue','Total Marketing Spend'],fmt:'x',fStr:'Total Revenue ÷ Total Marketing Spend',fDesc:'Total Revenue divided by Total Marketing Spend.',calc:v=>v[0]/v[1]},
-  {cat:'Engagement Metrics',id:'er',abbr:'ER',name:'Engagement Rate',desc:'Level of audience interaction relative to reach',inputs:['Engagements','Reach'],fmt:'%',fStr:'(Engagements ÷ Reach) × 100',fDesc:'Total Engagements divided by Total Reach.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Engagement Metrics',id:'sr',abbr:'Share Rate',name:'Share Rate',desc:'Virality indicator — how often content is shared',inputs:['Shares','Reach'],fmt:'%',fStr:'(Shares ÷ Reach) × 100',fDesc:'Total Shares divided by Total Reach.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Video Metrics',id:'vtr',abbr:'VTR',name:'View Through Rate',desc:'Percentage of viewers who watched your video to completion',inputs:['Completed Views','Impressions'],fmt:'%',fStr:'(Completed Views ÷ Impressions) × 100',fDesc:'Completed Views divided by Total Impressions.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Video Metrics',id:'cpv',abbr:'CPV',name:'Cost Per View',desc:'How much you pay for each video view',inputs:['Spend','Video Views'],fmt:'curr',fStr:'Spend ÷ Video Views',fDesc:'Total Ad Spend divided by Video Views.',calc:v=>v[0]/v[1]},
-  {cat:'Video Metrics',id:'hook',abbr:'Hook Rate',name:'Hook Rate',desc:'Percentage of impressions that result in a 3-second view',inputs:['3-sec Views','Impressions'],fmt:'%',fStr:'(3-sec Views ÷ Impressions) × 100',fDesc:'3-Second Views divided by Total Impressions.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Video Metrics',id:'hold',abbr:'Hold Rate',name:'Hold Rate',desc:'Viewer retention after the first 15 seconds',inputs:['15-sec Views','Video Starts'],fmt:'%',fStr:'(15-sec Views ÷ Video Starts) × 100',fDesc:'15-Second Views divided by Total Video Starts.',calc:v=>(v[0]/v[1])*100},
-  {cat:'Funnel & Retention',id:'cac',abbr:'CAC',name:'Customer Acquisition Cost',desc:'Average cost to acquire one new customer',inputs:['Total Marketing Cost','New Customers'],fmt:'curr',fStr:'Total Marketing Cost ÷ New Customers',fDesc:'Total Marketing Cost divided by New Customers.',calc:v=>v[0]/v[1]},
-  {cat:'Funnel & Retention',id:'churn',abbr:'Churn Rate',name:'Churn Rate',desc:'Percentage of customers lost over a period',inputs:['Lost Customers','Total Customers'],fmt:'%',fStr:'(Lost Customers ÷ Total Customers) × 100',fDesc:'Lost Customers divided by Total Customers.',calc:v=>(v[0]/v[1])*100}
-];
-
-let actMet = null;
-
-function renderMetrics() {
-  const q = document.getElementById('metricSearch').value.toLowerCase();
-  const cont = document.getElementById('metricsContainer');
-  cont.innerHTML = '';
-  const cats = [...new Set(metricData.map(m=>m.cat))];
-  cats.forEach(cat => {
-    const matched = metricData.filter(m => m.cat===cat && (m.abbr.toLowerCase().includes(q) || m.name.toLowerCase().includes(q)));
-    if(matched.length > 0){
-      let html = `<div class="metric-category-title">${cat}</div><div class="metrics-list">`;
-      matched.forEach(m => { html += `<div class="metric-btn" onclick="openMod('${m.id}')"><div class="metric-abbr">${m.abbr}</div><div class="metric-full">${m.name}</div></div>`; });
-      html += `</div>`;
-      cont.innerHTML += html;
+    /* =========================================================
+       MOBILE MENU (Hamburger Logic Added)
+    ========================================================= */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+      });
+      document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+      }));
     }
-  });
-}
-renderMetrics();
 
-function openMod(id) {
-  actMet = metricData.find(m => m.id===id);
-  document.getElementById('modalAbbr').textContent = actMet.abbr;
-  document.getElementById('modalTitle').textContent = actMet.name;
-  document.getElementById('modalDesc').textContent = actMet.desc;
-  let inpHtml = '';
-  actMet.inputs.forEach((inp, i) => {
-    inpHtml += `<div class="input-group"><label>${inp}</label><input type="number" id="metInp${i}" class="input-control" placeholder="Enter value"></div>`;
-  });
-  document.getElementById('modalInputs').innerHTML = inpHtml;
-  // Hide result until Calculate is clicked
-  document.getElementById('calcResultBox').style.display = 'none';
-  document.getElementById('metricsModal').classList.add('active');
-}
+    /* =========================================================
+       CURSOR
+    ========================================================= */
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function animC() { rx += (mx - rx) * .12; ry += (my - ry) * .12; cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px'; requestAnimationFrame(animC); })();
+    document.querySelectorAll('a,button,.tool-card,.metric-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.width = '18px'; cursor.style.height = '18px'; cursorRing.style.width = '50px'; cursorRing.style.height = '50px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.width = '10px'; cursor.style.height = '10px'; cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; });
+    });
 
-function closeModal() { document.getElementById('metricsModal').classList.remove('active'); }
+    /* =========================================================
+       PARTICLES
+    ========================================================= */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    function resizeC() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeC(); window.addEventListener('resize', resizeC);
+    class P {
+      constructor() { this.r(); }
+      r() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.vx = (Math.random() - .5) * .3; this.vy = (Math.random() - .5) * .3; this.s = Math.random() * 1.5 + .5; this.o = Math.random() * .4 + .1; }
+      u() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.r(); }
+      d() { const dk = body.getAttribute('data-theme') !== 'light'; ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2); ctx.fillStyle = dk ? `rgba(59,130,246,${this.o})` : `rgba(29,78,216,${this.o * .5})`; ctx.fill(); }
+    }
+    const ps = Array.from({ length: 80 }, () => new P());
+    function dLines() { for (let i = 0; i < ps.length; i++) for (let j = i + 1; j < ps.length; j++) { const dx = ps[i].x - ps[j].x, dy = ps[i].y - ps[j].y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 120) { const dk = body.getAttribute('data-theme') !== 'light'; ctx.beginPath(); ctx.strokeStyle = dk ? `rgba(59,130,246,${.06 * (1 - dist / 120)})` : `rgba(29,78,216,${.04 * (1 - dist / 120)})`; ctx.lineWidth = .5; ctx.moveTo(ps[i].x, ps[i].y); ctx.lineTo(ps[j].x, ps[j].y); ctx.stroke(); } } }
+    (function anim() { ctx.clearRect(0, 0, canvas.width, canvas.height); ps.forEach(p => { p.u(); p.d(); }); dLines(); requestAnimationFrame(anim); })();
 
-function executeCalc() {
-  let vals = actMet.inputs.map((_,i) => parseFloat(document.getElementById(`metInp${i}`).value));
-  if(vals.some(isNaN)){ alert('Please enter valid numbers in all fields.'); return; }
-  if(vals.length>1 && vals[1]===0){ alert('Denominator cannot be zero.'); return; }
-  let res = actMet.calc(vals);
-  if(!isFinite(res)){ alert('Invalid calculation — check your inputs.'); return; }
-  let resStr = res.toFixed(2);
-  if(actMet.fmt==='%') resStr += '%';
-  else if(actMet.fmt==='curr') resStr = 'Rs. ' + parseFloat(resStr).toLocaleString();
-  else if(actMet.fmt==='x') resStr += 'x';
-  
-  document.getElementById('calcFormulaDesc').textContent = actMet.fDesc;
-  document.getElementById('calcVal').textContent = resStr;
-  document.getElementById('calcFormulaBase').textContent = actMet.fStr;
-  
-  let stepMath = actMet.fStr;
-  actMet.inputs.forEach((name, i) => {
-    stepMath = stepMath.replace(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), `<span style="color:var(--accent);font-weight:700;">${vals[i]}</span>`);
-  });
-  stepMath += ` = <span style="color:#22c55e;font-weight:700;">${resStr}</span>`;
-  document.getElementById('calcStepsMath').innerHTML = stepMath;
-  document.getElementById('calcResultBox').style.display = 'block';
-}
+    /* =========================================================
+       NAVBAR SCROLL & BACK TO TOP
+    ========================================================= */
+    window.addEventListener('scroll', () => {
+      document.getElementById('backTop').classList.toggle('visible', window.scrollY > 300);
+    });
+    document.getElementById('backTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Close modal on overlay click
-document.getElementById('metricsModal').addEventListener('click', e => { if(e.target===e.currentTarget) closeModal(); });
+    /* =========================================================
+       DASHBOARD NAVIGATION
+    ========================================================= */
+    function openTool(id) {
+      document.getElementById('dashboardView').style.display = 'none';
+      document.querySelectorAll('.tool-view').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (id === 'tool-copy') updatePreviews();
+      if (id === 'tool-kpi') { updateObjectiveOptions(); calculateKPI(); }
+      if (id === 'tool-sz') setSafeZone('tiktok');
+    }
+    function closeTool() {
+      document.querySelectorAll('.tool-view').forEach(el => el.classList.remove('active'));
+      document.getElementById('dashboardView').style.display = 'grid';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-/* =========================================================
-   TOOL 2: AD PREVIEWER
-========================================================= */
-let actPlat = 'fb';
-let creativeDataURL = null;
-let ppDataURL = null;
+    /* =========================================================
+       TOOL 1: METRICS CALCULATOR (Simple Formula Descriptions Added)
+    ========================================================= */
+    const metricData = [
+      { cat: 'Traffic & Click Metrics', id: 'ctr', abbr: 'CTR', name: 'Click-Through Rate', desc: 'Percentage of people who clicked your ad after seeing it', inputs: ['Clicks', 'Impressions'], fmt: '%', fStr: '(Clicks ÷ Impressions) × 100', fDesc: 'Total Clicks divided by Total Impressions.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Traffic & Click Metrics', id: 'cpc', abbr: 'CPC', name: 'Cost Per Click', desc: 'How much you pay for each click on your ad', inputs: ['Spend', 'Clicks'], fmt: 'curr', fStr: 'Spend ÷ Clicks', fDesc: 'Total Ad Spend divided by Total Clicks.', calc: v => v[0] / v[1] },
+      { cat: 'Traffic & Click Metrics', id: 'cpm', abbr: 'CPM', name: 'Cost Per Mille', desc: 'Cost per 1,000 impressions', inputs: ['Spend', 'Impressions'], fmt: 'curr', fStr: '(Spend ÷ Impressions) × 1000', fDesc: 'Total Ad Spend divided by Total Impressions, multiplied by 1,000.', calc: v => (v[0] / v[1]) * 1000 },
+      { cat: 'Traffic & Click Metrics', id: 'cpl', abbr: 'CPL', name: 'Cost Per Lead', desc: 'How much you pay to generate one lead', inputs: ['Spend', 'Leads'], fmt: 'curr', fStr: 'Spend ÷ Leads', fDesc: 'Total Ad Spend divided by Total Leads.', calc: v => v[0] / v[1] },
+      { cat: 'Traffic & Click Metrics', id: 'cpa', abbr: 'CPA', name: 'Cost Per Acquisition', desc: 'Cost per purchase or desired action', inputs: ['Spend', 'Conversions'], fmt: 'curr', fStr: 'Spend ÷ Conversions', fDesc: 'Total Ad Spend divided by Total Conversions.', calc: v => v[0] / v[1] },
+      { cat: 'Traffic & Click Metrics', id: 'cpmv', abbr: 'CPMV', name: 'Cost Per Mille Views', desc: 'Cost per 1,000 video views', inputs: ['Spend', 'Video Views'], fmt: 'curr', fStr: '(Spend ÷ Video Views) × 1000', fDesc: 'Total Ad Spend divided by Video Views, multiplied by 1,000.', calc: v => (v[0] / v[1]) * 1000 },
+      { cat: 'Conversion Metrics', id: 'cvr', abbr: 'CVR', name: 'Conversion Rate', desc: 'Percentage of clicks that resulted in a conversion', inputs: ['Conversions', 'Clicks'], fmt: '%', fStr: '(Conversions ÷ Clicks) × 100', fDesc: 'Total Conversions divided by Total Clicks.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Conversion Metrics', id: 'lcr', abbr: 'Lead Conv. Rate', name: 'Lead Conversion Rate', desc: 'Quality of leads — how many become qualified', inputs: ['Qualified Leads', 'Total Leads'], fmt: '%', fStr: '(Qualified Leads ÷ Total Leads) × 100', fDesc: 'Qualified Leads divided by Total Leads.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Conversion Metrics', id: 'car', abbr: 'Cart Abandonment', name: 'Cart Abandonment Rate', desc: 'Percentage of users who added to cart but did not purchase', inputs: ['Total Carts', 'Purchases'], fmt: '%', fStr: '((Carts - Purchases) ÷ Carts) × 100', fDesc: 'Total Carts minus Purchases, divided by Total Carts.', calc: v => ((v[0] - v[1]) / v[0]) * 100 },
+      { cat: 'Conversion Metrics', id: 'ccr', abbr: 'Checkout Completion', name: 'Checkout Completion Rate', desc: 'How many who started checkout actually completed it', inputs: ['Purchases', 'Checkout Starts'], fmt: '%', fStr: '(Purchases ÷ Checkout Starts) × 100', fDesc: 'Total Purchases divided by Checkout Starts.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Revenue Metrics', id: 'roas', abbr: 'ROAS', name: 'Return on Ad Spend', desc: 'Revenue generated for every rupee spent on ads', inputs: ['Revenue', 'Ad Spend'], fmt: 'x', fStr: 'Revenue ÷ Ad Spend', fDesc: 'Total Revenue divided by Total Ad Spend.', calc: v => v[0] / v[1] },
+      { cat: 'Revenue Metrics', id: 'roi', abbr: 'ROI', name: 'Return on Investment', desc: 'Overall profitability of your marketing investment', inputs: ['Revenue', 'Cost'], fmt: '%', fStr: '((Revenue - Cost) ÷ Cost) × 100', fDesc: 'Total Revenue minus Cost, divided by Cost.', calc: v => ((v[0] - v[1]) / v[1]) * 100 },
+      { cat: 'Revenue Metrics', id: 'aov', abbr: 'AOV', name: 'Average Order Value', desc: 'Average amount spent per transaction', inputs: ['Revenue', 'Orders'], fmt: 'curr', fStr: 'Revenue ÷ Orders', fDesc: 'Total Revenue divided by Total Orders.', calc: v => v[0] / v[1] },
+      { cat: 'Revenue Metrics', id: 'rpc', abbr: 'RPC', name: 'Revenue Per Click', desc: 'Average revenue generated by each click', inputs: ['Revenue', 'Clicks'], fmt: 'curr', fStr: 'Revenue ÷ Clicks', fDesc: 'Total Revenue divided by Total Clicks.', calc: v => v[0] / v[1] },
+      { cat: 'Revenue Metrics', id: 'mer', abbr: 'MER', name: 'Marketing Efficiency Ratio', desc: 'Overall return across all marketing spend', inputs: ['Total Revenue', 'Total Marketing Spend'], fmt: 'x', fStr: 'Total Revenue ÷ Total Marketing Spend', fDesc: 'Total Revenue divided by Total Marketing Spend.', calc: v => v[0] / v[1] },
+      { cat: 'Engagement Metrics', id: 'er', abbr: 'ER', name: 'Engagement Rate', desc: 'Level of audience interaction relative to reach', inputs: ['Engagements', 'Reach'], fmt: '%', fStr: '(Engagements ÷ Reach) × 100', fDesc: 'Total Engagements divided by Total Reach.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Engagement Metrics', id: 'sr', abbr: 'Share Rate', name: 'Share Rate', desc: 'Virality indicator — how often content is shared', inputs: ['Shares', 'Reach'], fmt: '%', fStr: '(Shares ÷ Reach) × 100', fDesc: 'Total Shares divided by Total Reach.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Video Metrics', id: 'vtr', abbr: 'VTR', name: 'View Through Rate', desc: 'Percentage of viewers who watched your video to completion', inputs: ['Completed Views', 'Impressions'], fmt: '%', fStr: '(Completed Views ÷ Impressions) × 100', fDesc: 'Completed Views divided by Total Impressions.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Video Metrics', id: 'cpv', abbr: 'CPV', name: 'Cost Per View', desc: 'How much you pay for each video view', inputs: ['Spend', 'Video Views'], fmt: 'curr', fStr: 'Spend ÷ Video Views', fDesc: 'Total Ad Spend divided by Video Views.', calc: v => v[0] / v[1] },
+      { cat: 'Video Metrics', id: 'hook', abbr: 'Hook Rate', name: 'Hook Rate', desc: 'Percentage of impressions that result in a 3-second view', inputs: ['3-sec Views', 'Impressions'], fmt: '%', fStr: '(3-sec Views ÷ Impressions) × 100', fDesc: '3-Second Views divided by Total Impressions.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Video Metrics', id: 'hold', abbr: 'Hold Rate', name: 'Hold Rate', desc: 'Viewer retention after the first 15 seconds', inputs: ['15-sec Views', 'Video Starts'], fmt: '%', fStr: '(15-sec Views ÷ Video Starts) × 100', fDesc: '15-Second Views divided by Total Video Starts.', calc: v => (v[0] / v[1]) * 100 },
+      { cat: 'Funnel & Retention', id: 'cac', abbr: 'CAC', name: 'Customer Acquisition Cost', desc: 'Average cost to acquire one new customer', inputs: ['Total Marketing Cost', 'New Customers'], fmt: 'curr', fStr: 'Total Marketing Cost ÷ New Customers', fDesc: 'Total Marketing Cost divided by New Customers.', calc: v => v[0] / v[1] },
+      { cat: 'Funnel & Retention', id: 'churn', abbr: 'Churn Rate', name: 'Churn Rate', desc: 'Percentage of customers lost over a period', inputs: ['Lost Customers', 'Total Customers'], fmt: '%', fStr: '(Lost Customers ÷ Total Customers) × 100', fDesc: 'Lost Customers divided by Total Customers.', calc: v => (v[0] / v[1]) * 100 }
+    ];
 
-function handlePPUpload(event) {
-  const file = event.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = e => { ppDataURL = e.target.result; renderPPPreview(); updatePreviews(); };
-  reader.readAsDataURL(file);
-}
+    let actMet = null;
 
-function renderPPPreview() {
-  const strip = document.getElementById('ppPreviewStrip');
-  strip.innerHTML = '';
-  if(ppDataURL){
-    const thumb = document.createElement('div'); thumb.className='upload-preview-thumb'; thumb.style.backgroundImage=`url('${ppDataURL}')`;
-    const rm = document.createElement('button'); rm.className='remove-thumb'; rm.innerHTML='&times;';
-    rm.onclick = () => { ppDataURL=null; renderPPPreview(); updatePreviews(); document.getElementById('ppFileInput').value=''; };
-    thumb.appendChild(rm); strip.appendChild(thumb);
-  }
-}
+    function renderMetrics() {
+      const q = document.getElementById('metricSearch').value.toLowerCase();
+      const cont = document.getElementById('metricsContainer');
+      cont.innerHTML = '';
+      const cats = [...new Set(metricData.map(m => m.cat))];
+      cats.forEach(cat => {
+        const matched = metricData.filter(m => m.cat === cat && (m.abbr.toLowerCase().includes(q) || m.name.toLowerCase().includes(q)));
+        if (matched.length > 0) {
+          let html = `<div class="metric-category-title">${cat}</div><div class="metrics-list">`;
+          matched.forEach(m => { html += `<div class="metric-btn" onclick="openMod('${m.id}')"><div class="metric-abbr">${m.abbr}</div><div class="metric-full">${m.name}</div></div>`; });
+          html += `</div>`;
+          cont.innerHTML += html;
+        }
+      });
+    }
+    renderMetrics();
 
-function handleCreativeUpload(event) {
-  const file = event.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = e => { creativeDataURL = e.target.result; renderCreativePreview(); updatePreviews(); };
-  reader.readAsDataURL(file);
-}
+    function openMod(id) {
+      actMet = metricData.find(m => m.id === id);
+      document.getElementById('modalAbbr').textContent = actMet.abbr;
+      document.getElementById('modalTitle').textContent = actMet.name;
+      document.getElementById('modalDesc').textContent = actMet.desc;
+      let inpHtml = '';
+      actMet.inputs.forEach((inp, i) => {
+        inpHtml += `<div class="input-group"><label>${inp}</label><input type="number" id="metInp${i}" class="input-control" placeholder="Enter value"></div>`;
+      });
+      document.getElementById('modalInputs').innerHTML = inpHtml;
+      // Hide result until Calculate is clicked
+      document.getElementById('calcResultBox').style.display = 'none';
+      document.getElementById('metricsModal').classList.add('active');
+    }
 
-function handleDragOver(e) { e.preventDefault(); document.getElementById('creativeUploadZone').classList.add('dragover'); }
-function handleDragLeave(e) { document.getElementById('creativeUploadZone').classList.remove('dragover'); }
-function handleDrop(e) {
-  e.preventDefault(); document.getElementById('creativeUploadZone').classList.remove('dragover');
-  const file = e.dataTransfer.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => { creativeDataURL=ev.target.result; renderCreativePreview(); updatePreviews(); };
-  reader.readAsDataURL(file);
-}
+    function closeModal() { document.getElementById('metricsModal').classList.remove('active'); }
 
-function renderCreativePreview() {
-  const strip = document.getElementById('creativePreviewStrip');
-  strip.innerHTML = '';
-  if(creativeDataURL){
-    const thumb = document.createElement('div'); thumb.className='upload-preview-thumb'; thumb.style.backgroundImage=`url('${creativeDataURL}')`;
-    const rm = document.createElement('button'); rm.className='remove-thumb'; rm.innerHTML='&times;';
-    rm.onclick = () => clearCreative();
-    thumb.appendChild(rm); strip.appendChild(thumb);
-  }
-}
+    function executeCalc() {
+      let vals = actMet.inputs.map((_, i) => parseFloat(document.getElementById(`metInp${i}`).value));
+      if (vals.some(isNaN)) { alert('Please enter valid numbers in all fields.'); return; }
+      if (vals.length > 1 && vals[1] === 0) { alert('Denominator cannot be zero.'); return; }
+      let res = actMet.calc(vals);
+      if (!isFinite(res)) { alert('Invalid calculation — check your inputs.'); return; }
+      let resStr = res.toFixed(2);
+      if (actMet.fmt === '%') resStr += '%';
+      else if (actMet.fmt === 'curr') resStr = 'Rs. ' + parseFloat(resStr).toLocaleString();
+      else if (actMet.fmt === 'x') resStr += 'x';
 
-function clearCreative() {
-  creativeDataURL = null;
-  document.getElementById('creativeFileInput').value = '';
-  renderCreativePreview();
-  // reset all img containers and show placeholders
-  ['fb-img-out','ig-img-out','yt-img-out'].forEach(id => {
-    const el = document.getElementById(id); if(!el) return;
-    el.style.backgroundImage = '';
-    const ph = el.querySelector('.img-placeholder-icon'); if(ph) ph.style.display='';
-  });
-  document.getElementById('tt-bg-out').style.backgroundImage = '';
-}
+      document.getElementById('calcFormulaDesc').textContent = actMet.fDesc;
+      document.getElementById('calcVal').textContent = resStr;
+      document.getElementById('calcFormulaBase').textContent = actMet.fStr;
 
-function setPreview(plat, evt) {
-  actPlat = plat;
-  document.querySelectorAll('.plat-tab').forEach(b=>b.classList.remove('active'));
-  evt.target.closest('.plat-tab').classList.add('active');
-  document.querySelectorAll('.preview-card,.tt-wrapper,.yt-wrapper').forEach(p=>p.classList.remove('active'));
-  document.getElementById(`prev-${plat}`).classList.add('active');
-  document.getElementById('headGroup').style.display = (plat==='fb'||plat==='yt') ? 'block' : 'none';
-  document.getElementById('descGroup').style.display = (plat==='fb') ? 'block' : 'none';
-  updatePreviews();
-}
+      let stepMath = actMet.fStr;
+      actMet.inputs.forEach((name, i) => {
+        stepMath = stepMath.replace(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `<span style="color:var(--accent);font-weight:700;">${vals[i]}</span>`);
+      });
+      stepMath += ` = <span style="color:#22c55e;font-weight:700;">${resStr}</span>`;
+      document.getElementById('calcStepsMath').innerHTML = stepMath;
+      document.getElementById('calcResultBox').style.display = 'block';
+    }
 
-function updatePreviews() {
-  const name  = document.getElementById('prevName').value || 'Brand Name';
-  const text  = document.getElementById('prevText').value || 'Your caption here...';
-  const head  = document.getElementById('prevHead').value || 'Headline';
-  const desc  = document.getElementById('prevDesc').value || 'Description';
-  const img   = creativeDataURL || '';
-  const pp    = ppDataURL || '';
+    // Close modal on overlay click
+    document.getElementById('metricsModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
-  if(actPlat==='fb'){
-    document.getElementById('fb-name-out').textContent = name;
-    document.getElementById('fb-text-out').textContent = text.length>125 ? text.substring(0,125)+'…' : text;
-    document.getElementById('fb-head-out').textContent = head;
-    document.getElementById('fb-desc-out').textContent = desc;
-    const ppEl = document.getElementById('fb-pp-out');
-    ppEl.style.backgroundImage = pp ? `url('${pp}')` : '';
-    const imgEl = document.getElementById('fb-img-out');
-    imgEl.style.backgroundImage = img ? `url('${img}')` : '';
-    const ph = imgEl.querySelector('.img-placeholder-icon');
-    if(ph) ph.style.display = img ? 'none' : '';
-  }
-  if(actPlat==='ig'){
-    const igName = '@'+name.replace(/\s+/g,'').toLowerCase();
-    document.getElementById('ig-name-out').textContent = igName;
-    document.getElementById('ig-name2-out').textContent = igName;
-    document.getElementById('ig-text-out').textContent = text.length>90 ? text.substring(0,90)+'…' : text;
-    const ppInner = document.getElementById('ig-pp-out');
-    ppInner.style.backgroundImage = pp ? `url('${pp}')` : '';
-    const imgEl = document.getElementById('ig-img-out');
-    imgEl.style.backgroundImage = img ? `url('${img}')` : '';
-    const ph = imgEl.querySelector('.img-placeholder-icon');
-    if(ph) ph.style.display = img ? 'none' : '';
-  }
-  if(actPlat==='tt'){
-    document.getElementById('tt-name-out').textContent = '@'+name.replace(/\s+/g,'').toLowerCase();
-    document.getElementById('tt-text-out').textContent = text.length>80 ? text.substring(0,80)+'…' : text;
-    document.getElementById('tt-bg-out').style.backgroundImage = img ? `url('${img}')` : '';
-    const ppSide = document.getElementById('tt-pp-side');
-    if(pp){ ppSide.style.backgroundImage=`url('${pp}')`; ppSide.innerHTML=''; }
-    else { ppSide.style.backgroundImage=''; ppSide.innerHTML='<i class="fa fa-user" style="font-size:12px;"></i>'; }
-    const ppSm = document.getElementById('tt-pp-out');
-    if(ppSm) ppSm.style.backgroundImage = pp ? `url('${pp}')` : '';
-  }
-  if(actPlat==='yt'){
-    document.getElementById('yt-name-out').textContent = name;
-    document.getElementById('yt-head-out').textContent = head;
-    const ppEl = document.getElementById('yt-pp-out');
-    ppEl.style.backgroundImage = pp ? `url('${pp}')` : '';
-    const imgEl = document.getElementById('yt-img-out');
-    imgEl.style.backgroundImage = img ? `url('${img}')` : '';
-    const ph = imgEl.querySelector('.img-placeholder-icon');
-    if(ph) ph.style.display = img ? 'none' : '';
-  }
-}
+    /* =========================================================
+       TOOL 2: AD PREVIEWER
+    ========================================================= */
+    let actPlat = 'fb';
+    let creativeDataURL = null;
+    let ppDataURL = null;
 
-/* =========================================================
-   TOOL 3: KPI ESTIMATOR
-========================================================= */
-const objData = {
-  meta:[{id:'awareness',name:'Awareness (Reach/Imp)',req:'Est. CPM',result:'Reach/Imp. Only'},{id:'traffic',name:'Traffic (Clicks)',req:'Est. CPC',result:'Link Clicks'},{id:'leads',name:'Lead Gen',req:'Est. CPL',result:'Leads Generated'},{id:'sales',name:'Sales / Conversions',req:'Est. CPA',result:'Purchases'}],
-  tiktok:[{id:'reach',name:'Reach',req:'Est. CPM',result:'Reach'},{id:'views',name:'Video Views',req:'Est. CPV',result:'Completed Views'},{id:'conversions',name:'Web Conversions',req:'Est. CPA',result:'Conversions'}],
-  youtube:[{id:'instream',name:'Skippable In-Stream',req:'Est. CPV',result:'Views'},{id:'bumper',name:'Bumper Ads',req:'Est. CPM',result:'Impressions'},{id:'action',name:'Video Action',req:'Est. CPA',result:'Conversions'}]
-};
-function updateObjectiveOptions(){
-  const plat=document.getElementById('kpiPlatform').value;
-  const sel=document.getElementById('kpiObj');
-  sel.innerHTML='';
-  objData[plat].forEach(o=>{ sel.innerHTML+=`<option value="${o.id}">${o.name}</option>`; });
-  updateKPIInputs();
-}
-function updateKPIInputs(){
-  const plat=document.getElementById('kpiPlatform').value;
-  const objId=document.getElementById('kpiObj').value;
-  const obj=objData[plat].find(o=>o.id===objId);
-  document.getElementById('dynamicKPIInputs').innerHTML=`
+    function handlePPUpload(event) {
+      const file = event.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => { ppDataURL = e.target.result; renderPPPreview(); updatePreviews(); };
+      reader.readAsDataURL(file);
+    }
+
+    function renderPPPreview() {
+      const strip = document.getElementById('ppPreviewStrip');
+      strip.innerHTML = '';
+      if (ppDataURL) {
+        const thumb = document.createElement('div'); thumb.className = 'upload-preview-thumb'; thumb.style.backgroundImage = `url('${ppDataURL}')`;
+        const rm = document.createElement('button'); rm.className = 'remove-thumb'; rm.innerHTML = '&times;';
+        rm.onclick = () => { ppDataURL = null; renderPPPreview(); updatePreviews(); document.getElementById('ppFileInput').value = ''; };
+        thumb.appendChild(rm); strip.appendChild(thumb);
+      }
+    }
+
+    function handleCreativeUpload(event) {
+      const file = event.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => { creativeDataURL = e.target.result; renderCreativePreview(); updatePreviews(); };
+      reader.readAsDataURL(file);
+    }
+
+    function handleDragOver(e) { e.preventDefault(); document.getElementById('creativeUploadZone').classList.add('dragover'); }
+    function handleDragLeave(e) { document.getElementById('creativeUploadZone').classList.remove('dragover'); }
+    function handleDrop(e) {
+      e.preventDefault(); document.getElementById('creativeUploadZone').classList.remove('dragover');
+      const file = e.dataTransfer.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => { creativeDataURL = ev.target.result; renderCreativePreview(); updatePreviews(); };
+      reader.readAsDataURL(file);
+    }
+
+    function renderCreativePreview() {
+      const strip = document.getElementById('creativePreviewStrip');
+      strip.innerHTML = '';
+      if (creativeDataURL) {
+        const thumb = document.createElement('div'); thumb.className = 'upload-preview-thumb'; thumb.style.backgroundImage = `url('${creativeDataURL}')`;
+        const rm = document.createElement('button'); rm.className = 'remove-thumb'; rm.innerHTML = '&times;';
+        rm.onclick = () => clearCreative();
+        thumb.appendChild(rm); strip.appendChild(thumb);
+      }
+    }
+
+    function clearCreative() {
+      creativeDataURL = null;
+      document.getElementById('creativeFileInput').value = '';
+      renderCreativePreview();
+      // reset all img containers and show placeholders
+      ['fb-img-out', 'ig-img-out', 'yt-img-out'].forEach(id => {
+        const el = document.getElementById(id); if (!el) return;
+        el.style.backgroundImage = '';
+        const ph = el.querySelector('.img-placeholder-icon'); if (ph) ph.style.display = '';
+      });
+      document.getElementById('tt-bg-out').style.backgroundImage = '';
+    }
+
+    function setPreview(plat, evt) {
+      actPlat = plat;
+      document.querySelectorAll('.plat-tab').forEach(b => b.classList.remove('active'));
+      evt.target.closest('.plat-tab').classList.add('active');
+      document.querySelectorAll('.preview-card,.tt-wrapper,.yt-wrapper').forEach(p => p.classList.remove('active'));
+      document.getElementById(`prev-${plat}`).classList.add('active');
+      document.getElementById('headGroup').style.display = (plat === 'fb' || plat === 'yt') ? 'block' : 'none';
+      document.getElementById('descGroup').style.display = (plat === 'fb') ? 'block' : 'none';
+      updatePreviews();
+    }
+
+    function updatePreviews() {
+      const name = document.getElementById('prevName').value || 'Brand Name';
+      const text = document.getElementById('prevText').value || 'Your caption here...';
+      const head = document.getElementById('prevHead').value || 'Headline';
+      const desc = document.getElementById('prevDesc').value || 'Description';
+      const img = creativeDataURL || '';
+      const pp = ppDataURL || '';
+
+      if (actPlat === 'fb') {
+        document.getElementById('fb-name-out').textContent = name;
+        document.getElementById('fb-text-out').textContent = text.length > 125 ? text.substring(0, 125) + '…' : text;
+        document.getElementById('fb-head-out').textContent = head;
+        document.getElementById('fb-desc-out').textContent = desc;
+        const ppEl = document.getElementById('fb-pp-out');
+        ppEl.style.backgroundImage = pp ? `url('${pp}')` : '';
+        const imgEl = document.getElementById('fb-img-out');
+        imgEl.style.backgroundImage = img ? `url('${img}')` : '';
+        const ph = imgEl.querySelector('.img-placeholder-icon');
+        if (ph) ph.style.display = img ? 'none' : '';
+      }
+      if (actPlat === 'ig') {
+        const igName = '@' + name.replace(/\s+/g, '').toLowerCase();
+        document.getElementById('ig-name-out').textContent = igName;
+        document.getElementById('ig-name2-out').textContent = igName;
+        document.getElementById('ig-text-out').textContent = text.length > 90 ? text.substring(0, 90) + '…' : text;
+        const ppInner = document.getElementById('ig-pp-out');
+        ppInner.style.backgroundImage = pp ? `url('${pp}')` : '';
+        const imgEl = document.getElementById('ig-img-out');
+        imgEl.style.backgroundImage = img ? `url('${img}')` : '';
+        const ph = imgEl.querySelector('.img-placeholder-icon');
+        if (ph) ph.style.display = img ? 'none' : '';
+      }
+      if (actPlat === 'tt') {
+        document.getElementById('tt-name-out').textContent = '@' + name.replace(/\s+/g, '').toLowerCase();
+        document.getElementById('tt-text-out').textContent = text.length > 80 ? text.substring(0, 80) + '…' : text;
+        document.getElementById('tt-bg-out').style.backgroundImage = img ? `url('${img}')` : '';
+        const ppSide = document.getElementById('tt-pp-side');
+        if (pp) { ppSide.style.backgroundImage = `url('${pp}')`; ppSide.innerHTML = ''; }
+        else { ppSide.style.backgroundImage = ''; ppSide.innerHTML = '<i class="fa fa-user" style="font-size:12px;"></i>'; }
+        const ppSm = document.getElementById('tt-pp-out');
+        if (ppSm) ppSm.style.backgroundImage = pp ? `url('${pp}')` : '';
+      }
+      if (actPlat === 'yt') {
+        document.getElementById('yt-name-out').textContent = name;
+        document.getElementById('yt-head-out').textContent = head;
+        const ppEl = document.getElementById('yt-pp-out');
+        ppEl.style.backgroundImage = pp ? `url('${pp}')` : '';
+        const imgEl = document.getElementById('yt-img-out');
+        imgEl.style.backgroundImage = img ? `url('${img}')` : '';
+        const ph = imgEl.querySelector('.img-placeholder-icon');
+        if (ph) ph.style.display = img ? 'none' : '';
+      }
+    }
+
+    /* =========================================================
+       TOOL 3: KPI ESTIMATOR
+    ========================================================= */
+    const objData = {
+      meta: [{ id: 'awareness', name: 'Awareness (Reach/Imp)', req: 'Est. CPM', result: 'Reach/Imp. Only' }, { id: 'traffic', name: 'Traffic (Clicks)', req: 'Est. CPC', result: 'Link Clicks' }, { id: 'leads', name: 'Lead Gen', req: 'Est. CPL', result: 'Leads Generated' }, { id: 'sales', name: 'Sales / Conversions', req: 'Est. CPA', result: 'Purchases' }],
+      tiktok: [{ id: 'reach', name: 'Reach', req: 'Est. CPM', result: 'Reach' }, { id: 'views', name: 'Video Views', req: 'Est. CPV', result: 'Completed Views' }, { id: 'conversions', name: 'Web Conversions', req: 'Est. CPA', result: 'Conversions' }],
+      youtube: [{ id: 'instream', name: 'Skippable In-Stream', req: 'Est. CPV', result: 'Views' }, { id: 'bumper', name: 'Bumper Ads', req: 'Est. CPM', result: 'Impressions' }, { id: 'action', name: 'Video Action', req: 'Est. CPA', result: 'Conversions' }]
+    };
+    function updateObjectiveOptions() {
+      const plat = document.getElementById('kpiPlatform').value;
+      const sel = document.getElementById('kpiObj');
+      sel.innerHTML = '';
+      objData[plat].forEach(o => { sel.innerHTML += `<option value="${o.id}">${o.name}</option>`; });
+      updateKPIInputs();
+    }
+    function updateKPIInputs() {
+      const plat = document.getElementById('kpiPlatform').value;
+      const objId = document.getElementById('kpiObj').value;
+      const obj = objData[plat].find(o => o.id === objId);
+      document.getElementById('dynamicKPIInputs').innerHTML = `
     <div class="input-group"><label>${obj.req} (LKR)</label><input type="number" id="kpiRate" class="input-control" value="150" oninput="calculateKPI()"></div>
     <div class="input-group"><label>Est. Frequency</label><input type="number" id="kpiFreq" class="input-control" value="2.5" step="0.1" oninput="calculateKPI()"></div>`;
-  document.getElementById('outResultLabel').textContent=`Est. ${obj.result}`;
-  calculateKPI();
-}
-function calculateKPI(){
-  const budget=parseFloat(document.getElementById('kpiBudget').value)||0;
-  const rate=parseFloat(document.getElementById('kpiRate')?.value)||1;
-  const freq=parseFloat(document.getElementById('kpiFreq')?.value)||1;
-  const tg=parseFloat(document.getElementById('kpiTG').value)||0;
-  const plat=document.getElementById('kpiPlatform').value;
-  const obj=objData[plat].find(o=>o.id===document.getElementById('kpiObj').value);
-  let imp=0,reach=0,result=0;
-  if(obj.req.includes('CPM')){ imp=(budget/rate)*1000; reach=imp/freq; result=imp; }
-  else { result=budget/rate; imp=result/0.01; reach=imp/freq; }
-  document.getElementById('outImp').textContent=Math.floor(imp).toLocaleString();
-  document.getElementById('outReach').textContent=Math.floor(reach).toLocaleString();
-  document.getElementById('outResult').textContent=Math.floor(result).toLocaleString();
-  if(tg>0){ document.getElementById('outReachPct').textContent=((reach/tg)*100).toFixed(1)+'%'; document.getElementById('tgNote').style.display='block'; }
-  else { document.getElementById('tgNote').style.display='none'; }
-}
+      document.getElementById('outResultLabel').textContent = `Est. ${obj.result}`;
+      calculateKPI();
+    }
+    function calculateKPI() {
+      const budget = parseFloat(document.getElementById('kpiBudget').value) || 0;
+      const rate = parseFloat(document.getElementById('kpiRate')?.value) || 1;
+      const freq = parseFloat(document.getElementById('kpiFreq')?.value) || 1;
+      const tg = parseFloat(document.getElementById('kpiTG').value) || 0;
+      const plat = document.getElementById('kpiPlatform').value;
+      const obj = objData[plat].find(o => o.id === document.getElementById('kpiObj').value);
+      let imp = 0, reach = 0, result = 0;
+      if (obj.req.includes('CPM')) { imp = (budget / rate) * 1000; reach = imp / freq; result = imp; }
+      else { result = budget / rate; imp = result / 0.01; reach = imp / freq; }
+      document.getElementById('outImp').textContent = Math.floor(imp).toLocaleString();
+      document.getElementById('outReach').textContent = Math.floor(reach).toLocaleString();
+      document.getElementById('outResult').textContent = Math.floor(result).toLocaleString();
+      if (tg > 0) { document.getElementById('outReachPct').textContent = ((reach / tg) * 100).toFixed(1) + '%'; document.getElementById('tgNote').style.display = 'block'; }
+      else { document.getElementById('tgNote').style.display = 'none'; }
+    }
 
-/* =========================================================
-   TOOL 4: SAFE ZONE
-========================================================= */
-function setSafeZone(plat, evt){
-  if(evt){ document.querySelectorAll('.sz-tab').forEach(b=>b.classList.remove('active')); evt.target.classList.add('active'); }
-  const ov=document.getElementById('szOverlays');
-  ov.innerHTML = plat==='tiktok'
-    ? `<div class="sz-overlay tiktok-top">Following / For You Bar</div><div class="sz-overlay tiktok-right">Profile · Like · Comment · Share</div><div class="sz-overlay tiktok-bottom">Username · Caption · Music</div>`
-    : `<div class="sz-overlay reels-top">Reels Header</div><div class="sz-overlay reels-right">Engagement Icons</div><div class="sz-overlay reels-bottom">Account · Caption · Audio Track</div>`;
-}
-function loadSZImage(event){
-  const file=event.target.files[0]; if(!file) return;
-  const reader=new FileReader();
-  reader.onload=e=>{ document.getElementById('szPreviewBox').style.backgroundImage=`url('${e.target.result}')`; document.getElementById('szPlaceholder').style.display='none'; };
-  reader.readAsDataURL(file);
-}
-function clearSafeZone(){
-  document.getElementById('szPreviewBox').style.backgroundImage='';
-  document.getElementById('szPlaceholder').style.display='flex';
-  document.getElementById('szFile').value='';
-}
+    /* =========================================================
+       TOOL 4: SAFE ZONE
+    ========================================================= */
+    function setSafeZone(plat, evt) {
+      if (evt) { document.querySelectorAll('.sz-tab').forEach(b => b.classList.remove('active')); evt.target.classList.add('active'); }
+      const ov = document.getElementById('szOverlays');
+      ov.innerHTML = plat === 'tiktok'
+        ? `<div class="sz-overlay tiktok-top">Following / For You Bar</div><div class="sz-overlay tiktok-right">Profile · Like · Comment · Share</div><div class="sz-overlay tiktok-bottom">Username · Caption · Music</div>`
+        : `<div class="sz-overlay reels-top">Reels Header</div><div class="sz-overlay reels-right">Engagement Icons</div><div class="sz-overlay reels-bottom">Account · Caption · Audio Track</div>`;
+    }
+    function loadSZImage(event) {
+      const file = event.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => { document.getElementById('szPreviewBox').style.backgroundImage = `url('${e.target.result}')`; document.getElementById('szPlaceholder').style.display = 'none'; };
+      reader.readAsDataURL(file);
+    }
+    function clearSafeZone() {
+      document.getElementById('szPreviewBox').style.backgroundImage = '';
+      document.getElementById('szPlaceholder').style.display = 'flex';
+      document.getElementById('szFile').value = '';
+    }
 
-// Init
-updateObjectiveOptions();
-setSafeZone('tiktok');
-document.getElementById('headGroup').style.display='block';
-document.getElementById('descGroup').style.display='block';
-</script>
+    // Init
+    updateObjectiveOptions();
+    setSafeZone('tiktok');
+    document.getElementById('headGroup').style.display = 'block';
+    document.getElementById('descGroup').style.display = 'block';
+  </script>
 </body>
+
 </html>
