@@ -137,10 +137,9 @@ nav#navbar{
 .blog-modal-box{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   width:100%;max-width:800px;position:relative;animation:fadeUp .3s ease;
-  max-height:90vh;display:flex;flex-direction:column; overflow: hidden; /* Hide overflow to let inner wrapper scroll */
+  max-height:90vh;display:flex;flex-direction:column; overflow: hidden;
 }
 
-/* New Scroll Wrapper so Header and Body scroll together */
 .blog-modal-scroll-wrapper {
   overflow-y: auto;
   flex: 1;
@@ -163,6 +162,20 @@ nav#navbar{
 .blog-modal-body{padding:1.5rem 2.5rem 2.5rem 2.5rem;}
 .blog-content h4{font-size:1.2rem;font-weight:600;margin:1.5rem 0 0.8rem;color:var(--text);}
 .blog-content p{font-size:0.95rem;color:var(--text2);margin-bottom:1.2rem;line-height:1.8;}
+.blog-content ul {list-style: disc; margin-left: 1.5rem; margin-bottom: 1.2rem;}
+.blog-content li {font-size:0.95rem;color:var(--text2);margin-bottom:0.5rem;}
+
+/* Added styles to make links clear and interactive in the blog body */
+.blog-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.blog-content a:hover {
+  color: var(--gold);
+}
 
 /* ======================== FOOTER ======================== */
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;position:relative;z-index:2;}
@@ -188,7 +201,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
   .blog-modal-body{padding:1.5rem 1.5rem;}
   .blog-modal-title{font-size:1.3rem;}
   
-  /* Hide desktop buttons on mobile */
   .desktop-btn { display: none !important; }
   .hamburger { display: flex; }
 }
@@ -231,92 +243,25 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     <p class="app-desc">Thoughts, strategies, and insights on branding, performance marketing, and the digital landscape.</p>
   </div>
 
-  <div class="blog-grid">
-    
-    <div class="blog-card" onclick="openBlogModal('blog1')">
-      <div class="blog-date">Featured Insight</div>
-      <h3>Why People Actually Buy Brands</h3>
-      
-      <img src="images/blog-thumb-1.png" alt="Blog Thumbnail" class="blog-card-img" onerror="this.src='https://via.placeholder.com/600x338?text=Blog+Image'">
-      
-      <div class="blog-meta">Published by Milindu Madushan &bull; May 22, 2026</div>
-
-      <p>In today’s marketplace, consumers are surrounded by endless choices. Whether it’s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate...</p>
-      <div class="blog-read-more">Read More <i class="fa fa-arrow-right"></i></div>
+  <div class="blog-grid" id="blogGrid">
     </div>
 
-    </div>
+</div>
 
-</div><div class="blog-modal" id="blogModal">
+<div class="blog-modal" id="blogModal">
   <div class="blog-modal-box">
     <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
     
-    <div class="blog-modal-scroll-wrapper">
-      
+    <div class="blog-modal-scroll-wrapper" id="blogModalScroll">
       <div class="blog-modal-header">
-        <div class="blog-modal-date" id="modalDate">Featured Insight</div>
-        <div class="blog-modal-title" id="modalTitle">Why People Actually Buy Brands</div>
-        
-        <img src="images/blog-thumb-1.png" alt="Blog Thumbnail" class="blog-modal-img" onerror="this.src='https://via.placeholder.com/800x450?text=Blog+Image'">
-        
-        <div class="blog-meta" style="margin-bottom: 0;">Published by Milindu Madushan &bull; May 22, 2026</div>
+        <div class="blog-modal-date">Featured Insight</div>
+        <div class="blog-modal-title" id="modalTitle">Blog Title</div>
+        <img src="" alt="Blog Thumbnail" class="blog-modal-img" id="modalImg" onerror="this.src='https://via.placeholder.com/800x450?text=Blog+Image'">
+        <div class="blog-meta" id="modalMeta" style="margin-bottom: 0;">Published by Milindu Madushan</div>
       </div>
-
       <div class="blog-modal-body">
-        <div class="blog-content" id="modalContent">
-          <p>In today’s marketplace, consumers are surrounded by endless choices. Whether it’s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate consumer preference while others struggle to stand out.</p>
-          <p>Why does this happen?</p>
-          <p>The answer is simple: people do not only buy products — they buy brands.</p>
-          <p>More importantly, they buy what those brands represent emotionally, socially, and psychologically.</p>
-          
-          <h4>People Buy Emotion Before Logic</h4>
-          <p>Many marketers assume consumers make rational decisions based on price, quality, or specifications. While those factors matter, research and real-world consumer behavior show that emotions heavily influence purchasing decisions.</p>
-          <p>For example, people may choose an iPhone over another smartphone with similar or even better technical specifications. The decision is rarely only about the hardware. Instead, consumers associate the brand with status, simplicity, creativity, and premium quality.</p>
-          <p>The product becomes more than a product. It becomes a feeling and an identity.</p>
-          <p>In reality, consumers often make emotional decisions first and justify them later with rational reasons.</p>
-          
-          <h4>Brands Create Perception</h4>
-          <p>A strong brand exists not only in stores or advertisements but also in the minds of consumers. Branding shapes how people perceive value.</p>
-          <p>Consider the difference between Coca-Cola and a generic cola product. Both may satisfy the same functional need, but consumers often perceive Coca-Cola as more enjoyable, trustworthy, and emotionally familiar.</p>
-          <p>That perception allows brands to charge premium prices, build loyalty, and maintain long-term customer relationships.</p>
-          <p>In marketing, perception often becomes reality.</p>
-          
-          <h4>Trust Reduces Consumer Risk</h4>
-          <p>Consumers naturally avoid uncertainty. Strong brands reduce the perceived risk of making a bad decision.</p>
-          <p>People repeatedly purchase familiar brands because trust makes decision-making easier and safer. This is especially visible in FMCG categories such as toothpaste, shampoo, and food products.</p>
-          <p>Most consumers do not spend time evaluating every available option during routine purchases. Instead, they choose what they already recognize and trust.</p>
-          <p>This is why consistency in branding, messaging, and customer experience is critical for long-term success.</p>
-          
-          <h4>Social Proof Influences Buying Behavior</h4>
-          <p>Human beings are highly influenced by the behavior of others. Reviews, influencers, recommendations, ratings, and popularity all affect purchasing decisions.</p>
-          <p>When consumers see many people using a particular brand, they subconsciously assume the brand must be reliable or desirable.</p>
-          <p>This psychological principle, known as social proof, explains why influencer marketing, online reviews, and user-generated content have become so powerful in modern marketing strategies.</p>
-          <p>People feel safer choosing what others already approve.</p>
-          
-          <h4>Familiarity Builds Preference</h4>
-          <p>One of the most underrated drivers of consumer behavior is familiarity.</p>
-          <p>Consumers are more likely to choose brands they frequently see, hear, or interact with. Repeated exposure creates comfort and recognition, even when consumers are not actively paying attention.</p>
-          <p>This explains why brands invest heavily in consistent advertising, sponsorships, and visibility campaigns. The goal is not always immediate sales. Often, the objective is simply to stay mentally available when the purchase moment arrives.</p>
-          <p>Familiar brands feel easier to choose.</p>
-          
-          <h4>Consumers Buy Identity and Meaning</h4>
-          <p>Today’s consumers increasingly choose brands that reflect who they are or who they aspire to become.</p>
-          <p>Brands such as Nike, Apple, and Starbucks do not simply sell products. They sell ambition, creativity, lifestyle, belonging, and self-expression.</p>
-          <p>People use brands to communicate identity to themselves and others.</p>
-          <p>A person may wear Nike because it represents motivation and achievement. Someone may prefer Apple because it aligns with innovation and premium design. The product becomes a symbol of personal meaning.</p>
-          <p>This is why successful branding goes beyond functional benefits. Strong brands create emotional connections.</p>
-          
-          <h4>What This Means for Marketers</h4>
-          <p>For marketers, the lesson is clear: products alone rarely create long-term competitive advantage.</p>
-          <p>Features can be copied.</p>
-          <p>Prices can be matched.</p>
-          <p>Technology can evolve.</p>
-          <p>But emotional connection, trust, perception, and brand meaning are much harder to replicate.</p>
-          <p>Successful marketing is not only about selling a product. It is about building a brand consumers remember, trust, and emotionally connect with.</p>
-          <p>At the end of the day, products compete in the market — but brands win in the mind.</p>
-        </div>
+        <div class="blog-content" id="modalContent"></div>
       </div>
-      
     </div>
   </div>
 </div>
@@ -346,7 +291,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
 
 <script>
 /* =========================================================
-   THEME
+   THEME & MENU
 ========================================================= */
 const body = document.body;
 body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
@@ -356,9 +301,6 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   localStorage.setItem('theme', t);
 });
 
-/* =========================================================
-   MOBILE MENU (Hamburger Logic Added)
-========================================================= */
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 if(hamburger && mobileMenu) {
@@ -373,21 +315,14 @@ if(hamburger && mobileMenu) {
 }
 
 /* =========================================================
-   CURSOR
+   CURSOR & PARTICLES
 ========================================================= */
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
 let mx=0, my=0, rx=0, ry=0;
 document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
 (function animC(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px'; requestAnimationFrame(animC); })();
-document.querySelectorAll('a,button,.blog-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ cursor.style.width='18px'; cursor.style.height='18px'; cursorRing.style.width='50px'; cursorRing.style.height='50px'; });
-  el.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; });
-});
 
-/* =========================================================
-   PARTICLES
-========================================================= */
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 function resizeC(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
@@ -402,40 +337,444 @@ const ps=Array.from({length:80},()=>new P());
 function dLines(){ for(let i=0;i<ps.length;i++) for(let j=i+1;j<ps.length;j++){ const dx=ps[i].x-ps[j].x, dy=ps[i].y-ps[j].y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ const dk=body.getAttribute('data-theme')!=='light'; ctx.beginPath(); ctx.strokeStyle=dk?`rgba(59,130,246,${.06*(1-dist/120)})`:`rgba(29,78,216,${.04*(1-dist/120)})`; ctx.lineWidth=.5; ctx.moveTo(ps[i].x,ps[i].y); ctx.lineTo(ps[j].x,ps[j].y); ctx.stroke(); }}}
 (function anim(){ ctx.clearRect(0,0,canvas.width,canvas.height); ps.forEach(p=>{ p.u(); p.d(); }); dLines(); requestAnimationFrame(anim); })();
 
-/* =========================================================
-   NAVBAR SCROLL & BACK TO TOP FIX
-========================================================= */
-const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
   if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
-  
-  // This triggers the back-to-top button visibility
   const backTopBtn = document.getElementById('backTop');
-  if (backTopBtn) {
-    backTopBtn.classList.toggle('visible', window.scrollY > 300);
-  }
+  if (backTopBtn) backTopBtn.classList.toggle('visible', window.scrollY > 300);
 });
-
-document.getElementById('backTop').addEventListener('click', () => {
-  window.scrollTo({top: 0, behavior: 'smooth'});
-});
+document.getElementById('backTop').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
 /* =========================================================
-   MODAL FUNCTIONALITY
+   BLOG DATA & LOGIC
 ========================================================= */
-function openBlogModal(id) {
-  document.getElementById('blogModal').classList.add('active');
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+// The array is sorted from Oldest to Newest here.
+// The render function automatically reverses this, so whatever is at the bottom shows up FIRST.
+const blogs = [
+  {
+    id: 'blog4',
+    title: 'What Most Businesses Get Wrong About Social Media Advertising',
+    seoTitle: 'Common Social Media Advertising Mistakes Businesses Make',
+    metaDesc: 'Learn the biggest social media advertising mistakes businesses make and how to improve campaign performance with better strategy and targeting.',
+    slug: '/social-media-advertising-mistakes',
+    img: 'images/blog-thumb-4.png',
+    date: 'May 04, 2026',
+    excerpt: 'Social media advertising has become one of the most powerful tools in digital marketing. Platforms like Meta, LinkedIn, and TikTok allow businesses to reach millions of users instantly. However...',
+    content: `
+      <p>Social media advertising has become one of the most powerful tools in digital marketing. Platforms like Meta, LinkedIn, and TikTok allow businesses to reach millions of users instantly.</p>
+      <p>However, many businesses still fail to achieve good results from paid advertising. In most cases, the problem is not the platform. The problem is strategy.</p>
+
+      <h4>Boosting Posts Without a Goal</h4>
+      <p>One of the most common mistakes is boosting posts randomly without defining a clear objective. Many businesses simply click the “Boost Post” button and expect sales immediately.</p>
+      <p>But advertising works best when campaigns are built around specific goals such as:</p>
+      <ul>
+        <li>Brand awareness</li>
+        <li>Website traffic</li>
+        <li>Lead generation</li>
+        <li>Engagement</li>
+        <li>Sales conversions</li>
+      </ul>
+      <p>Without a proper objective, it becomes difficult to measure success or optimize campaigns effectively. According to <a href="https://www.facebook.com/business/help" target="_blank">Meta Business Help Center</a>, choosing the correct campaign objective directly affects delivery optimization and campaign performance.</p>
+
+      <h4>Weak Creative Content</h4>
+      <p>Even with strong targeting, poor creative content can reduce campaign performance. Modern users scroll quickly through social media feeds. Brands usually have only a few seconds to grab attention.</p>
+      <p>Good ad creatives should:</p>
+      <ul>
+        <li>Capture attention immediately</li>
+        <li>Use clear messaging</li>
+        <li>Focus on one main idea</li>
+        <li>Include strong visuals</li>
+        <li>Have a clear call-to-action</li>
+      </ul>
+      <p>Short-form videos, user-generated content, and authentic storytelling often perform better than highly polished corporate advertisements.</p>
+
+      <h4>Targeting Everyone</h4>
+      <p>Another major mistake is trying to reach “everyone.” Effective advertising focuses on a specific audience. Businesses should clearly identify:</p>
+      <ul>
+        <li>Age group</li>
+        <li>Interests</li>
+        <li>Behaviors</li>
+        <li>Pain points</li>
+        <li>Purchasing behavior</li>
+      </ul>
+      <p>The more relevant the audience, the better the results. Tools like <a href="https://analytics.google.com/" target="_blank">Google Analytics</a> and <a href="https://adsmanager.facebook.com/" target="_blank">Meta Ads Manager</a> help businesses understand audience behavior and campaign performance.</p>
+
+      <h4>Ignoring Data and Optimization</h4>
+      <p>Many businesses launch campaigns and never optimize them afterward. Digital advertising requires continuous monitoring. Marketers should regularly analyze:</p>
+      <ul>
+        <li>Click-through rates</li>
+        <li>Cost per result</li>
+        <li>Engagement rates</li>
+        <li>Conversion rates</li>
+        <li>Audience performance</li>
+      </ul>
+      <p>Optimization helps improve efficiency and reduce wasted ad spend. Successful campaigns are rarely perfect from day one. Most high-performing campaigns improve through testing and data analysis.</p>
+
+      <h4>Focusing Only on Sales</h4>
+      <p>Not every campaign should directly sell products. Consumers usually need multiple interactions before making purchasing decisions. This is why businesses should balance:</p>
+      <ul>
+        <li>Awareness campaigns</li>
+        <li>Engagement campaigns</li>
+        <li>Retargeting campaigns</li>
+        <li>Conversion campaigns</li>
+      </ul>
+      <p>Building trust over time often produces better long-term results than aggressive sales-focused advertising.</p>
+
+      <h4>Social Media Advertising Is Becoming More Competitive</h4>
+      <p>As more businesses invest in digital advertising, competition continues to increase. This means brands must focus more on:</p>
+      <ul>
+        <li>Creative quality</li>
+        <li>Audience understanding</li>
+        <li>Brand storytelling</li>
+        <li>Customer experience</li>
+      </ul>
+      <p>Simple advertising is no longer enough. According to <a href="https://www.thinkwithgoogle.com/" target="_blank">Think with Google</a>, modern audiences prefer engaging and authentic digital experiences rather than traditional promotional content.</p>
+
+      <h4>Final Thoughts</h4>
+      <p>Social media advertising is not just about spending money on ads. It requires strategy, creativity, testing, and audience understanding. Businesses that focus only on boosting posts often struggle. The brands that succeed are the ones that combine creative storytelling with smart marketing strategy.</p>
+    `
+  },
+  {
+    id: 'blog3',
+    title: 'The Future of Short-Form Video Marketing in Sri Lanka',
+    seoTitle: 'The Future of Short-Form Video Marketing in Sri Lanka',
+    metaDesc: 'Explore how TikTok, Instagram Reels, and short-form video content are changing digital marketing and brand engagement in Sri Lanka.',
+    slug: '/future-of-short-form-video-marketing-sri-lanka',
+    img: 'images/blog-thumb-3.png',
+    date: 'May 10, 2026',
+    excerpt: 'Short-form video content has transformed digital marketing worldwide, and Sri Lanka is rapidly following the same trend. Platforms like TikTok, Instagram, and YouTube Shorts have changed how brands...',
+    content: `
+      <p>Short-form video content has transformed digital marketing worldwide, and Sri Lanka is rapidly following the same trend.</p>
+      <p>Platforms like TikTok, Instagram, and YouTube Shorts have changed how brands communicate with audiences, especially Gen Z consumers.</p>
+      <p>Today, short videos are not just entertainment. They are becoming one of the strongest tools for brand awareness, engagement, and consumer influence.</p>
+
+      <h4>Why Short-Form Content Performs So Well</h4>
+      <p>Modern users consume content very quickly. Attention spans on digital platforms are shorter than ever. Short-form videos work effectively because they are:</p>
+      <ul>
+        <li>Fast and easy to consume</li>
+        <li>Mobile-friendly</li>
+        <li>Highly engaging</li>
+        <li>Easy to share</li>
+        <li>Algorithm-friendly</li>
+      </ul>
+      <p>Unlike traditional advertising, short-form videos often feel more natural and authentic. This is one reason why creator-led content performs strongly on social platforms.</p>
+      <p>According to <a href="https://www.thinkwithgoogle.com/" target="_blank">Think with Google</a>, consumers increasingly prefer quick, entertaining, and informative video content.</p>
+
+      <h4>Gen Z Is Driving the Trend</h4>
+      <p>Gen Z consumers spend significant time on short-form video platforms. Their purchasing decisions are strongly influenced by:</p>
+      <ul>
+        <li>Social trends</li>
+        <li>Influencers</li>
+        <li>Humor</li>
+        <li>Relatable content</li>
+        <li>Viral challenges</li>
+      </ul>
+      <p>Traditional advertising methods are becoming less effective for younger audiences. Brands now focus more on:</p>
+      <ul>
+        <li>Entertaining content</li>
+        <li>Behind-the-scenes videos</li>
+        <li>User-generated content</li>
+        <li>Meme culture</li>
+        <li>Influencer collaborations</li>
+      </ul>
+      <p>This shift is changing the entire digital marketing landscape.</p>
+
+      <h4>Sri Lankan Brands Are Adapting</h4>
+      <p>Many Sri Lankan brands have already started investing heavily in short-form content. Industries actively using short-form video include:</p>
+      <ul>
+        <li>Fashion</li>
+        <li>Food and beverage</li>
+        <li>Beauty</li>
+        <li>Telecommunications</li>
+        <li>Consumer goods</li>
+      </ul>
+      <p>Brands are increasingly working with local creators to produce relatable content that feels less like advertising and more like entertainment. This strategy improves engagement while helping brands appear more authentic.</p>
+
+      <h4>Humor and Relatability Matter</h4>
+      <p>Humor has become one of the strongest engagement drivers in short-form content. Funny, relatable, and emotionally engaging videos often receive:</p>
+      <ul>
+        <li>Higher shares</li>
+        <li>More comments</li>
+        <li>Better watch time</li>
+        <li>Increased organic reach</li>
+      </ul>
+      <p>This is especially true among younger audiences. Platforms reward content that keeps users engaged longer, which is why entertaining content often performs better than direct promotional advertisements.</p>
+
+      <h4>Algorithms Reward Consistency</h4>
+      <p>Social media algorithms prioritize consistent and engaging content. Brands that regularly publish quality short-form videos usually gain:</p>
+      <ul>
+        <li>Higher visibility</li>
+        <li>Better engagement</li>
+        <li>Faster audience growth</li>
+      </ul>
+      <p>Consistency has become more important than producing highly polished content. In many cases, authentic smartphone-style videos outperform expensive commercial productions.</p>
+
+      <h4>The Future of Digital Marketing</h4>
+      <p>Short-form video marketing will likely continue growing in Sri Lanka over the next few years. Future trends may include:</p>
+      <ul>
+        <li>AI-powered video personalization</li>
+        <li>Live shopping integrations</li>
+        <li>Interactive video ads</li>
+        <li>Creator-led brand campaigns</li>
+        <li>Social commerce expansion</li>
+      </ul>
+      <p>Businesses that adapt early will have a stronger advantage in digital marketing. According to <a href="https://www.facebook.com/business" target="_blank">Meta for Business</a>, short-form video is becoming a central part of modern advertising strategies.</p>
+
+      <h4>Final Thoughts</h4>
+      <p>Short-form video is no longer just a trend. It is becoming the foundation of modern digital communication. Brands that focus on authenticity, creativity, and audience engagement will continue to grow in the evolving digital landscape.</p>
+    `
+  },
+  {
+    id: 'blog2',
+    title: 'Meta Blueprint Certifications: Are They Actually Worth It?',
+    seoTitle: 'Are Meta Blueprint Certifications Worth It for Digital Marketers?',
+    metaDesc: 'Learn the benefits of Meta Blueprint certifications, how they help digital marketers, and whether they are worth pursuing in 2026.',
+    slug: '/meta-blueprint-certifications-worth-it',
+    img: 'images/blog-thumb-2.png',
+    date: 'May 18, 2026',
+    excerpt: 'The digital marketing industry changes rapidly. Because of this, many marketers look for certifications to improve their knowledge and strengthen their professional credibility. One of the most recognized...',
+    content: `
+      <p>The digital marketing industry changes rapidly. Because of this, many marketers look for certifications to improve their knowledge and strengthen their professional credibility.</p>
+      <p>One of the most recognized certification programs today is <a href="https://www.facebook.com/business/learn" target="_blank">Meta Blueprint</a>.</p>
+      <p>Meta Blueprint certifications are designed to validate skills related to:</p>
+      <ul>
+        <li>Facebook advertising</li>
+        <li>Instagram marketing</li>
+        <li>Campaign management</li>
+        <li>Media buying</li>
+        <li>Performance optimization</li>
+        <li>Digital strategy</li>
+      </ul>
+      <p>But are these certifications actually worth it?</p>
+
+      <h4>What Is Meta Blueprint?</h4>
+      <p>Meta Blueprint is the official learning and certification platform created by Meta. The platform offers:</p>
+      <ul>
+        <li>Free online courses</li>
+        <li>Training resources</li>
+        <li>Practice materials</li>
+        <li>Professional certification exams</li>
+      </ul>
+      <p>Topics range from beginner-level advertising knowledge to advanced campaign optimization strategies. Official learning resources are available through Meta Blueprint.</p>
+
+      <h4>Why Certifications Matter</h4>
+      <p>In digital marketing, practical experience is always important. However, certifications help demonstrate technical understanding and platform knowledge.</p>
+      <p>For students and early-career marketers, certifications can:</p>
+      <ul>
+        <li>Improve credibility</li>
+        <li>Strengthen CVs</li>
+        <li>Support job applications</li>
+        <li>Increase confidence</li>
+        <li>Validate industry knowledge</li>
+      </ul>
+      <p>Many agencies and companies value certifications because they show commitment to learning and professional development.</p>
+
+      <h4>The Biggest Advantage: Platform Knowledge</h4>
+      <p>One major benefit of Meta Blueprint certifications is learning directly from the platform itself. Instead of relying only on random tutorials, marketers learn:</p>
+      <ul>
+        <li>Ad objectives</li>
+        <li>Audience targeting</li>
+        <li>Pixel tracking</li>
+        <li>Conversion optimization</li>
+        <li>Campaign structure</li>
+        <li>Performance analysis</li>
+      </ul>
+      <p>This creates a stronger foundation for running effective campaigns.</p>
+
+      <h4>Certifications Alone Are Not Enough</h4>
+      <p>Although certifications are valuable, they do not replace real-world experience. A person may pass certification exams but still struggle with:</p>
+      <ul>
+        <li>Creative strategy</li>
+        <li>Client communication</li>
+        <li>Budget allocation</li>
+        <li>Data interpretation</li>
+        <li>Campaign troubleshooting</li>
+      </ul>
+      <p>The best marketers combine:</p>
+      <ul>
+        <li>Technical platform knowledge</li>
+        <li>Creative thinking</li>
+        <li>Practical campaign experience</li>
+      </ul>
+      <p>Certifications should support experience, not replace it.</p>
+
+      <h4>Are They Worth the Investment?</h4>
+      <p>For many digital marketers, the answer is yes. Meta certifications are especially useful for:</p>
+      <ul>
+        <li>University students</li>
+        <li>Freelancers</li>
+        <li>Junior marketers</li>
+        <li>Media planners</li>
+        <li>Performance marketers</li>
+        <li>Agency professionals</li>
+      </ul>
+      <p>They can help candidates stand out in competitive job markets. According to <a href="https://www.facebook.com/business/learn/certification" target="_blank">Meta Certification Information</a>, certifications are designed to validate real-world digital advertising skills.</p>
+
+      <h4>How to Prepare for the Exams</h4>
+      <p>Preparation usually involves:</p>
+      <ul>
+        <li>Studying official Meta courses</li>
+        <li>Practicing with Ads Manager</li>
+        <li>Learning campaign structures</li>
+        <li>Understanding optimization techniques</li>
+        <li>Reviewing case studies</li>
+      </ul>
+      <p>Practical experience with live campaigns significantly improves understanding. Free learning resources are also available through <a href="https://www.facebook.com/business/help" target="_blank">Meta Business Help Center</a>.</p>
+
+      <h4>Final Thoughts</h4>
+      <p>Meta Blueprint certifications can be highly valuable for digital marketers who want to improve their knowledge and professional credibility. However, the real value comes from combining certifications with practical experience and continuous learning.</p>
+      <p>In digital marketing, platforms evolve constantly. The marketers who continue learning will always have an advantage.</p>
+    `
+  },
+  {
+    id: 'blog1',
+    title: 'Why People Actually Buy Brands (And It’s Not Just About the Product)',
+    seoTitle: 'Why People Buy Brands: The Psychology Behind Consumer Decisions',
+    metaDesc: 'Discover why consumers buy brands beyond product features. Learn how emotions, trust, identity, and social proof influence buying behavior.',
+    slug: '/why-people-buy-brands',
+    img: 'images/blog-thumb-1.png',
+    date: 'May 22, 2026',
+    excerpt: 'In today’s marketplace, consumers are surrounded by endless choices. Whether it’s smartphones, toothpaste, coffee, or fashion, multiple brands often offer nearly identical products with similar features and pricing. Yet, some brands consistently dominate...',
+    content: `
+      <p>When people think about marketing, they often assume customers buy products because of price, quality, or features. While those factors matter, modern consumers usually make decisions based on something deeper: emotions and perception.</p>
+      <p>People rarely buy “just a product.” They buy trust, identity, convenience, confidence, and emotional connection.</p>
+      <p>Think about brands like Apple, Nike, or Coca-Cola. Their success is not only because of product quality. Millions of people emotionally connect with these brands.</p>
+      
+      <h4>People Buy Emotions First</h4>
+      <p>Research in consumer psychology shows that emotions heavily influence purchasing decisions. Customers often justify purchases logically afterward, but emotional triggers usually happen first.</p>
+      <p>For example:</p>
+      <ul>
+        <li>A luxury fashion brand may make someone feel confident.</li>
+        <li>A fitness brand may inspire motivation.</li>
+        <li>A tech brand may create a sense of innovation or status.</li>
+      </ul>
+      <p>This is why storytelling has become one of the strongest marketing tools today. Brands that communicate emotions successfully tend to create stronger customer loyalty.</p>
+      <p>According to <a href="https://hbr.org/" target="_blank">Harvard Business Review</a>, emotionally connected customers are more valuable and more loyal than highly satisfied customers.</p>
+      
+      <h4>Trust Is One of the Biggest Buying Factors</h4>
+      <p>Customers buy from brands they trust. In digital marketing, trust can come from:</p>
+      <ul>
+        <li>Positive reviews</li>
+        <li>Consistent branding</li>
+        <li>Professional social media presence</li>
+        <li>Influencer recommendations</li>
+        <li>User-generated content</li>
+        <li>Good customer service</li>
+      </ul>
+      <p>This is especially important in online shopping because customers cannot physically interact with products before purchasing. Platforms like <a href="https://www.google.com/business/" target="_blank">Google Reviews</a> and <a href="https://www.trustpilot.com/" target="_blank">Trustpilot</a> have become important trust signals for modern consumers.</p>
+      
+      <h4>Social Proof Influences Buying Decisions</h4>
+      <p>People naturally look at others before making decisions. This is known as social proof. If thousands of people are using a product, new customers feel safer purchasing it.</p>
+      <p>This is why brands focus heavily on:</p>
+      <ul>
+        <li>Testimonials</li>
+        <li>Influencer marketing</li>
+        <li>Customer reviews</li>
+        <li>Community engagement</li>
+        <li>Viral social media content</li>
+      </ul>
+      <p>Social proof is one of the major reasons why short-form platforms like TikTok and Instagram influence modern buying behavior so strongly.</p>
+      
+      <h4>Brand Identity Matters</h4>
+      <p>Consumers often choose brands that reflect their personality or lifestyle.</p>
+      <p>For example:</p>
+      <ul>
+        <li>Some people buy sustainable brands to reflect environmental values.</li>
+        <li>Others buy premium brands to express status.</li>
+        <li>Some prefer minimalist brands because they align with their personal style.</li>
+      </ul>
+      <p>This is why branding is more than just a logo. It includes:</p>
+      <ul>
+        <li>Brand voice</li>
+        <li>Visual identity</li>
+        <li>Messaging</li>
+        <li>Customer experience</li>
+        <li>Company values</li>
+      </ul>
+      <p>Strong branding creates familiarity, and familiarity creates trust.</p>
+
+      <h4>The Digital Era Changed Consumer Behavior</h4>
+      <p>Today, customers interact with brands multiple times before making a purchase. They may:</p>
+      <ul>
+        <li>See a social media ad</li>
+        <li>Watch a creator review</li>
+        <li>Search on Google</li>
+        <li>Visit the website</li>
+        <li>Read customer reviews</li>
+        <li>Finally decide to purchase</li>
+      </ul>
+      <p>Because of this, businesses must focus on building long-term brand value instead of only running sales campaigns.</p>
+      <p>According to <a href="https://www.thinkwithgoogle.com/" target="_blank">Google’s consumer insights research</a>, modern customer journeys are no longer linear and involve multiple digital touchpoints.</p>
+      
+      <h4>Final Thoughts</h4>
+      <p>People buy brands because of how brands make them feel. While quality and pricing are important, emotional connection, trust, social proof, and identity play a major role in modern purchasing behavior.</p>
+      <p>The brands that succeed today are not always the cheapest or the most advanced. They are the brands that understand people.</p>
+    `
+  }
+];
+
+function renderBlogs() {
+  const grid = document.getElementById('blogGrid');
+  grid.innerHTML = '';
+  
+  // Creates a reversed copy so the LAST item added to the array shows up FIRST in the UI
+  const reversedBlogs = [...blogs].reverse();
+
+  reversedBlogs.forEach(b => {
+    const card = document.createElement('div');
+    card.className = 'blog-card';
+    card.setAttribute('data-seo-title', b.seoTitle);
+    card.setAttribute('data-meta-desc', b.metaDesc);
+    card.setAttribute('data-slug', b.slug);
+    card.onclick = () => openBlogModal(b.id);
+    
+    card.innerHTML = `
+      <div class="blog-date">Featured Insight</div>
+      <h3>${b.title}</h3>
+      <img src="${b.img}" alt="Blog Thumbnail" class="blog-card-img" onerror="this.src='https://via.placeholder.com/600x338?text=Blog+Image'">
+      <div class="blog-meta">Published by Milindu Madushan &bull; ${b.date}</div>
+      <p>${b.excerpt}</p>
+      <div class="blog-read-more">Read More <i class="fa fa-arrow-right"></i></div>
+    `;
+    
+    card.addEventListener('mouseenter',()=>{ cursor.style.width='18px'; cursor.style.height='18px'; cursorRing.style.width='50px'; cursorRing.style.height='50px'; });
+    card.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursorRing.style.width='36px'; cursorRing.style.height='36px'; });
+    
+    grid.appendChild(card);
+  });
 }
+
+function openBlogModal(id) {
+  const b = blogs.find(x => x.id === id);
+  if(!b) return;
+  document.getElementById('modalTitle').textContent = b.title;
+  document.getElementById('modalImg').src = b.img;
+  document.getElementById('modalMeta').innerHTML = `Published by Milindu Madushan &bull; ${b.date}`;
+  document.getElementById('modalContent').innerHTML = b.content;
+  
+  document.getElementById('blogModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  
+  // Delay slightly to ensure element is rendered before setting scroll position
+  setTimeout(() => {
+    const scrollWrapper = document.getElementById('blogModalScroll');
+    if(scrollWrapper) {
+      scrollWrapper.scrollTop = 0;
+    }
+  }, 10);
+}
+
 function closeBlogModal() {
   document.getElementById('blogModal').classList.remove('active');
-  document.body.style.overflow = 'auto'; // Re-enable background scrolling
+  document.body.style.overflow = 'auto';
 }
 
-// Close modal on overlay click
 document.getElementById('blogModal').addEventListener('click', e => { 
   if(e.target===e.currentTarget) closeBlogModal(); 
 });
+
+renderBlogs();
 </script>
 </body>
 </html>

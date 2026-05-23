@@ -73,6 +73,23 @@ nav#navbar{
 .theme-toggle::after{content:'';position:absolute;width:20px;height:20px;background:var(--accent);border-radius:50%;top:2px;left:2px;transition:transform var(--transition);}
 [data-theme="light"] .theme-toggle::after{transform:translateX(22px);background:var(--accent2);}
 
+/* Mobile Menu Elements */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;outline:none;}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all var(--transition);display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(6,8,16,.97);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+}
+[data-theme="light"] .mobile-menu{background:rgba(240,244,255,.97);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:var(--font-mono);font-size:1.2rem;font-weight:500;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;transition:color var(--transition);}
+.mobile-menu a:hover{color:var(--accent);}
+
 /* ======================== BUTTONS ======================== */
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 1.8rem;border-radius:6px;cursor:pointer;transition:all var(--transition);outline:none;border:none;}
 .btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 0 0 rgba(59,130,246,.4);}
@@ -330,7 +347,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
 
 /* ======================== RESPONSIVE ======================== */
 @media(max-width:900px){.tool-layout{grid-template-columns:1fr;}.tool-header-bar{flex-direction:column;}}
-@media(max-width:768px){.cursor,.cursor-ring{display:none!important;}.app-container{padding:90px 1.2rem 3rem;}.tool-card-body{padding:1.5rem;}}
+@media(max-width:768px){
+  .cursor,.cursor-ring{display:none!important;}
+  .app-container{padding:90px 1.2rem 3rem;}
+  .tool-card-body{padding:1.5rem;}
+  /* Hide Desktop buttons & show Hamburger on mobile */
+  .desktop-btn { display: none !important; }
+  .hamburger { display: flex; }
+}
 @media(max-width:480px){.app-title{font-size:1.75rem;}.results-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -347,9 +371,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
 <nav id="navbar">
   <a href="index.html" class="nav-logo">Milindu Madushan</a>
   <div class="nav-right">
+    <a href="blog.html" class="btn btn-primary desktop-btn" style="padding: 0.5rem 1rem; font-size: 0.75rem; margin-right: 0.5rem;"><i class="fa fa-pencil-alt"></i> Blog</a>
     <a href="index.html" class="btn btn-outline desktop-btn" style="padding:.5rem 1.1rem;font-size:.72rem;">&larr; Portfolio</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
     
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -694,7 +719,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     </div>
   </div>
 
-</div><div class="modal-overlay" id="metricsModal">
+</div>
+
+<div class="modal-overlay" id="metricsModal">
   <div class="modal-box">
     <div class="modal-header">
       <div class="modal-metric-abbr" id="modalAbbr">CTR</div>
@@ -705,6 +732,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     <div class="modal-body">
       <div id="modalInputs"></div>
       <button class="btn btn-primary" style="width:100%;margin-top:.4rem;" onclick="executeCalc()"><i class="fa fa-equals"></i> Calculate</button>
+      
       <div class="calc-result-box" id="calcResultBox">
         <div class="calc-result-top">
           <div class="calc-result-icon"><i class="fa fa-check"></i></div>
@@ -714,12 +742,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
           </div>
         </div>
         <div class="calc-result-steps">
+          <strong>Simply put:</strong> <span id="calcFormulaDesc" style="color:var(--text);"></span><br><br>
           <strong>Formula:</strong><br>
           <span id="calcFormulaBase" style="color:var(--accent);"></span><br><br>
           <strong>Calculation:</strong><br>
           <span id="calcStepsMath"></span>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -758,6 +788,22 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   body.setAttribute('data-theme', t);
   localStorage.setItem('theme', t);
 });
+
+/* =========================================================
+   MOBILE MENU (Hamburger Logic Added)
+========================================================= */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if(hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+  }));
+}
 
 /* =========================================================
    CURSOR
@@ -816,32 +862,32 @@ function closeTool() {
 }
 
 /* =========================================================
-   TOOL 1: METRICS CALCULATOR
+   TOOL 1: METRICS CALCULATOR (Simple Formula Descriptions Added)
 ========================================================= */
 const metricData = [
-  {cat:'Traffic & Click Metrics',id:'ctr',abbr:'CTR',name:'Click-Through Rate',desc:'Percentage of people who clicked your ad after seeing it',inputs:['Clicks','Impressions'],fmt:'%',fStr:'(Clicks ÷ Impressions) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Traffic & Click Metrics',id:'cpc',abbr:'CPC',name:'Cost Per Click',desc:'How much you pay for each click on your ad',inputs:['Spend','Clicks'],fmt:'curr',fStr:'Spend ÷ Clicks',calc:v=>v[0]/v[1]},
-  {cat:'Traffic & Click Metrics',id:'cpm',abbr:'CPM',name:'Cost Per Mille',desc:'Cost per 1,000 impressions',inputs:['Spend','Impressions'],fmt:'curr',fStr:'(Spend ÷ Impressions) × 1000',calc:v=>(v[0]/v[1])*1000},
-  {cat:'Traffic & Click Metrics',id:'cpl',abbr:'CPL',name:'Cost Per Lead',desc:'How much you pay to generate one lead',inputs:['Spend','Leads'],fmt:'curr',fStr:'Spend ÷ Leads',calc:v=>v[0]/v[1]},
-  {cat:'Traffic & Click Metrics',id:'cpa',abbr:'CPA',name:'Cost Per Acquisition',desc:'Cost per purchase or desired action',inputs:['Spend','Conversions'],fmt:'curr',fStr:'Spend ÷ Conversions',calc:v=>v[0]/v[1]},
-  {cat:'Traffic & Click Metrics',id:'cpmv',abbr:'CPMV',name:'Cost Per Mille Views',desc:'Cost per 1,000 video views',inputs:['Spend','Video Views'],fmt:'curr',fStr:'(Spend ÷ Video Views) × 1000',calc:v=>(v[0]/v[1])*1000},
-  {cat:'Conversion Metrics',id:'cvr',abbr:'CVR',name:'Conversion Rate',desc:'Percentage of clicks that resulted in a conversion',inputs:['Conversions','Clicks'],fmt:'%',fStr:'(Conversions ÷ Clicks) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Conversion Metrics',id:'lcr',abbr:'Lead Conv. Rate',name:'Lead Conversion Rate',desc:'Quality of leads — how many become qualified',inputs:['Qualified Leads','Total Leads'],fmt:'%',fStr:'(Qualified Leads ÷ Total Leads) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Conversion Metrics',id:'car',abbr:'Cart Abandonment',name:'Cart Abandonment Rate',desc:'Percentage of users who added to cart but did not purchase',inputs:['Total Carts','Purchases'],fmt:'%',fStr:'((Carts - Purchases) ÷ Carts) × 100',calc:v=>((v[0]-v[1])/v[0])*100},
-  {cat:'Conversion Metrics',id:'ccr',abbr:'Checkout Completion',name:'Checkout Completion Rate',desc:'How many who started checkout actually completed it',inputs:['Purchases','Checkout Starts'],fmt:'%',fStr:'(Purchases ÷ Checkout Starts) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Revenue Metrics',id:'roas',abbr:'ROAS',name:'Return on Ad Spend',desc:'Revenue generated for every rupee spent on ads',inputs:['Revenue','Ad Spend'],fmt:'x',fStr:'Revenue ÷ Ad Spend',calc:v=>v[0]/v[1]},
-  {cat:'Revenue Metrics',id:'roi',abbr:'ROI',name:'Return on Investment',desc:'Overall profitability of your marketing investment',inputs:['Revenue','Cost'],fmt:'%',fStr:'((Revenue - Cost) ÷ Cost) × 100',calc:v=>((v[0]-v[1])/v[1])*100},
-  {cat:'Revenue Metrics',id:'aov',abbr:'AOV',name:'Average Order Value',desc:'Average amount spent per transaction',inputs:['Revenue','Orders'],fmt:'curr',fStr:'Revenue ÷ Orders',calc:v=>v[0]/v[1]},
-  {cat:'Revenue Metrics',id:'rpc',abbr:'RPC',name:'Revenue Per Click',desc:'Average revenue generated by each click',inputs:['Revenue','Clicks'],fmt:'curr',fStr:'Revenue ÷ Clicks',calc:v=>v[0]/v[1]},
-  {cat:'Revenue Metrics',id:'mer',abbr:'MER',name:'Marketing Efficiency Ratio',desc:'Overall return across all marketing spend',inputs:['Total Revenue','Total Marketing Spend'],fmt:'x',fStr:'Total Revenue ÷ Total Marketing Spend',calc:v=>v[0]/v[1]},
-  {cat:'Engagement Metrics',id:'er',abbr:'ER',name:'Engagement Rate',desc:'Level of audience interaction relative to reach',inputs:['Engagements','Reach'],fmt:'%',fStr:'(Engagements ÷ Reach) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Engagement Metrics',id:'sr',abbr:'Share Rate',name:'Share Rate',desc:'Virality indicator — how often content is shared',inputs:['Shares','Reach'],fmt:'%',fStr:'(Shares ÷ Reach) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Video Metrics',id:'vtr',abbr:'VTR',name:'View Through Rate',desc:'Percentage of viewers who watched your video to completion',inputs:['Completed Views','Impressions'],fmt:'%',fStr:'(Completed Views ÷ Impressions) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Video Metrics',id:'cpv',abbr:'CPV',name:'Cost Per View',desc:'How much you pay for each video view',inputs:['Spend','Video Views'],fmt:'curr',fStr:'Spend ÷ Video Views',calc:v=>v[0]/v[1]},
-  {cat:'Video Metrics',id:'hook',abbr:'Hook Rate',name:'Hook Rate',desc:'Percentage of impressions that result in a 3-second view',inputs:['3-sec Views','Impressions'],fmt:'%',fStr:'(3-sec Views ÷ Impressions) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Video Metrics',id:'hold',abbr:'Hold Rate',name:'Hold Rate',desc:'Viewer retention after the first 15 seconds',inputs:['15-sec Views','Video Starts'],fmt:'%',fStr:'(15-sec Views ÷ Video Starts) × 100',calc:v=>(v[0]/v[1])*100},
-  {cat:'Funnel & Retention',id:'cac',abbr:'CAC',name:'Customer Acquisition Cost',desc:'Average cost to acquire one new customer',inputs:['Total Marketing Cost','New Customers'],fmt:'curr',fStr:'Total Marketing Cost ÷ New Customers',calc:v=>v[0]/v[1]},
-  {cat:'Funnel & Retention',id:'churn',abbr:'Churn Rate',name:'Churn Rate',desc:'Percentage of customers lost over a period',inputs:['Lost Customers','Total Customers'],fmt:'%',fStr:'(Lost Customers ÷ Total Customers) × 100',calc:v=>(v[0]/v[1])*100}
+  {cat:'Traffic & Click Metrics',id:'ctr',abbr:'CTR',name:'Click-Through Rate',desc:'Percentage of people who clicked your ad after seeing it',inputs:['Clicks','Impressions'],fmt:'%',fStr:'(Clicks ÷ Impressions) × 100',fDesc:'Total Clicks divided by Total Impressions.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Traffic & Click Metrics',id:'cpc',abbr:'CPC',name:'Cost Per Click',desc:'How much you pay for each click on your ad',inputs:['Spend','Clicks'],fmt:'curr',fStr:'Spend ÷ Clicks',fDesc:'Total Ad Spend divided by Total Clicks.',calc:v=>v[0]/v[1]},
+  {cat:'Traffic & Click Metrics',id:'cpm',abbr:'CPM',name:'Cost Per Mille',desc:'Cost per 1,000 impressions',inputs:['Spend','Impressions'],fmt:'curr',fStr:'(Spend ÷ Impressions) × 1000',fDesc:'Total Ad Spend divided by Total Impressions, multiplied by 1,000.',calc:v=>(v[0]/v[1])*1000},
+  {cat:'Traffic & Click Metrics',id:'cpl',abbr:'CPL',name:'Cost Per Lead',desc:'How much you pay to generate one lead',inputs:['Spend','Leads'],fmt:'curr',fStr:'Spend ÷ Leads',fDesc:'Total Ad Spend divided by Total Leads.',calc:v=>v[0]/v[1]},
+  {cat:'Traffic & Click Metrics',id:'cpa',abbr:'CPA',name:'Cost Per Acquisition',desc:'Cost per purchase or desired action',inputs:['Spend','Conversions'],fmt:'curr',fStr:'Spend ÷ Conversions',fDesc:'Total Ad Spend divided by Total Conversions.',calc:v=>v[0]/v[1]},
+  {cat:'Traffic & Click Metrics',id:'cpmv',abbr:'CPMV',name:'Cost Per Mille Views',desc:'Cost per 1,000 video views',inputs:['Spend','Video Views'],fmt:'curr',fStr:'(Spend ÷ Video Views) × 1000',fDesc:'Total Ad Spend divided by Video Views, multiplied by 1,000.',calc:v=>(v[0]/v[1])*1000},
+  {cat:'Conversion Metrics',id:'cvr',abbr:'CVR',name:'Conversion Rate',desc:'Percentage of clicks that resulted in a conversion',inputs:['Conversions','Clicks'],fmt:'%',fStr:'(Conversions ÷ Clicks) × 100',fDesc:'Total Conversions divided by Total Clicks.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Conversion Metrics',id:'lcr',abbr:'Lead Conv. Rate',name:'Lead Conversion Rate',desc:'Quality of leads — how many become qualified',inputs:['Qualified Leads','Total Leads'],fmt:'%',fStr:'(Qualified Leads ÷ Total Leads) × 100',fDesc:'Qualified Leads divided by Total Leads.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Conversion Metrics',id:'car',abbr:'Cart Abandonment',name:'Cart Abandonment Rate',desc:'Percentage of users who added to cart but did not purchase',inputs:['Total Carts','Purchases'],fmt:'%',fStr:'((Carts - Purchases) ÷ Carts) × 100',fDesc:'Total Carts minus Purchases, divided by Total Carts.',calc:v=>((v[0]-v[1])/v[0])*100},
+  {cat:'Conversion Metrics',id:'ccr',abbr:'Checkout Completion',name:'Checkout Completion Rate',desc:'How many who started checkout actually completed it',inputs:['Purchases','Checkout Starts'],fmt:'%',fStr:'(Purchases ÷ Checkout Starts) × 100',fDesc:'Total Purchases divided by Checkout Starts.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Revenue Metrics',id:'roas',abbr:'ROAS',name:'Return on Ad Spend',desc:'Revenue generated for every rupee spent on ads',inputs:['Revenue','Ad Spend'],fmt:'x',fStr:'Revenue ÷ Ad Spend',fDesc:'Total Revenue divided by Total Ad Spend.',calc:v=>v[0]/v[1]},
+  {cat:'Revenue Metrics',id:'roi',abbr:'ROI',name:'Return on Investment',desc:'Overall profitability of your marketing investment',inputs:['Revenue','Cost'],fmt:'%',fStr:'((Revenue - Cost) ÷ Cost) × 100',fDesc:'Total Revenue minus Cost, divided by Cost.',calc:v=>((v[0]-v[1])/v[1])*100},
+  {cat:'Revenue Metrics',id:'aov',abbr:'AOV',name:'Average Order Value',desc:'Average amount spent per transaction',inputs:['Revenue','Orders'],fmt:'curr',fStr:'Revenue ÷ Orders',fDesc:'Total Revenue divided by Total Orders.',calc:v=>v[0]/v[1]},
+  {cat:'Revenue Metrics',id:'rpc',abbr:'RPC',name:'Revenue Per Click',desc:'Average revenue generated by each click',inputs:['Revenue','Clicks'],fmt:'curr',fStr:'Revenue ÷ Clicks',fDesc:'Total Revenue divided by Total Clicks.',calc:v=>v[0]/v[1]},
+  {cat:'Revenue Metrics',id:'mer',abbr:'MER',name:'Marketing Efficiency Ratio',desc:'Overall return across all marketing spend',inputs:['Total Revenue','Total Marketing Spend'],fmt:'x',fStr:'Total Revenue ÷ Total Marketing Spend',fDesc:'Total Revenue divided by Total Marketing Spend.',calc:v=>v[0]/v[1]},
+  {cat:'Engagement Metrics',id:'er',abbr:'ER',name:'Engagement Rate',desc:'Level of audience interaction relative to reach',inputs:['Engagements','Reach'],fmt:'%',fStr:'(Engagements ÷ Reach) × 100',fDesc:'Total Engagements divided by Total Reach.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Engagement Metrics',id:'sr',abbr:'Share Rate',name:'Share Rate',desc:'Virality indicator — how often content is shared',inputs:['Shares','Reach'],fmt:'%',fStr:'(Shares ÷ Reach) × 100',fDesc:'Total Shares divided by Total Reach.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Video Metrics',id:'vtr',abbr:'VTR',name:'View Through Rate',desc:'Percentage of viewers who watched your video to completion',inputs:['Completed Views','Impressions'],fmt:'%',fStr:'(Completed Views ÷ Impressions) × 100',fDesc:'Completed Views divided by Total Impressions.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Video Metrics',id:'cpv',abbr:'CPV',name:'Cost Per View',desc:'How much you pay for each video view',inputs:['Spend','Video Views'],fmt:'curr',fStr:'Spend ÷ Video Views',fDesc:'Total Ad Spend divided by Video Views.',calc:v=>v[0]/v[1]},
+  {cat:'Video Metrics',id:'hook',abbr:'Hook Rate',name:'Hook Rate',desc:'Percentage of impressions that result in a 3-second view',inputs:['3-sec Views','Impressions'],fmt:'%',fStr:'(3-sec Views ÷ Impressions) × 100',fDesc:'3-Second Views divided by Total Impressions.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Video Metrics',id:'hold',abbr:'Hold Rate',name:'Hold Rate',desc:'Viewer retention after the first 15 seconds',inputs:['15-sec Views','Video Starts'],fmt:'%',fStr:'(15-sec Views ÷ Video Starts) × 100',fDesc:'15-Second Views divided by Total Video Starts.',calc:v=>(v[0]/v[1])*100},
+  {cat:'Funnel & Retention',id:'cac',abbr:'CAC',name:'Customer Acquisition Cost',desc:'Average cost to acquire one new customer',inputs:['Total Marketing Cost','New Customers'],fmt:'curr',fStr:'Total Marketing Cost ÷ New Customers',fDesc:'Total Marketing Cost divided by New Customers.',calc:v=>v[0]/v[1]},
+  {cat:'Funnel & Retention',id:'churn',abbr:'Churn Rate',name:'Churn Rate',desc:'Percentage of customers lost over a period',inputs:['Lost Customers','Total Customers'],fmt:'%',fStr:'(Lost Customers ÷ Total Customers) × 100',fDesc:'Lost Customers divided by Total Customers.',calc:v=>(v[0]/v[1])*100}
 ];
 
 let actMet = null;
@@ -890,8 +936,11 @@ function executeCalc() {
   if(actMet.fmt==='%') resStr += '%';
   else if(actMet.fmt==='curr') resStr = 'Rs. ' + parseFloat(resStr).toLocaleString();
   else if(actMet.fmt==='x') resStr += 'x';
+  
+  document.getElementById('calcFormulaDesc').textContent = actMet.fDesc;
   document.getElementById('calcVal').textContent = resStr;
   document.getElementById('calcFormulaBase').textContent = actMet.fStr;
+  
   let stepMath = actMet.fStr;
   actMet.inputs.forEach((name, i) => {
     stepMath = stepMath.replace(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), `<span style="color:var(--accent);font-weight:700;">${vals[i]}</span>`);
