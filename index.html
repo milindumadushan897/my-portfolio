@@ -5,18 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Milindu Madushan — Meta Certified Digital Marketer | Executive, Digital Media Planning at Mindshare (WPP Media) — Team Unilever">
+    content="Milindu Madushan — Digital Media Planning Executive at Mindshare (WPP Media), Team Unilever. Managing digital media planning and paid media for global FMCG brands across Meta, Google, and TikTok. Globally certified — Meta &amp; Google Ads.">
   <meta name="keywords"
-    content="Milindu Madushan, Digital Marketing, Meta Certified, Mindshare, WPP Media, Paid Media, Sri Lanka">
+    content="Milindu Madushan, Digital Media Planning, Global FMCG Brands, Digital Marketing, Mindshare, WPP Media, Paid Media, Meta Certified, Google Certified, Sri Lanka">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://milindumadushan.com/">
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Milindu Madushan | Meta Certified Digital Marketer">
+  <meta property="og:title" content="Milindu Madushan | Digital Media Planning for Global FMCG Brands">
   <meta property="og:description"
-    content="Executive – Digital Media Planning at Mindshare (WPP Media) — Team Unilever. Driving measurable brand growth through paid media strategy across Meta, Google, and TikTok.">
+    content="Executive – Digital Media Planning at Mindshare (WPP Media) — Team Unilever. Managing digital media investment for global FMCG brands across Meta, Google, and TikTok. Globally certified across Meta and Google Ads.">
   <meta property="og:image" content="images/profile.jpg">
   <meta property="og:url" content="https://milindumadushan.com/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Milindu Madushan | Meta Certified Digital Marketer">
+  <meta name="twitter:title" content="Milindu Madushan | Digital Media Planning for Global FMCG Brands">
   <meta name="twitter:description"
     content="Executive – Digital Media Planning at Mindshare (WPP Media) — Team Unilever.">
   <meta name="twitter:image" content="images/profile.jpg">
@@ -32,6 +34,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Shared stylesheet -->
   <link rel="stylesheet" href="shared.css">
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Milindu Madushan",
+    "jobTitle": "Executive – Digital Media Planning",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Mindshare (WPP Media)"
+    },
+    "url": "https://milindumadushan.com/",
+    "image": "https://milindumadushan.com/images/profile.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/in/milindu-madushan/",
+      "https://www.credly.com/users/milindu-madushan/badges"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Kelaniya"
+    },
+    "knowsAbout": ["Digital Media Planning", "Global FMCG Media", "Paid Media", "Meta Ads", "Google Ads", "TikTok Ads", "Campaign Analytics", "Performance Marketing"]
+  }
+  </script>
   <style>
     /* ======================== HERO SECTION ======================== */
     #hero {
@@ -867,6 +893,100 @@
       color: var(--text2);
     }
 
+    /* FIX: Graduation photo highlight in Education section */
+    .edu-highlight {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 1.6rem;
+      align-items: stretch;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      margin-bottom: 2rem;
+      transition: all var(--transition);
+    }
+
+    .edu-highlight:hover {
+      border-color: var(--gold);
+      box-shadow: 0 10px 40px rgba(201, 168, 76, .1);
+    }
+
+    .edu-highlight-img {
+      border-radius: calc(var(--radius) - 6px);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      min-height: 100%;
+    }
+
+    .edu-highlight-img img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .edu-highlight-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .edu-highlight-label {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+
+    .edu-highlight-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: .3rem;
+      line-height: 1.35;
+    }
+
+    .edu-highlight-institution {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: .5rem;
+    }
+
+    .edu-highlight-desc {
+      font-size: .88rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    @media(max-width:640px) {
+      .edu-highlight {
+        grid-template-columns: 1fr;
+        padding: 1.2rem;
+      }
+
+      .edu-highlight-img {
+        aspect-ratio: 3 / 4;
+        max-width: 220px;
+        margin: 0 auto;
+      }
+
+      .edu-highlight-img img {
+        min-height: 0;
+      }
+
+      .edu-highlight-text {
+        text-align: center;
+        align-items: center;
+      }
+    }
+
     /* ======================== LEADERSHIP ======================== */
     .awards-grid {
       display: grid;
@@ -1204,6 +1324,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#certifications">Badges</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#leadership">Leadership</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1229,6 +1350,7 @@
     <a href="#experience" class="mobile-link">Experience</a>
     <a href="#skills" class="mobile-link">Skills</a>
     <a href="#certifications" class="mobile-link">Badges</a>
+    <a href="#education" class="mobile-link">Education</a>
     <a href="#leadership" class="mobile-link">Leadership</a>
     <a href="blog.html" class="mobile-link">Blog</a>
     <a href="tools.html" class="mobile-link">Tools</a>
@@ -1245,10 +1367,11 @@
         </h1>
         <p class="hero-title">Executive – Digital Media Planning</p>
         <p class="hero-company">Mindshare (WPP Media) — Team Unilever</p>
-        <p class="hero-desc">Driving measurable brand growth through paid media strategy, performance marketing, and
-          data-driven campaign execution across Meta, Google, and TikTok for global FMCG brands.</p>
+        <p class="hero-desc">Planning and managing digital media investment for global FMCG brands — across Meta,
+          Google, and TikTok — with globally recognized certifications spanning paid media, planning, and
+          measurement.</p>
         <div class="hero-actions">
-          <a href="Milindu Madushan.pdf" target="_blank" download class="btn btn-primary">
+          <a href="MilinduMadushan.pdf" target="_blank" download class="btn btn-primary">
             <i class="fa fa-download" aria-hidden="true"></i> Download CV
           </a>
           <a href="#contact" class="btn btn-outline">
@@ -1306,13 +1429,15 @@
       <div class="about-grid">
         <div class="about-left reveal">
           <p class="about-label">Profile Summary</p>
-          <h3 class="about-heading">Meta Certified Digital Marketer with agency-grade expertise</h3>
+          <h3 class="about-heading">Digital Media Planning professional for global FMCG brands, globally certified
+            across Meta &amp; Google</h3>
           <p class="about-desc">Executive in Digital Media Planning at Mindshare (WPP Media) working on Team Unilever,
             overseeing high-value monthly media investments across Meta, Google, TikTok, and other non-biddable digital
-            channels for global FMCG brands including Signal, Closeup, Ayush Oral, Rexona, and Axe.</p>
+            channels for global FMCG brands including Signal, Closeup, Ayush Oral, Rexona, and Axe. Globally certified
+            with 8 Meta and 3 Google Ads credentials across paid media, planning, and measurement.</p>
           <div class="about-details">
             <div class="detail-row"><i class="fa fa-map-marker-alt"
-                aria-hidden="true"></i><span><strong>Location:</strong> 284/4 Pahala Imbulgoda, Imbulgoda, Sri
+                aria-hidden="true"></i><span><strong>Location:</strong> Gampaha District, Sri
                 Lanka</span></div>
             <div class="detail-row"><i class="fa fa-envelope" aria-hidden="true"></i><span><strong>Email:</strong>
                 milindumadushan897@gmail.com</span></div>
@@ -1332,15 +1457,15 @@
           <div class="value-cards">
             <div class="value-card">
               <div class="value-icon">📊</div>
-              <div class="value-title">Paid Media Strategy</div>
-              <div class="value-text">Managing high-value media budgets across Meta, Google, and TikTok for global FMCG
-                brands at WPP Media.</div>
+              <div class="value-title">Digital Media Planning</div>
+              <div class="value-text">Planning and managing digital media investment across Meta, Google, and TikTok
+                for global FMCG brands at WPP Media.</div>
             </div>
             <div class="value-card">
-              <div class="value-icon">🎯</div>
-              <div class="value-title">Performance Marketing</div>
-              <div class="value-text">Data-driven campaign optimization focused on measurable ROI, cost-per-result, and
-                conversion outcomes.</div>
+              <div class="value-icon">🌐</div>
+              <div class="value-title">Global FMCG Brands</div>
+              <div class="value-text">Working across Unilever's global brand portfolio — Signal, Closeup, Rexona, and
+                Axe — within a large agency network.</div>
             </div>
             <div class="value-card">
               <div class="value-icon">📈</div>
@@ -1350,9 +1475,9 @@
             </div>
             <div class="value-card">
               <div class="value-icon">🏅</div>
-              <div class="value-title">Meta &amp; Google Certified</div>
-              <div class="value-text">8 Meta certifications + 3 Google Ads certifications validating platform expertise
-                and best practices.</div>
+              <div class="value-title">Globally Certified</div>
+              <div class="value-text">8 Meta certifications + 3 Google Ads certifications — globally recognized
+                credentials in paid media and measurement.</div>
             </div>
           </div>
         </div>
@@ -1545,7 +1670,7 @@
         </div>
         <div class="skill-category reveal">
           <div class="skill-cat-icon">📊</div>
-          <div class="skill-cat-title">Analytics &amp; Reporting</div>
+          <div class="skill-cat-title">Analytics &amp; Optimization</div>
           <div class="skill-bar-item">
             <div class="skill-bar-top"><span class="skill-bar-name">Data-Driven Reporting</span><span
                 class="skill-level">Advanced</span></div>
@@ -1815,14 +1940,20 @@
         <h2 class="section-title">Education &amp; <em>Development</em></h2>
         <div class="section-line"></div>
       </div>
-      <div class="edu-grid">
-        <div class="edu-card reveal">
-          <div class="edu-icon">🎓</div>
-          <div class="edu-degree">Bachelor of Business Management (Hons) in Marketing</div>
-          <div class="edu-institution">University of Kelaniya, Sri Lanka</div>
-          <div class="edu-detail">Dean's List — Outstanding Academic Performance | Second Class Upper Division | GPA
-            3.61</div>
+      <div class="edu-highlight reveal">
+        <div class="edu-highlight-img">
+          <img src="images/graduation.jpg"
+            alt="Milindu Madushan at his University of Kelaniya graduation ceremony" loading="lazy">
         </div>
+        <div class="edu-highlight-text">
+          <p class="edu-highlight-label">My Degree</p>
+          <h3 class="edu-highlight-title">Bachelor of Business Management (Hons) in Marketing</h3>
+          <p class="edu-highlight-institution">Departmenet of Marketeing Managemenet, University of Kelaniya, Sri Lanka</p>
+          <p class="edu-highlight-desc">Graduated Second Class Upper Division with a GPA of 3.61, and named to the
+            Dean's List for Outstanding Academic Performance.</p>
+        </div>
+      </div>
+      <div class="edu-grid">
         <div class="edu-card reveal">
           <div class="edu-icon">📈</div>
           <div class="edu-degree">Advanced Performance Marketing &amp; Analytics Program</div>
@@ -1996,7 +2127,7 @@
               <div class="contact-item-icon"><i class="fa fa-map-marker-alt" aria-hidden="true"></i></div>
               <div>
                 <div class="contact-item-label">Location</div>
-                <div class="contact-item-text">Imbulgoda, Sri Lanka 🇱🇰</div>
+                <div class="contact-item-text">Gampaha District, Sri Lanka 🇱🇰</div>
               </div>
             </div>
           </div>
